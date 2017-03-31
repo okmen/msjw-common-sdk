@@ -88,13 +88,13 @@
 			<distributionManagement>
 				<repository>
 					<id>snapshots</id>
-					<url>http://192.168.1.38:8081/nexus/content/repositories/snapshots</url>
+					<url>http://192.168.1.251:8081/nexus/content/repositories/snapshots</url>
 				</repository>
 			</distributionManagement>
 			<properties>
 				<env>dev</env>
 				<publish.version>1.0.0-SNAPSHOT</publish.version>
-				<redis.sdktest.configstr><![CDATA[redistest1:192.168.1.38:6379,redistest2:192.168.1.38:6379]]></redis.sdktest.configstr>
+				<redis.sdktest.configstr><![CDATA[redistest1:192.168.1.251:6379,redistest2:192.168.1.251:6379]]></redis.sdktest.configstr>
 
 				<env.url_prefix><![CDATA[test.]]></env.url_prefix>
 				<log4j.rootLogger><![CDATA[error,R]]></log4j.rootLogger>
@@ -107,7 +107,7 @@
 			<distributionManagement>
 				<repository>
 					<id>snapshots</id>
-					<url>http://192.168.1.38:8081/nexus/content/repositories/snapshots</url>
+					<url>http://192.168.1.251:8081/nexus/content/repositories/snapshots</url>
 				</repository>
 			</distributionManagement>
 			<properties>
@@ -126,7 +126,7 @@
 			<distributionManagement>
 				<repository>
 					<id>snapshots</id>
-					<url>http://192.168.1.38:8081/nexus/content/repositories/snapshots</url>
+					<url>http://192.168.1.251:8081/nexus/content/repositories/snapshots</url>
 				</repository>
 			</distributionManagement>
 			<properties>
@@ -145,7 +145,7 @@
 			<distributionManagement>
 				<repository>
 					<id>releases</id>
-					<url>http://192.168.1.38:8081/nexus/content/repositories/releases</url>
+					<url>http://192.168.1.251:8081/nexus/content/repositories/releases</url>
 				</repository>
 			</distributionManagement>
 			<properties>
@@ -164,7 +164,7 @@
 			<distributionManagement>
 				<repository>
 					<id>releases</id>
-					<url>http://192.168.1.38:8081/nexus/content/repositories/releases</url>
+					<url>http://192.168.1.251:8081/nexus/content/repositories/releases</url>
 				</repository>
 			</distributionManagement>
 			<properties>
