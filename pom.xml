@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>cn.new12308.lib</groupId>
+	<groupId>cn.chudaokeji.lib</groupId>
 	<artifactId>common-sdk</artifactId>
 	<version>${publish.version}</version>
 	<name>common-sdk</name>
@@ -232,7 +232,7 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>cn.new12308.lib</groupId>
+			<groupId>cn.chudaokeji.lib</groupId>
 			<artifactId>common-jedis</artifactId>
 			<version>${publish.version}</version>
 			<optional>true</optional>
