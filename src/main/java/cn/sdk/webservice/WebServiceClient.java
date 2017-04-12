@@ -55,12 +55,14 @@ public class WebServiceClient {
      * @param userid 用户名
      * @param userpwd 密码
      * @param key 秘钥
-     * @return
+     * @return json字符串
      * @throws Exception
      */
-    public static String requestWebService(String url,String method,String jkid,String xml,String userid,String userpwd,String key) throws Exception{
+    public static JSONObject requestWebService(String url,String method,String jkid,String xml,String userid,String userpwd,String key) throws Exception{
 		String respXml = "";
 		String respJson = "";
+		JSONObject json = new JSONObject();
+		JSONObject json2 = new JSONObject();
 		String srcs = DESCorder.encryptModeToString(xml,key);
 		try {  
             Service service = new Service();
@@ -78,7 +80,7 @@ public class WebServiceClient {
             logger.info("响应的xml：" + respXml);
             //解密
             Document doc= DocumentHelper.parseText(respXml);
-            JSONObject json=new JSONObject();
+           
             Xml2Json.dom4j2Json(doc.getRootElement(),json);
             logger.info("xml转换成json：" + json);
     		
@@ -89,6 +91,9 @@ public class WebServiceClient {
             if("0000".equals(code)){
             	//解密
             	respJson = DESCorder.decryptMode(msg,key, "utf-8");
+            	
+                Document doc1 = DocumentHelper.parseText(respJson);
+            	Xml2Json.dom4j2Json(doc1.getRootElement(),json2);
             }else{
             	logger.error("webservice返回非0000状态，xml内容为" + respXml);
             }
@@ -96,7 +101,7 @@ public class WebServiceClient {
         	logger.error("webservice调用错误" + e);
             e.printStackTrace();
         }  
-		return respJson;
+		return json2;
 	}
 	
 	
@@ -113,9 +118,11 @@ public class WebServiceClient {
 		String method = "xxptSchuding";
 		String jkid = "xxcj03";
 		
-		String respStr = getInstance().requestWebService(url, method, jkid, xml,"WX02","WX02@168","94D863D9BE7FB032E6A19430CC892610");
+		JSONObject jsonObject = getInstance().requestWebService(url, method, jkid, xml,"WX02","WX02@168","94D863D9BE7FB032E6A19430CC892610");
 		
 		
-		System.out.println(respStr);
+		System.out.println(jsonObject);
 	}
+    
+    
 }
