@@ -69,34 +69,29 @@ public class WebServiceClient {
             Call call = (Call) service.createCall() ;
             call.setTargetEndpointAddress(url) ;  
             call.setOperationName(method) ;//ws方法名  
-            //一个输入参数,如果方法有多个参数,复制多条该代码即可,参数传入下面new Object后面  
-            call.addParameter("userid",org.apache.axis.encoding.XMLType.XSD_DATE,javax.xml.rpc.ParameterMode.IN);  
-            call.addParameter("userpwd",org.apache.axis.encoding.XMLType.XSD_DATE,javax.xml.rpc.ParameterMode.IN);  
-            call.addParameter("jkid",org.apache.axis.encoding.XMLType.XSD_DATE,javax.xml.rpc.ParameterMode.IN); 
-            call.addParameter("srcs",org.apache.axis.encoding.XMLType.XSD_DATE,javax.xml.rpc.ParameterMode.IN); 
-            call.setReturnType(XMLType.XSD_STRING);  
+            //一个输入参数,如果方法有多个参数,复制多条该代码即可,参数传入下面new Object后面
+            call.addParameter("userid",org.apache.axis.encoding.XMLType.XSD_DATE,javax.xml.rpc.ParameterMode.IN);
+            call.addParameter("userpwd",org.apache.axis.encoding.XMLType.XSD_DATE,javax.xml.rpc.ParameterMode.IN);
+            call.addParameter("jkid",org.apache.axis.encoding.XMLType.XSD_DATE,javax.xml.rpc.ParameterMode.IN);
+            call.addParameter("srcs",org.apache.axis.encoding.XMLType.XSD_DATE,javax.xml.rpc.ParameterMode.IN);
+            call.setReturnType(XMLType.XSD_STRING);
             call.setUseSOAPAction(true);
-            respXml = (String) call.invoke(new Object[]{userid,userpwd,jkid,srcs}) ;
+            respXml = (String) call.invoke(new Object[]{userid,userpwd,jkid,srcs});
             logger.info("响应的xml：" + respXml);
             //解密
             Document doc= DocumentHelper.parseText(respXml);
-           
+            
             Xml2Json.dom4j2Json(doc.getRootElement(),json);
             logger.info("xml转换成json：" + json);
     		
             //返回的数据
             String msg = (String) json.get("msg");
             //返回的状态码
-            String code = (String) json.get("code");
-            if("0000".equals(code)){
-            	//解密
-            	respJson = DESCorder.decryptMode(msg,key, "utf-8");
-            	
-                Document doc1 = DocumentHelper.parseText(respJson);
-            	Xml2Json.dom4j2Json(doc1.getRootElement(),json2);
-            }else{
-            	logger.error("webservice返回非0000状态，xml内容为" + respXml);
-            }
+            //解密
+        	respJson = DESCorder.decryptMode(msg,key, "utf-8");
+        	
+            Document doc1 = DocumentHelper.parseText(respJson);
+        	Xml2Json.dom4j2Json(doc1.getRootElement(),json2);
         } catch (Exception e) {
         	logger.error("webservice调用错误" + e);
             e.printStackTrace();
