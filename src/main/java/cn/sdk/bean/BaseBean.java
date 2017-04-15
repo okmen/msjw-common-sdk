@@ -1,14 +1,17 @@
 package cn.sdk.bean;
+
+import java.io.Serializable;
+
 /**
  * bean基类
  * @author Mbenben
  */
-public class BaseBean {
+public class BaseBean implements Serializable{
 	
-	private String code;
-	private String msg;
-	private Object data;
-	
+	private static final long serialVersionUID = 1L;
+	public String code;
+	public String msg;
+	public Object data;
 	public String getCode() {
 		return code;
 	}
@@ -27,4 +30,6 @@ public class BaseBean {
 	public void setData(Object data) {
 		this.data = data;
 	}
+	
+	
 }

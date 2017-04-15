@@ -32,7 +32,7 @@ public class WebServiceClient {
                   
             }else{  
                 //创建实例之前可能会有一些准备性的耗时工作   
-                Thread.sleep(300);  
+                Thread.sleep(100);  
                 synchronized (WebServiceClient.class) {  
                     if(instance == null){
                     	//二次检查  
