@@ -99,24 +99,64 @@ public class WebServiceClient {
 		return json2;
 	}
 	
+    
+    /**
+     * webservice请求
+     * @param url 请求url
+     * @param method 方法名称
+     * @param xml 组装的xml参数
+     * @param userid 用户名
+     * @param userpwd 密码
+     * @param key 秘钥
+     * @return
+     * @throws Exception
+     */
+    public static JSONObject easyWebService(String url,String method,String xml) throws Exception{
+		String respXml = "";
+		String respJson = "";
+		JSONObject json=new JSONObject();	
+		try {  
+            Service service = new Service();
+            Call call = (Call) service.createCall() ;
+            call.setTargetEndpointAddress(url) ;  
+            call.setOperationName(method) ;//ws方法名  
+            //一个输入参数,如果方法有多个参数,复制多条该代码即可,参数传入下面new Object后面  
+            call.addParameter("in0",org.apache.axis.encoding.XMLType.XSD_DATE,javax.xml.rpc.ParameterMode.IN); 
+            call.setReturnType(XMLType.XSD_STRING);  
+            call.setUseSOAPAction(true);
+            respXml = (String) call.invoke(new Object[]{xml}) ;
+            
+            logger.info("响应的xml：" + respXml);
+            //解密
+            Document doc= DocumentHelper.parseText(respXml);
+            
+            Xml2Json.dom4j2Json(doc.getRootElement(),json);
+            logger.info("xml转换成json：" + json);
+    		          
+        } catch (Exception e) {
+        	logger.error("webservice调用错误" + e);
+            e.printStackTrace();
+        }  
+		return json;
+	}
+    
+    
 	
 	public static void main(String[] args) throws Exception {
-		String srcs = "G22ymwlgEJ82k5XwgzgTZ4IyUVLlrH+z3/8X6R8jm+wNOVrzXwQP8bZ7eOcFCxRUHj87zoP5frTK2k3jkDQ2pzum04w4bQe2GQboWgAAR/WflsfJ/vYu+XslEmNfJ85+e2REwV7y7qBOjQ03+Gbi+MviBBiRcM/dhU05gzCUZXB78sY0txQSSa8QaPyTh2dZdKcnpM4xr90=";
+			
+		String xml = "<request><userid>WX02</userid><userpwd>WX02@168</userpwd ><lrip>123.56.180.216</lrip><lrmac>00:16:3e:10:16:4d</lrmac></request>";
+	
+		String url = "https://szjjapi.chudaokeji.com/yywfcl/services/yywfcl";
+		String method = "getCldbmAll";
 		
-		String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><REQUEST><USERNAME>15920071829</USERNAME><PWD>168321</PWD><YHLY>WX_XCX</YHLY><SFZMHM></SFZMHM><XM></XM></REQUEST>";
-		String dd = DESUtils.encrypt(xml, "94D863D9BE7FB032E6A19430CC892610");
-		String xxxxxd = Base64.encode(dd.getBytes());
-		System.out.println(xxxxxd);
+		String inxml = "<request>"+
+				"<userid>WX02</userid>"+
+				"<userpwd>WX02@168</userpwd>"+
+				"<lrip>123.56.180.216</lrip>"+
+				"<lrmac>00:16:3e:10:16:4d</lrmac>"+
+				"</request>"; 
+	//	String respStr = getInstance().easyWebService(url, method, inxml);
 		
-		
-		String url = "http://123.56.180.216:19002/xxfbpt/services/xxfbptservice";
-		String method = "xxptSchuding";
-		String jkid = "xxcj03";
-		
-		JSONObject jsonObject = getInstance().requestWebService(url, method, jkid, xml,"WX02","WX02@168","94D863D9BE7FB032E6A19430CC892610");
-		
-		
-		System.out.println(jsonObject);
 	}
     
     
