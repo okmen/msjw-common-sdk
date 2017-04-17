@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.apache.log4j.Logger;
 
+import cn.sdk.util.StringUtil;
 import redis.clients.jedis.JedisShardInfo;
 import redis.clients.jedis.ShardedJedis;
 import redis.clients.jedis.ShardedJedisPool;
@@ -16,7 +17,7 @@ public class BilinShardedJedisPool {
 
 	// 注入格式(name1:host1:port1,name2:host2:port2,name3:host3:port3)
 	public BilinShardedJedisPool(final GenericObjectPoolConfig poolConfig,
-			String configStr, int timeout) {
+			String configStr, int timeout,String password) {
 		try {
 			List<JedisShardInfo> infoList = new ArrayList<JedisShardInfo>();
 			String[] configArr = configStr.split(",|，");
@@ -27,6 +28,9 @@ public class BilinShardedJedisPool {
 				}
 				JedisShardInfo shareInfo = new JedisShardInfo(infoParams[1],
 						Integer.parseInt(infoParams[2]), timeout, infoParams[0]);
+				if (StringUtil.isNotBlank(password)) {
+                    shareInfo.setPassword(password);
+                }
 				infoList.add(shareInfo);
 			}
 			logger.debug("load redis pool size:" + infoList.size());
