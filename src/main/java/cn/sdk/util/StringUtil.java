@@ -26,6 +26,8 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang3.RandomStringUtils;
+
 /**
  * @author xianmao.hexm 2011-5-9 下午02:40:29
  */
@@ -564,5 +566,13 @@ public class StringUtil {
 		} else {
 			return num.matches("[0-9]*");
 		}
+	}
+    /**
+	 * 生成验证码
+	 * @return
+	 */
+	public synchronized static String createValidateCode(){
+		String validateCode = RandomStringUtils.randomNumeric(6);
+		return validateCode;
 	}
 }
