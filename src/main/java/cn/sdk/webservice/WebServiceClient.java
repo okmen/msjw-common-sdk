@@ -82,7 +82,7 @@ public class WebServiceClient {
             Document doc= DocumentHelper.parseText(respXml);
             
             Xml2Json.dom4j2Json(doc.getRootElement(),json);
-            logger.info("xml转换成json：" + json);
+            //logger.info("xml转换成json：" + json);
     		
             //返回的数据
             String msg = (String) json.get("msg");
