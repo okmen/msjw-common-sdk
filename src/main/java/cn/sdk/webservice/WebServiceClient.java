@@ -9,8 +9,8 @@ import org.dom4j.DocumentHelper;
 
 import com.alibaba.fastjson.JSONObject;
 
-import cn.sdk.util.Base64;
-import cn.sdk.util.DESUtils;
+import cn.sdk.exception.WebServiceException;
+import cn.sdk.util.MsgCode;
 /**
  * webservice客户端工具类
  * @author Mbenben
@@ -59,6 +59,7 @@ public class WebServiceClient {
      * @throws Exception
      */
     public static JSONObject requestWebService(String url,String method,String jkid,String xml,String userid,String userpwd,String key) throws Exception{
+    	//url = "http://123.56.180.216:19002/xxfbpt/services/xxfbptservices";
 		String respXml = "";
 		String respJson = "";
 		JSONObject json = new JSONObject();
@@ -76,7 +77,14 @@ public class WebServiceClient {
             call.addParameter("srcs",org.apache.axis.encoding.XMLType.XSD_DATE,javax.xml.rpc.ParameterMode.IN);
             call.setReturnType(XMLType.XSD_STRING);
             call.setUseSOAPAction(true);
+            
+            long startTime = System.currentTimeMillis();
             respXml = (String) call.invoke(new Object[]{userid,userpwd,jkid,srcs});
+            long endTime = System.currentTimeMillis();
+            long result = (endTime - startTime) / 1000;
+            if(result > 5){
+            	logger.info(jkid + "接口编号执行耗时:" + result + " 秒");
+            }
             logger.info("响应的xml：" + respXml);
             //解密
             Document doc= DocumentHelper.parseText(respXml);
@@ -94,7 +102,7 @@ public class WebServiceClient {
         	Xml2Json.dom4j2Json(doc1.getRootElement(),json2);
         } catch (Exception e) {
         	logger.error("webservice调用错误" + e);
-            e.printStackTrace();
+            throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
         }  
 		return json2;
 	}
@@ -135,7 +143,7 @@ public class WebServiceClient {
     		          
         } catch (Exception e) {
         	logger.error("webservice调用错误" + e);
-            e.printStackTrace();
+        	throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
         }  
 		return json;
 	}
