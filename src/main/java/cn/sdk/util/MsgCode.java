@@ -11,5 +11,5 @@ public class MsgCode {
 	public static String businessError = "0002"; //业务失败
 	public static String webServiceCallError = "1000"; //警司通webservice无法调用
 	public static String webServiceCallMsg = "错误1000";
-	public static String systemMsg = "系统异常，请联系管理员";
+	public static String systemMsg = "系统异常";
 }
