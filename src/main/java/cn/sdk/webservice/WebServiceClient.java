@@ -132,8 +132,13 @@ public class WebServiceClient {
             call.addParameter("in0",org.apache.axis.encoding.XMLType.XSD_DATE,javax.xml.rpc.ParameterMode.IN); 
             call.setReturnType(XMLType.XSD_STRING);  
             call.setUseSOAPAction(true);
+            long startTime = System.currentTimeMillis();
             respXml = (String) call.invoke(new Object[]{xml}) ;
-            
+            long endTime = System.currentTimeMillis();
+            long result = (endTime - startTime) / 1000;
+            if(result > 5){
+            	logger.info(method + "接口方法执行耗时:" + result + " 秒");
+            }
             logger.info("响应的xml：" + respXml);
             //解密
             Document doc= DocumentHelper.parseText(respXml);
@@ -142,7 +147,7 @@ public class WebServiceClient {
             logger.info("xml转换成json：" + json);
     		          
         } catch (Exception e) {
-        	logger.error("webservice调用错误" + e);
+        	logger.error("webservice调用错误，url=" + url + ",=method" + method + ",xml=" + xml,e);
         	throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
         }  
 		return json;
