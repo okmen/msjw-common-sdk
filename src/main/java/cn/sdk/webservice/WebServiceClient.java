@@ -101,7 +101,7 @@ public class WebServiceClient {
             Document doc1 = DocumentHelper.parseText(respJson);
         	Xml2Json.dom4j2Json(doc1.getRootElement(),json2);
         } catch (Exception e) {
-        	logger.error("webservice调用错误" + e);
+        	logger.error("webservice调用错误,url=" + url + ",method=" + method + ",jkid=" + jkid + ",xml=" + xml + ",userid=" + userid + ",userpwd=" + userpwd + ",key=" + key,e);
             throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
         }  
 		return json2;
