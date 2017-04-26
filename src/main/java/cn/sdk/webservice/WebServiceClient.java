@@ -59,7 +59,7 @@ public class WebServiceClient {
      * @throws Exception
      */
     public static JSONObject requestWebService(String url,String method,String jkid,String xml,String userid,String userpwd,String key) throws Exception{
-    	//url = "http://123.56.180.216:19002/xxfbpt/services/xxfbptservices";
+    	url = "http://123.56.180.216:19002/xxfbpt/services/xxfbptservices";
 		String respXml = "";
 		String respJson = "";
 		JSONObject json = new JSONObject();
