@@ -37,6 +37,7 @@ public class WebServiceClient {
      * 过滤接口log
      */
     private static void filterInterfaceLog(){
+    	jkids.clear();
     	jkids.add("DZJSZ");
     	jkids.add("DZXSZ");
     }
@@ -108,9 +109,6 @@ public class WebServiceClient {
             Document doc= DocumentHelper.parseText(respXml);
             Xml2Json.dom4j2Json(doc.getRootElement(),json);
             
-            if(!jkids.contains(jkid)){
-            	logger.info("xml转换成json：" + json);
-            }
             //返回的数据
             String msg = (String) json.get("msg");
             //返回的状态码
@@ -119,6 +117,10 @@ public class WebServiceClient {
         	
             Document doc1 = DocumentHelper.parseText(respJson);
         	Xml2Json.dom4j2Json(doc1.getRootElement(),json2);
+        	
+        	if(!jkids.contains(jkid)){
+            	logger.info("xml转换成json：" + json2);
+            }
         } catch (Exception e) {
         	logger.error("webservice调用错误,url=" + url + ",method=" + method + ",jkid=" + jkid + ",xml=" + xml + ",userid=" + userid + ",userpwd=" + userpwd + ",key=" + key,e);
             throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
