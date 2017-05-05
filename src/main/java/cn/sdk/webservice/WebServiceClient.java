@@ -1,5 +1,9 @@
 package cn.sdk.webservice;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import org.apache.axis.client.Call;
 import org.apache.axis.client.Service;
 import org.apache.axis.encoding.XMLType;
@@ -18,6 +22,9 @@ import cn.sdk.util.MsgCode;
  */
 @SuppressWarnings(value="all")
 public class WebServiceClient {
+	//需要过滤的接口编号
+	private static List<String> jkids = new ArrayList<String>();
+	
 	public static final Logger logger= Logger.getLogger(WebServiceClient.class);
 	
     private WebServiceClient() {
@@ -26,7 +33,15 @@ public class WebServiceClient {
     //使用volatile关键字保其可见性  
     volatile private static WebServiceClient instance = null;
     
-    public static WebServiceClient getInstance() {  
+    /**
+     * 过滤接口log
+     */
+    private static void filterInterfaceLog(){
+    	jkids.add("DZJSZ");
+    	jkids.add("DZXSZ");
+    }
+    
+    public static WebServiceClient getInstance(){
         try {    
             if(instance != null){//懒汉式   
                   
@@ -59,6 +74,7 @@ public class WebServiceClient {
      * @throws Exception
      */
     public static JSONObject requestWebService(String url,String method,String jkid,String xml,String userid,String userpwd,String key) throws Exception{
+    	filterInterfaceLog();
     	//url = "http://123.56.180.216:19002/xxfbpt/services/xxfbptservices";
 		String respXml = "";
 		String respJson = "";
@@ -85,13 +101,16 @@ public class WebServiceClient {
             if(result > 5){
             	logger.info(jkid + "接口编号执行耗时:" + result + " 秒");
             }
-            logger.info("响应的xml：" + respXml);
+            if(!jkids.contains(jkid)){
+            	logger.info("响应的xml：" + respXml);
+            }
             //解密
             Document doc= DocumentHelper.parseText(respXml);
-            
             Xml2Json.dom4j2Json(doc.getRootElement(),json);
-            //logger.info("xml转换成json：" + json);
-    		
+            
+            if(!jkids.contains(jkid)){
+            	logger.info("xml转换成json：" + json);
+            }
             //返回的数据
             String msg = (String) json.get("msg");
             //返回的状态码
