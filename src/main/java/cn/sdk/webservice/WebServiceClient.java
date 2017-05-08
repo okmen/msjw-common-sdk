@@ -40,6 +40,7 @@ public class WebServiceClient {
     	jkids.clear();
     	jkids.add("DZJSZ");
     	jkids.add("DZXSZ");
+    	jkids.add("EZ1007");
     }
     
     public static WebServiceClient getInstance(){
@@ -77,6 +78,8 @@ public class WebServiceClient {
     public static JSONObject requestWebService(String url,String method,String jkid,String xml,String userid,String userpwd,String key) throws Exception{
     	filterInterfaceLog();
     	//url = "http://123.56.180.216:19002/xxfbpt/services/xxfbptservices";
+    	logger.info("requestWebService请求的xml：" + xml);
+    	
 		String respXml = "";
 		String respJson = "";
 		JSONObject json = new JSONObject();
@@ -141,6 +144,9 @@ public class WebServiceClient {
      * @throws Exception
      */
     public static JSONObject easyWebService(String url,String method,String xml) throws Exception{
+    	
+    	logger.info("easyWebService请求的xml：" + xml);
+    	
 		String respXml = "";
 		String respJson = "";
 		JSONObject json=new JSONObject();	
