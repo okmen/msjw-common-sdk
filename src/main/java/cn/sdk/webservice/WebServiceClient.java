@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.axis.client.Call;
 import org.apache.axis.client.Service;
 import org.apache.axis.encoding.XMLType;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
@@ -24,6 +25,10 @@ import cn.sdk.util.MsgCode;
 public class WebServiceClient {
 	//需要过滤的接口编号
 	private static List<String> jkids = new ArrayList<String>();
+	//需要过滤的xml图片节点
+	private static List<String> filterImgNodes = new ArrayList<>();
+	
+	private static String imgMsg = "Base64图片太长不打印";
 	
 	public static final Logger logger= Logger.getLogger(WebServiceClient.class);
 	
@@ -34,13 +39,25 @@ public class WebServiceClient {
     volatile private static WebServiceClient instance = null;
     
     /**
-     * 过滤接口log
+     * 图片Base64过滤接口log
      */
     private static void filterInterfaceLog(){
     	jkids.clear();
     	jkids.add("DZJSZ");
     	jkids.add("DZXSZ");
     	jkids.add("EZ1007");
+    	
+    	filterImgNodes.clear();
+    	filterImgNodes.add("CZSFZMHMTPA");
+		filterImgNodes.add("CZSFZMHMTP");
+		filterImgNodes.add("qt_tp");
+		filterImgNodes.add("zp");
+		filterImgNodes.add("PHOTO6");
+		filterImgNodes.add("PHOTO9");
+		filterImgNodes.add("jbtp1");
+		filterImgNodes.add("jbtp2");
+		filterImgNodes.add("jbtp3");
+		
     }
     
     public static WebServiceClient getInstance(){
@@ -78,7 +95,21 @@ public class WebServiceClient {
     public static JSONObject requestWebService(String url,String method,String jkid,String xml,String userid,String userpwd,String key) throws Exception{
     	filterInterfaceLog();
     	//url = "http://123.56.180.216:19002/xxfbpt/services/xxfbptservices";
-    	logger.info("requestWebService请求的xml：" + xml);
+    	String base64Str = "";
+    	String logXml = "";
+    	if(null != filterImgNodes){
+    		for(String filterImgNode : filterImgNodes){
+    			if(xml.contains(filterImgNode)){
+    				base64Str = StringUtils.substringBetween(xml, "<"+ filterImgNode + ">", "</"+ filterImgNode + ">");
+    				if(StringUtils.isNotBlank(logXml)){
+    					logXml = logXml.replace(base64Str, imgMsg);
+    				}else{
+    					logXml = xml.replace(base64Str, imgMsg);
+    				}
+    			}
+    		}
+    	}
+    	logger.info("requestWebService请求的xml：" + logXml);
     	
 		String respXml = "";
 		String respJson = "";
