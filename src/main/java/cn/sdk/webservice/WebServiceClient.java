@@ -96,16 +96,12 @@ public class WebServiceClient {
     	filterInterfaceLog();
     	//url = "http://123.56.180.216:19002/xxfbpt/services/xxfbptservices";
     	String base64Str = "";
-    	String logXml = "";
+    	String logXml = xml;
     	if(null != filterImgNodes){
     		for(String filterImgNode : filterImgNodes){
     			if(xml.contains(filterImgNode)){
     				base64Str = StringUtils.substringBetween(xml, "<"+ filterImgNode + ">", "</"+ filterImgNode + ">");
-    				if(StringUtils.isNotBlank(logXml)){
-    					logXml = logXml.replace(base64Str, imgMsg);
-    				}else{
-    					logXml = xml.replace(base64Str, imgMsg);
-    				}
+    				logXml = logXml.replace(base64Str, imgMsg);
     			}
     		}
     	}
