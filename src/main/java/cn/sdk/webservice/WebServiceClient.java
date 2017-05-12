@@ -28,7 +28,7 @@ public class WebServiceClient {
 	//需要过滤的xml图片节点
 	private static List<String> filterImgNodes = new ArrayList<>();
 	
-	private static String imgMsg = "Base64图片太长不打印";
+	private static String imgMsg = "";
 	
 	public static final Logger logger= Logger.getLogger(WebServiceClient.class);
 	
@@ -57,7 +57,6 @@ public class WebServiceClient {
 		filterImgNodes.add("jbtp1");
 		filterImgNodes.add("jbtp2");
 		filterImgNodes.add("jbtp3");
-		
     }
     
     public static WebServiceClient getInstance(){
@@ -97,15 +96,23 @@ public class WebServiceClient {
     	//url = "http://123.56.180.216:19002/xxfbpt/services/xxfbptservices";
     	String base64Str = "";
     	String logXml = xml;
-    	if(null != filterImgNodes){
+    	
+    	//logger.info("调试日志：filterImgNodes" + filterImgNodes.toString());
+    	/*if(null != filterImgNodes){
     		for(String filterImgNode : filterImgNodes){
     			if(xml.contains(filterImgNode)){
     				base64Str = StringUtils.substringBetween(xml, "<"+ filterImgNode + ">", "</"+ filterImgNode + ">");
     				logXml = logXml.replace(base64Str, imgMsg);
     			}
     		}
-    	}
-    	logger.info("requestWebService请求的xml：" + logXml);
+    	}*/
+    	/*if(null != filterImgNodes){
+    		for(String filterImgNode : filterImgNodes){
+    			if(!xml.contains(filterImgNode)){
+    				logger.info("requestWebService请求的xml：" + logXml);
+    			}
+    		}
+    	}*/
     	
 		String respXml = "";
 		String respJson = "";
