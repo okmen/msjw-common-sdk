@@ -37,7 +37,7 @@ import com.esotericsoftware.kryo.pool.KryoPool;
 public class JedisCacheManagerV20Impl<T extends Object> implements ICacheManger<T> {
 	private final static Log logger = LogFactory.getLog(JedisCacheManagerV20Impl.class);
 	private final static int MAX_CACHE_SEC = 30 * 86400;// 30 days
-	private final static int MIN_CACHE_SEC = 60;// 测试需要，暂时修改。60; // 30 minites
+	private final static int MIN_CACHE_SEC = 1;// 测试需要，暂时修改。60; // 30 秒
 	private final static int DEFAULT_CACHE_SEC = 86400; // 1 day
 	private BilinShardedJedisPool jedisPool;
 	private KryoPool pool;
