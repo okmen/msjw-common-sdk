@@ -136,8 +136,9 @@ public class WebServiceClient {
             respXml = (String) call.invoke(new Object[]{userid,userpwd,jkid,srcs});
             long endTime = System.currentTimeMillis();
             long result = (endTime - startTime) / 1000;
-            if(result > 5){
+            if(result >= 20){
             	logger.info(jkid + "接口编号执行耗时:" + result + " 秒");
+            	throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
             }
             if(!jkids.contains(jkid)){
             	logger.info("响应的xml：" + respXml);
@@ -197,8 +198,9 @@ public class WebServiceClient {
             respXml = (String) call.invoke(new Object[]{xml}) ;
             long endTime = System.currentTimeMillis();
             long result = (endTime - startTime) / 1000;
-            if(result > 5){
-            	logger.info(method + "接口方法执行耗时:" + result + " 秒");
+            if(result >= 20){
+            	logger.error(method + "接口方法执行耗时:" + result + " 秒");
+            	throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
             }
             logger.info("响应的xml：" + respXml);
             //解密
