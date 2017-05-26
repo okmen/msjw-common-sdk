@@ -5,6 +5,5 @@ public class SuccessBean extends BaseBean{
 		super.code = code;
 		super.data = data;
 	}
-	
 	public SuccessBean(){}
 }

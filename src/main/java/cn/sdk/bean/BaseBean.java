@@ -2,6 +2,9 @@ package cn.sdk.bean;
 
 import java.io.Serializable;
 
+import cn.sdk.util.GsonBuilderUtil;
+import cn.sdk.util.GsonUtil;
+
 /**
  * bean基类
  * @author Mbenben
@@ -29,5 +32,22 @@ public class BaseBean implements Serializable{
 	}
 	public void setData(Object data) {
 		this.data = data;
+	}
+
+	/**
+	 * 普通转换
+	 * 带有&符号 请使用toJsonBullider
+	 * @return
+	 */
+	public String toJson(){
+		return GsonUtil.toJson(this);
+	}
+	
+	/**
+	 * 对象中带有&符号的 需使用此方法
+	 * @return
+	 */
+	public String toJsonBullider(){
+		return GsonBuilderUtil.toJson(this);
 	}
 }
