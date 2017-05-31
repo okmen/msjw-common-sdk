@@ -1,7 +1,11 @@
 package cn.sdk.util;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import cn.sdk.bean.DownValue;
 
 public class Constants {
 	
@@ -66,10 +70,12 @@ public class Constants {
 	 */
 	public static final String MAIN_STATUS_06 = "06";
 	
-	public static Map<Object, Object> SEX_MAP = new HashMap<Object, Object>();
+	
+	public static List<DownValue> SEX_MAP = new ArrayList<DownValue>();
 	
 	static {
-		SEX_MAP.put(SEX_MAN, "男");
-		SEX_MAP.put(SEX_WOMAN, "女");
+		SEX_MAP.add(new DownValue(SEX_MAN, "男"));
+		SEX_MAP.add(new DownValue(SEX_WOMAN, "女"));
 	}
+
 }
