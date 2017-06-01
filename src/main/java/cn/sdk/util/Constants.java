@@ -33,13 +33,13 @@ public class Constants {
 	/**
 	 * 默认分页
 	 */
-	public static final int PAGE_DEFAULT = 1;
+	public static final String PAGE_DEFAULT = "1";
 	
 	/**
 	 * 默认页大小
 	 */
-	public static final int PAGESIZE_DEFAULT_5 = 5; 
-	public static final int PAGESIZE_DEFAULT_10 = 10; 
+	public static final String  PAGESIZE_DEFAULT_5 = "5"; 
+	public static final String PAGESIZE_DEFAULT_10 = "10"; 
 	
 	/**
 	 * 草稿箱
