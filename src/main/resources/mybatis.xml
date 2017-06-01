@@ -3,6 +3,7 @@
 <configuration>
 	<properties>
     	<property name="IS_DELETED_NO" value="0"/>
+    	<property name="IS_DELETED_YES" value="1"/>
     </properties>
    
 	<settings>
