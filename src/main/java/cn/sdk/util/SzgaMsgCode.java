@@ -1,5 +1,4 @@
 package cn.sdk.util;
-
 public class SzgaMsgCode {
 	/**
 	 * 成功

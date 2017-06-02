@@ -1,9 +1,7 @@
 package cn.sdk.util;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import cn.sdk.bean.DownValue;
 
@@ -70,6 +68,30 @@ public class Constants {
 	 */
 	public static final String MAIN_STATUS_06 = "06";
 	
+	/**
+	 * 选中
+	 */
+	public static final int IS_CHECKED_NO = 0;
+	
+	/**
+	 * 未选中
+	 */
+	public static final int IS_CHECKED_YES = 1;
+	
+	/**
+	 * 功能类型-按钮 
+	 */
+	public static final String FUNCTION_TYPE_BUTTON = "button";
+	
+	/**
+	 * 功能类型-菜单
+	 */
+	public static final String FUNCTION_TYPE_MENU = "menu";
+	
+	/**
+	 * 功能类型-功能
+	 */
+	public static final String FUNCTION_TYPE_FUNCTION = "function";
 	
 	public static List<DownValue> SEX_MAP = new ArrayList<DownValue>();
 	
