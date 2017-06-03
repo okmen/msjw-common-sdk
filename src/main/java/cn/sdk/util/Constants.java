@@ -99,5 +99,10 @@ public class Constants {
 		SEX_MAP.add(new DownValue(SEX_MAN, "男"));
 		SEX_MAP.add(new DownValue(SEX_WOMAN, "女"));
 	}
+	
+	/**
+	 * 推荐
+	 */
+	public static final String THEME_TJ = "2";
 
 }
