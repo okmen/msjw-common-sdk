@@ -93,6 +93,22 @@ public class Constants {
 	 */
 	public static final String FUNCTION_TYPE_FUNCTION = "function";
 	
+	/**
+	 * 审核表状态 - 通过
+	 */
+	public static final int AUDIT_STATUS_YES = 0;
+	
+	/**
+	 * 审核表状态 - 驳回
+	 */
+	public static final int AUDIT_STATUS_NO = 1;
+	
+	/**
+	 * 审核表状态 - 已发布
+	 */
+	public static final int AUDIT_STATUS_PUBLISH = 2;
+	
+	
 	public static List<DownValue> SEX_MAP = new ArrayList<DownValue>();
 	
 	static {
