@@ -108,6 +108,16 @@ public class Constants {
 	 */
 	public static final int AUDIT_STATUS_PUBLISH = 2;
 	
+	/**
+	 * 用户在线状态 - 不在线
+	 */
+	public static final int IS_ONLINE_NO = 0;
+	
+	/**
+	 * 用户在线状态 - 在线
+	 */
+	public static final int IS_ONLINE_YES = 1;
+	
 	
 	public static List<DownValue> SEX_MAP = new ArrayList<DownValue>();
 	
