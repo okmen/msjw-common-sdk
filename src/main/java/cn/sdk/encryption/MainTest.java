@@ -35,7 +35,10 @@ public class MainTest {
 		
 		System.out.println("---------------私钥签名过程------------------");
 		String content="ihep_这是用于签名的原始数据";
-		String signstr=RSASignature.sign(content,RSAEncrypt.loadPrivateKeyByFile(filepath));
+		
+		content = "identityCard=dsds2323232&illegalActivitieOne=违法停车&illegalSections=ccccc&illegalTime=2017-09-09&inputManName=张三&inputManPhone=13888888888&licensePlateNumber=粤B8888&licensePlateType=02&reportImgOne=1111111111&reportImgThree=33333333333&reportImgTwo=22222222&userSource=GAIDE";
+		
+		String signstr=RSASignature.sign(content,RSAEncrypt.loadPrivateKeyByFile(filepath),"UTF-8");
 		System.out.println("签名原串："+content);
 		System.out.println("签名串："+signstr);
 		System.out.println();
@@ -44,7 +47,7 @@ public class MainTest {
 		System.out.println("签名原串："+content);
 		System.out.println("签名串："+signstr);
 		
-		System.out.println("验签结果："+RSASignature.doCheck(content, signstr, RSAEncrypt.loadPublicKeyByFile(filepath)));
+		System.out.println("验签结果："+RSASignature.doCheck(content, signstr, RSAEncrypt.loadPublicKeyByFile(filepath),"UTF-8"));
 		System.out.println();
 		
 	}
