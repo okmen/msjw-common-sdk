@@ -2,30 +2,29 @@ package cn.sdk.bean;
 
 import java.io.Serializable;
 
-public class DownValue implements Serializable {
+public class DownValue<T> implements Serializable {
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = -8945500954614362444L;
 
-	private Integer value;
+	private T value;
      
     private String text;
     
      
 	public DownValue() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	public DownValue(Integer value, String text) {
+	public DownValue(T value, String text) {
 		super();
 		this.value = value;
 		this.text = text;
 	}
-	public Integer getValue() {
+	public T getValue() {
 		return value;
 	}
-	public void setValue(Integer value) {
+	public void setValue(T value) {
 		this.value = value;
 	}
 	public String getText() {

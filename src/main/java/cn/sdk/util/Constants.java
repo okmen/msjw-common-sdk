@@ -1,11 +1,33 @@
 package cn.sdk.util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import cn.sdk.bean.DownValue;
 
 public class Constants {
+	/**
+	 * 性别
+	 */
+	public static final String COM_CODE_SEX = "SEX";
+	
+	/**
+	 * 主题列表
+	 */
+	public static final String COM_CODE_ZTLB = "ZTLB";
+	/**
+	 * 单位列表
+	 */
+	public static final String COM_CODE_DWLB = "DWLB";
+	/**
+	 * 职位列表
+	 */
+	public static final String COM_CODE_ZWLB = "ZWLB";
+	/**
+	 * 新闻状态
+	 */
+	public static final String COM_CODE_XWZT = "XWZT";
 	
 	public static final String PWD_DEFAULT = "123456"; 
 	/**
@@ -118,17 +140,47 @@ public class Constants {
 	 */
 	public static final int IS_ONLINE_YES = 1;
 	
+	/**
+	 * 优
+	 */
+	public static final String LEVEL_GREAT = "00";
 	
-	public static List<DownValue> SEX_MAP = new ArrayList<DownValue>();
+	/**
+	 * 合格
+	 */
+	public static final String LEVEL_QUALIFIED = "01";
 	
-	static {
-		SEX_MAP.add(new DownValue(SEX_MAN, "男"));
-		SEX_MAP.add(new DownValue(SEX_WOMAN, "女"));
-	}
+	/**
+	 * 不合格
+	 */
+	public static final String LEVEL_NO_QUALIFIED = "02";
 	
 	/**
 	 * 推荐
 	 */
 	public static final String THEME_TJ = "2";
-
+	
+	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
+	public static List<DownValue<String>> MAIN_STATUS_LIST = new ArrayList<DownValue<String>>();
+	public static List<DownValue<String>> LEVEL_LIST = new ArrayList<DownValue<String>>();
+	
+	static {
+		SEX_LIST.add(new DownValue<Integer>(SEX_MAN, "男"));
+		SEX_LIST.add(new DownValue<Integer>(SEX_WOMAN, "女"));
+		
+		MAIN_STATUS_LIST = Arrays.asList(
+				new DownValue<String>(MAIN_STATUS_00, "草稿箱"),
+				new DownValue<String>(MAIN_STATUS_01, "审核中"),
+				new DownValue<String>(MAIN_STATUS_02, "申请撤回中"),
+				new DownValue<String>(MAIN_STATUS_03, "申请删除中"),
+				new DownValue<String>(MAIN_STATUS_04, "驳回"),
+				new DownValue<String>(MAIN_STATUS_05, "审核通过,待下级审核"),
+				new DownValue<String>(MAIN_STATUS_06, "审核通过 已发布")
+				);
+		MAIN_STATUS_LIST = Arrays.asList(
+				new DownValue<String>(LEVEL_GREAT, "优"),
+				new DownValue<String>(LEVEL_QUALIFIED, "合格"),
+				new DownValue<String>(LEVEL_NO_QUALIFIED, "不合格")
+				);
+	}
 }
