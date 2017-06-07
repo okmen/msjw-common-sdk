@@ -29,6 +29,11 @@ public class Constants {
 	 */
 	public static final String COM_CODE_XWZT = "XWZT";
 	
+	/**
+	 * 新闻状态
+	 */
+	public static final String COM_CODE_XWJB = "XWJB";
+	
 	public static final String PWD_DEFAULT = "123456"; 
 	/**
 	 * 是否删除 - 已删除
@@ -177,7 +182,7 @@ public class Constants {
 				new DownValue<String>(MAIN_STATUS_05, "审核通过,待下级审核"),
 				new DownValue<String>(MAIN_STATUS_06, "审核通过 已发布")
 				);
-		MAIN_STATUS_LIST = Arrays.asList(
+		LEVEL_LIST = Arrays.asList(
 				new DownValue<String>(LEVEL_GREAT, "优"),
 				new DownValue<String>(LEVEL_QUALIFIED, "合格"),
 				new DownValue<String>(LEVEL_NO_QUALIFIED, "不合格")
