@@ -169,6 +169,8 @@ public class Constants {
 	
 	public static final String NEWS_AUDIT_DELETE = "news_deleted ";
 	
+	public static final String NEWS_AUDIT_PUBLISH_MSG = "发布新闻审核流程";
+	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<String>> MAIN_STATUS_LIST = new ArrayList<DownValue<String>>();
 	public static List<DownValue<String>> LEVEL_LIST = new ArrayList<DownValue<String>>();
