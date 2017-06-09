@@ -165,6 +165,10 @@ public class Constants {
 	 */
 	public static final String THEME_TJ = "2";
 	
+	public static final String NEWS_AUDIT_PUBLISH = "news_publish";
+	
+	public static final String NEWS_AUDIT_DELETE = "news_deleted ";
+	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<String>> MAIN_STATUS_LIST = new ArrayList<DownValue<String>>();
 	public static List<DownValue<String>> LEVEL_LIST = new ArrayList<DownValue<String>>();
