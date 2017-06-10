@@ -171,6 +171,17 @@ public class Constants {
 	
 	public static final String NEWS_AUDIT_PUBLISH_MSG = "发布新闻审核流程";
 	
+	
+	/**
+	 * 文章类型  0=图文 1=视屏 2=微博 3=h5
+	 */
+	public static final int NEWS_TYPE_TXT = 0; //图文
+	public static final int NEWS_TYPE_VIDEO = 1; //视频
+	public static final int NEWS_TYPE_WEIBO = 2; //微博
+	public static final int NEWS_TYPE_H5 = 3; //h5
+	
+	
+	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<String>> MAIN_STATUS_LIST = new ArrayList<DownValue<String>>();
 	public static List<DownValue<String>> LEVEL_LIST = new ArrayList<DownValue<String>>();
