@@ -5,7 +5,7 @@ public class MainTest {
 	public static void main(String[] args) throws Exception {
 		String filepath="D:\\tmp\\";
 
-		//RSAEncrypt.genKeyPair(filepath);
+		RSAEncrypt.genKeyPair(filepath);
 		
 		System.out.println("--------------公钥加密私钥解密过程-------------------");
 		String plainText="ihep_公钥加密私钥解密";
