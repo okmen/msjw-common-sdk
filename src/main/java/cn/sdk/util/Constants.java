@@ -31,6 +31,8 @@ public class Constants {
 	 */
 	public static final String COM_CODE_XWZT = "XWZT";
 	
+	public static final String COM_CODE_JSJB = "JSJB";
+	
 	/**
 	 * 新闻状态
 	 */
