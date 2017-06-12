@@ -167,8 +167,14 @@ public class Constants {
 	 */
 	public static final String THEME_TJ = "2";
 	
+	/**
+	 * 新闻发布流程
+	 */
 	public static final String NEWS_AUDIT_PUBLISH = "news_publish";
 	
+	/**
+	 * 新闻删除流程
+	 */
 	public static final String NEWS_AUDIT_DELETE = "news_deleted ";
 	
 	public static final String NEWS_AUDIT_PUBLISH_MSG = "发布新闻审核流程";
@@ -182,11 +188,52 @@ public class Constants {
 	public static final int NEWS_TYPE_WEIBO = 2; //微博
 	public static final int NEWS_TYPE_H5 = 3; //h5
 	
+	/**
+	 * 个人
+	 */
+	public static final String VIEW_RANGE_00 = "00";
+	/**
+	 * 本单位
+	 */
+	public static final String VIEW_RANGE_01 = "01";
+	
+	/**
+	 * 全局
+	 */
+	public static final String VIEW_RANGE_02 = "02";
+	
+	/**
+	 * 全部
+	 */
+	public static final String VIEW_RANGE_03 = "03";
+	
+	/**
+	 * 分局审核
+	 */
+	public static final String ROLE_LEVEL_CHILD_EDIT = "1";
+	
+	/**
+	 * 分局审核
+	 */
+	public static final String ROLE_LEVEL_CHILD_AUDIT = "2";
+	
+	/**
+	 * 总局编辑
+	 */
+	public static final String ROLE_LEVEL_PARENT_EDIT = "3";
+	
+	/**
+	 * 总局审核
+	 */
+	public static final String ROLE_LEVEL_PARENT_AUDIT = "4";
+	
 	
 	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<String>> MAIN_STATUS_LIST = new ArrayList<DownValue<String>>();
 	public static List<DownValue<String>> LEVEL_LIST = new ArrayList<DownValue<String>>();
+	public static List<DownValue<String>> VIEW_RANGE_LIST = new ArrayList<DownValue<String>>();
+	public static List<DownValue<String>> ROLE_LEVEL_LIST = new ArrayList<DownValue<String>>();
 	
 	static {
 		SEX_LIST.add(new DownValue<Integer>(SEX_MAN, "男"));
@@ -206,6 +253,20 @@ public class Constants {
 				new DownValue<String>(LEVEL_QUALIFIED, "合格"),
 				new DownValue<String>(LEVEL_NO_QUALIFIED, "不合格")
 				);
+		
+		VIEW_RANGE_LIST = Arrays.asList(
+				new DownValue<String>(VIEW_RANGE_00, "个人"),
+				new DownValue<String>(VIEW_RANGE_01, "本单位"),
+				new DownValue<String>(VIEW_RANGE_02, "全局"),
+				new DownValue<String>(VIEW_RANGE_03, "全部")
+				);
+		
+		ROLE_LEVEL_LIST = Arrays.asList(
+				new DownValue<String>(ROLE_LEVEL_CHILD_EDIT, "分局编辑"),
+				new DownValue<String>(ROLE_LEVEL_CHILD_AUDIT, "分局审核"),
+				new DownValue<String>(ROLE_LEVEL_PARENT_EDIT, "总局编辑"),
+				new DownValue<String>(ROLE_LEVEL_PARENT_AUDIT, "总局审核")
+				);
 	}
 	
 	public static <T> Map<T, String> listToMap(List<DownValue<T>> list){
@@ -213,9 +274,7 @@ public class Constants {
 		for (DownValue o : list) {
 			T t = (T) o.getValue();
 			String v = (String) o.getText();
-			if(null != t && !"null".equals(t)){
-				map.put(t, v);
-			}
+			map.put(t, v);
 		}
 		return map;
 	}
