@@ -229,6 +229,12 @@ public class Constants {
 	 */
 	public static final String ROLE_LEVEL_PARENT_AUDIT = "4";
 	
+	/**
+	 * 来源： H5、GA
+	 */
+	public static final String SOURCE_H5 = "H5";
+	public static final String SOURCE_GA = "GA";
+	
 	
 	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
