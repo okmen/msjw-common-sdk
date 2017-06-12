@@ -2,7 +2,9 @@ package cn.sdk.util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import cn.sdk.bean.DownValue;
 
@@ -88,8 +90,8 @@ public class Constants {
 	public static final String MAIN_STATUS_04 = "04";
 	/**
 	 * 审核通过 待下级审核
-	 */
-	public static final String MAIN_STATUS_05 = "05"; 
+	 *//*
+	public static final String MAIN_STATUS_05 = "05"; */
 	/**
 	 * 审核通过 已发布	
 	 */
@@ -131,9 +133,9 @@ public class Constants {
 	public static final int AUDIT_STATUS_NO = 1;
 	
 	/**
-	 * 审核表状态 - 已发布
+	 * 审核表状态 - 审核结束
 	 */
-	public static final int AUDIT_STATUS_PUBLISH = 2;
+	public static final int AUDIT_STATUS_OVER = 2;
 	
 	/**
 	 * 用户在线状态 - 不在线
@@ -196,7 +198,7 @@ public class Constants {
 				new DownValue<String>(MAIN_STATUS_02, "申请撤回中"),
 				new DownValue<String>(MAIN_STATUS_03, "申请删除中"),
 				new DownValue<String>(MAIN_STATUS_04, "驳回"),
-				new DownValue<String>(MAIN_STATUS_05, "审核通过,待下级审核"),
+				//new DownValue<String>(MAIN_STATUS_05, "审核通过,待下级审核"),
 				new DownValue<String>(MAIN_STATUS_06, "审核通过 已发布")
 				);
 		LEVEL_LIST = Arrays.asList(
@@ -204,5 +206,17 @@ public class Constants {
 				new DownValue<String>(LEVEL_QUALIFIED, "合格"),
 				new DownValue<String>(LEVEL_NO_QUALIFIED, "不合格")
 				);
+	}
+	
+	public static <T> Map<T, String> listToMap(List<DownValue<T>> list){
+		Map<T, String> map = new HashMap<>();
+		for (DownValue o : list) {
+			T t = (T) o.getValue();
+			String v = (String) o.getText();
+			if(null != t && !"null".equals(t)){
+				map.put(t, v);
+			}
+		}
+		return map;
 	}
 }
