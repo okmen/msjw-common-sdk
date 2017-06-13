@@ -212,22 +212,22 @@ public class Constants {
 	/**
 	 * 分局审核
 	 */
-	public static final String ROLE_LEVEL_CHILD_EDIT = "1";
+	public static final int ROLE_LEVEL_CHILD_EDIT = 1;
 	
 	/**
 	 * 分局审核
 	 */
-	public static final String ROLE_LEVEL_CHILD_AUDIT = "2";
+	public static final int ROLE_LEVEL_CHILD_AUDIT = 2;
 	
 	/**
 	 * 总局编辑
 	 */
-	public static final String ROLE_LEVEL_PARENT_EDIT = "3";
+	public static final int ROLE_LEVEL_PARENT_EDIT = 3;
 	
 	/**
 	 * 总局审核
 	 */
-	public static final String ROLE_LEVEL_PARENT_AUDIT = "4";
+	public static final int ROLE_LEVEL_PARENT_AUDIT = 4;
 	
 	/**
 	 * 来源： H5、GA
@@ -241,7 +241,7 @@ public class Constants {
 	public static List<DownValue<String>> MAIN_STATUS_LIST = new ArrayList<DownValue<String>>();
 	public static List<DownValue<String>> LEVEL_LIST = new ArrayList<DownValue<String>>();
 	public static List<DownValue<String>> VIEW_RANGE_LIST = new ArrayList<DownValue<String>>();
-	public static List<DownValue<String>> ROLE_LEVEL_LIST = new ArrayList<DownValue<String>>();
+	public static List<DownValue<Integer>> ROLE_LEVEL_LIST = new ArrayList<DownValue<Integer>>();
 	
 	static {
 		SEX_LIST.add(new DownValue<Integer>(SEX_MAN, "男"));
@@ -268,12 +268,12 @@ public class Constants {
 				new DownValue<String>(VIEW_RANGE_02, "全局"),
 				new DownValue<String>(VIEW_RANGE_03, "全部")
 				);
-		
+		 
 		ROLE_LEVEL_LIST = Arrays.asList(
-				new DownValue<String>(ROLE_LEVEL_CHILD_EDIT, "分局编辑"),
-				new DownValue<String>(ROLE_LEVEL_CHILD_AUDIT, "分局审核"),
-				new DownValue<String>(ROLE_LEVEL_PARENT_EDIT, "总局编辑"),
-				new DownValue<String>(ROLE_LEVEL_PARENT_AUDIT, "总局审核")
+				new DownValue<Integer>(ROLE_LEVEL_CHILD_EDIT, "分局编辑"),
+				new DownValue<Integer>(ROLE_LEVEL_CHILD_AUDIT, "分局审核"),
+				new DownValue<Integer>(ROLE_LEVEL_PARENT_EDIT, "总局编辑"),
+				new DownValue<Integer>(ROLE_LEVEL_PARENT_AUDIT, "总局审核")
 				);
 	}
 	
