@@ -38,7 +38,21 @@ public class Constants {
 	 */
 	public static final String COM_CODE_XWJB = "XWJB";
 	
-	public static final String PWD_DEFAULT = "123456"; 
+	/**
+	 * 默认密码
+	 */
+	public static final String PWD_DEFAULT = "123456";
+	
+	/**
+	 * 管理员ID
+	 */
+	public static final List<Integer> ADMIN_USER_ID_LIST = Arrays.asList(-1);  
+	
+	/**
+	 * 管理员才有的菜单ID
+	 */
+	public static final List<Integer> ADMIN_MENU_ID_LIST = Arrays.asList(23,25);  
+	
 	/**
 	 * 是否删除 - 已删除
 	 */
@@ -100,12 +114,12 @@ public class Constants {
 	public static final String MAIN_STATUS_06 = "06";
 	
 	/**
-	 * 选中
+	 * 未选中
 	 */
 	public static final int IS_CHECKED_NO = 0;
 	
 	/**
-	 * 未选中
+	 * 选中
 	 */
 	public static final int IS_CHECKED_YES = 1;
 	
