@@ -54,6 +54,12 @@ public class Constants {
 	public static final List<Integer> ADMIN_MENU_ID_LIST = Arrays.asList(23,25);  
 	
 	/**
+	 * 审核权限功能id
+	 * 依次是 审核通过/驳回/发布
+	 */
+	public static final List<Integer> AUDIT_FUNCTION_ID_LIST = Arrays.asList(4,5,7);
+	
+	/**
 	 * 是否删除 - 已删除
 	 */
 	public static final int IS_DELETED_YES = 1;
