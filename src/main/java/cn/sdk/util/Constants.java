@@ -9,6 +9,11 @@ import java.util.Map;
 import cn.sdk.bean.DownValue;
 
 public class Constants {
+	
+	/**
+	 * 腾讯地图key
+	 */
+	public static final String QQMAP_KEY = "TFHBZ-SF426-3IDSN-EDKYV-MCVA7-UFBGW";
 	/**
 	 * 性别
 	 */
@@ -44,14 +49,19 @@ public class Constants {
 	public static final String PWD_DEFAULT = "123456";
 	
 	/**
-	 * 管理员ID
+	 * 管理员用户ID
 	 */
-	public static final List<Integer> ADMIN_USER_ID_LIST = Arrays.asList(0);  
+	public static final int ADMIN_USER_ID = 0;  
 	
 	/**
 	 * 管理员才有的菜单ID
 	 */
 	public static final List<Integer> ADMIN_MENU_ID_LIST = Arrays.asList(23,25);  
+	
+	/**
+	 * 管理员角色id
+	 */
+	public static final int ADMIN_ROLE_ID = 0;
 	
 	/**
 	 * 审核权限功能id
