@@ -68,6 +68,31 @@ public class DateUtil2 {
 	}
 	
 	/**
+	 * 返回12:12:12
+	 * @param d
+	 * @return
+	 */
+	public static String date2shortTime( Date d ){
+		if( d != null ){
+			SimpleDateFormat sf = new SimpleDateFormat( "HH:mm:ss" );
+			return sf.format( d );
+		}
+		return null;
+	}
+	
+	public static Date shortTime2date( String str ){
+		if( StringUtils.isNotBlank( str ) ){
+			try {
+				SimpleDateFormat sf = new SimpleDateFormat( "HH:mm:ss" );
+				return sf.parse( str );
+			} catch (ParseException e) {
+				log.error("shortTime2date, 异常, str=" + str, e);
+			}
+		}
+		return null;
+	}
+	
+	/**
 	 * 返回 2014-07-08
 	 * @param d
 	 * @return
