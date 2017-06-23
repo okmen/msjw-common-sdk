@@ -36,6 +36,9 @@ public class Constants {
 	 */
 	public static final String COM_CODE_XWZT = "XWZT";
 	
+	/**
+	 * 角色级别
+	 */
 	public static final String COM_CODE_JSJB = "JSJB";
 	
 	/**
@@ -240,24 +243,24 @@ public class Constants {
 	public static final String VIEW_RANGE_03 = "03";
 	
 	/**
-	 * 分局审核
+	 * 分局编辑
 	 */
-	public static final int ROLE_LEVEL_CHILD_EDIT = 1;
+	public static final int ROLE_LEVEL_1 = 1;
 	
 	/**
 	 * 分局审核
 	 */
-	public static final int ROLE_LEVEL_CHILD_AUDIT = 2;
+	public static final int ROLE_LEVEL_2 = 2;
 	
 	/**
 	 * 总局编辑
 	 */
-	public static final int ROLE_LEVEL_PARENT_EDIT = 3;
+	public static final int ROLE_LEVEL_3 = 3;
 	
 	/**
 	 * 总局审核
 	 */
-	public static final int ROLE_LEVEL_PARENT_AUDIT = 4;
+	public static final int ROLE_LEVEL_4 = 4;
 	
 	/**
 	 * 来源： H5、GA
@@ -300,10 +303,10 @@ public class Constants {
 				);
 		 
 		ROLE_LEVEL_LIST = Arrays.asList(
-				new DownValue<Integer>(ROLE_LEVEL_CHILD_EDIT, "分局编辑"),
-				new DownValue<Integer>(ROLE_LEVEL_CHILD_AUDIT, "分局审核"),
-				new DownValue<Integer>(ROLE_LEVEL_PARENT_EDIT, "总局编辑"),
-				new DownValue<Integer>(ROLE_LEVEL_PARENT_AUDIT, "总局审核")
+				new DownValue<Integer>(ROLE_LEVEL_1, "分局编辑"),
+				new DownValue<Integer>(ROLE_LEVEL_2, "分局审核"),
+				new DownValue<Integer>(ROLE_LEVEL_3, "总局编辑"),
+				new DownValue<Integer>(ROLE_LEVEL_4, "总局审核")
 				);
 	}
 	
