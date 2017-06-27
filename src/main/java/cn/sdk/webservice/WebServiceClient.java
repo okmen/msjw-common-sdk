@@ -47,6 +47,7 @@ public class WebServiceClient {
     	jkids.add("DZJSZ");
     	jkids.add("DZXSZ");
     	jkids.add("EZ1007");
+    	jkids.add("WFTPCX");
     	
     	filterImgNodes.clear();
     	filterImgNodes.add("CZSFZMHMTPA");
@@ -58,6 +59,7 @@ public class WebServiceClient {
 		filterImgNodes.add("jbtp1");
 		filterImgNodes.add("jbtp2");
 		filterImgNodes.add("jbtp3");
+		filterImgNodes.add("wftp");
     }
     
     public static WebServiceClient getInstance(){
@@ -157,7 +159,7 @@ public class WebServiceClient {
         	int startIndex = respJson.indexOf("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
         	int endIndex = respJson.lastIndexOf("</msg></return>");
         	String substring = respJson.substring(startIndex, endIndex);
-        	System.out.println(substring);
+        	//System.out.println(substring);
         	
             Document doc1 = DocumentHelper.parseText(substring);
 //            Element rootEle1 = doc1.getRootElement();
@@ -250,7 +252,7 @@ public class WebServiceClient {
             //返回的状态码
             //解密
         	respJson = DESCorder.decryptMode(msg,key, "utf-8");
-        	System.out.println(respJson);
+        	//System.out.println(respJson);
         	
             Document doc1 = DocumentHelper.parseText(respJson);
         	Xml2Json.dom4j2Json(doc1.getRootElement(),json2);
