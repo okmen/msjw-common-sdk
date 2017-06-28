@@ -5,9 +5,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
+import org.aspectj.weaver.ast.Literal;
 
 public class DateUtil2 {
 	private static Logger log = Logger.getLogger(DateUtil2.class);
@@ -190,7 +193,7 @@ public class DateUtil2 {
 	 * @author zhaoxuepu
 	 * @throws ParseException
 	 */
-	public static String getTimeInterval(Date date) {
+	public static List<String> getTimeInterval(Date date) {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
 		// 判断要计算的日期是否是周日，如果是则减一天计算周六的，否则会出问题，计算到下一周去了
@@ -210,7 +213,10 @@ public class DateUtil2 {
 		cal.add(Calendar.DATE, 6);
 		String imptimeEnd = sdf.format(cal.getTime());
 		// System.out.println("所在周星期日的日期：" + imptimeEnd);
-		return imptimeBegin + "," + imptimeEnd;
+		List<String> list = new LinkedList<String>();
+		list.add(imptimeBegin);
+		list.add(imptimeEnd);
+		return list;
 	}
 
 	/**
@@ -219,7 +225,7 @@ public class DateUtil2 {
 	 * @return
 	 * @author zhaoxuepu
 	 */
-	public static String getLastTimeInterval(){
+	public static List<String> getLastTimeInterval(){
 		Calendar calendar1 = Calendar.getInstance();
 		Calendar calendar2 = Calendar.getInstance();
 		int dayOfWeek = calendar1.get(Calendar.DAY_OF_WEEK) - 1;
@@ -231,12 +237,16 @@ public class DateUtil2 {
 		String lastBeginDate = sdf.format(calendar1.getTime());
 		// System.out.println(sdf.format(calendar2.getTime()));// last Sunday
 		String lastEndDate = sdf.format(calendar2.getTime());
-		return lastBeginDate + "," + lastEndDate;
+		List<String> list = new LinkedList<String>();
+		list.add(lastBeginDate);
+		list.add(lastEndDate);
+		return list;
 	}
 
 	public static void main(String[] args) {
 		//System.out.println(getLastTimeInterval());
 		
 		System.out.println(getTimeInterval(new Date()));
+		System.out.println(getLastTimeInterval());
 	}
 }
