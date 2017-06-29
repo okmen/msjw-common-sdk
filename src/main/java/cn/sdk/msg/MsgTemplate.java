@@ -90,4 +90,29 @@ public class MsgTemplate {
 		String msgContent = "尊敬的车主，您好！您已成功取消预约。温馨提示：1年内累计有3次预约成功后未履约前往情形的，取消当年预约资格（预约手机号和预约车牌均不得预约）。";
 		return msgContent;
 	}
+	
+	/**
+	 * 酒店预约成功短信
+	 * @param apptDate
+	 * @param apptInterval
+	 * @param apptDistrict
+	 * @return
+	 */
+	public static String getEastHotelApptSuccessMsgTemplate(String hotelName, String apptDate, String apptInterval, String apptDistrict){
+		String msgContent = "";
+		if("1".equals(apptInterval)){			//1-上午
+			apptInterval = "上午(00:00-12:00)";
+		}else if("2".equals(apptInterval)){		//2-下午
+			apptInterval = "下午(12:00-24:00)";
+		}
+		
+		if("1".equals(apptDistrict)){			//1-梅沙片区
+			apptDistrict = "梅沙片区";
+		}else if("2".equals(apptDistrict)){		//2-大鹏片区
+			apptDistrict = "大鹏片区";
+		}
+		
+		msgContent = "尊敬的车主，您好！"+hotelName+"已成功帮您预约于"+apptDate+"，"+apptInterval+"前往"+apptDistrict+"。如因交通拥堵未在预约时间内抵达的，通过83333333电话提前报备，否则视为违约，将影响下次预约。";
+		return msgContent;
+	}
 }
