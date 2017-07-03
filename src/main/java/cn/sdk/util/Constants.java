@@ -214,6 +214,7 @@ public class Constants {
 	
 	public static final String NEWS_AUDIT_PUBLISH_MSG = "发布新闻审核流程";
 	
+	public static final int IS_TOP_YES = 1;
 	
 	/**
 	 * 文章类型  0=图文 1=视屏 2=微博 3=h5
