@@ -303,4 +303,14 @@ public class SXStringUtils {
 		}
 		return new String(c);
 	}
+	
+	/**
+	 * 删除字符串中的汉字
+	 * @param str 带汉字的字符串
+	 * @return
+	 */
+	public static String deleteChineseCharactertoString(String str){
+		str = str.replaceAll("[\u4e00-\u9fa5]+", "");
+		return str;
+	}
 }
