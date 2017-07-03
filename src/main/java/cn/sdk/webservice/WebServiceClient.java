@@ -2,7 +2,10 @@ package cn.sdk.webservice;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.axis.client.Call;
 import org.apache.axis.client.Service;
@@ -317,7 +320,49 @@ public class WebServiceClient {
 		return json;
 	}
     
-    
+    /**
+     * 車管所webService調用
+     * @param url  正式环境地址 http://app.stc.gov.cn:8092/book/services/wsBookService
+     * @param method getCarTypes webservice方法名称
+     * @param params 请求参数
+     * @return
+     * @throws Exception
+     */
+    public static JSONObject vehicleAdministrationWebService(String url,String method,Map<String, Object> params) throws Exception{
+    	JSONObject json=new JSONObject();
+    	try {
+    		 Service service = new Service();
+             Call call = (Call) service.createCall() ;
+             call.setTargetEndpointAddress(url) ;  
+             call.setOperationName(method) ;//ws方法名  
+             //一个输入参数,如果方法有多个参数,复制多条该代码即可,参数传入下面new Object后面
+             List<Object> objects = new LinkedList<Object>();
+             for (Entry<String, Object> entry : params.entrySet()) {
+            	  call.addParameter(entry.getKey(),org.apache.axis.encoding.XMLType.XSD_DATE,javax.xml.rpc.ParameterMode.IN);
+            	  objects.add(entry.getValue());
+                  //System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue()); 
+             }
+             call.setReturnType(XMLType.XSD_STRING);
+             call.setUseSOAPAction(true);
+            
+             long startTime = System.currentTimeMillis();
+             String respXml = (String) call.invoke(objects.toArray());
+             long endTime = System.currentTimeMillis();
+             long result = (endTime - startTime) / 1000;
+             if(result >= 20){
+             	logger.error(method + "车管所接口方法执行耗时:" + result + " 秒");
+             	throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
+             }
+             logger.info("车管所响应的xml：" + respXml);
+             Document doc= DocumentHelper.parseText(respXml);
+             Xml2Json.dom4j2Json(doc.getRootElement(),json);
+             logger.info("xml转换成json：" + json);
+		} catch (Exception e) {
+			logger.error("车管所webservice调用错误，url=" + url + ",=method" + method + ",params=" + params,e);
+        	throw new WebServiceException(Integer.valueOf(MsgCode.vehicleAdministrationwebServiceCallError), MsgCode.vehicleAdministrationwebServiceCallMsg);
+		}
+		return json;
+	}
 	
 	public static void main(String[] args) throws Exception {
 			

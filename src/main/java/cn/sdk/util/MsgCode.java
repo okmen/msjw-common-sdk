@@ -13,5 +13,7 @@ public class MsgCode {
 	public static String webServiceCallMsg = "错误1000";
 	public static String httpPingAnCallError = "2000"; //平安接口无法调用
 	public static String httpPingAnCallMsg = "错误2000";
+	public static String vehicleAdministrationwebServiceCallError = "3000"; //车管所webservice无法调用
+	public static String vehicleAdministrationwebServiceCallMsg = "错误3000";
 	public static String systemMsg = "系统异常";
 }
