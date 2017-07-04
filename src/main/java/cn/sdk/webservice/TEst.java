@@ -2,6 +2,8 @@ package cn.sdk.webservice;
 
 import java.util.LinkedHashMap;
 
+import com.alibaba.fastjson.JSONObject;
+
 public class TEst {
 	public static void main(String[] args) throws Exception {
 		//String url = "http://app.stc.gov.cn:8092/book/services/wsBookService";
@@ -12,8 +14,8 @@ public class TEst {
 		params.put("arg0", 0);
 		params.put("arg1", 1);
 		
-		WebServiceClient.vehicleAdministrationWebService(url, method, params);
-		
+		JSONObject jsonObject = WebServiceClient.vehicleAdministrationWebService(url, method, params);
+		System.out.println(jsonObject);
 		 /*Service service = new Service();
          Call call = (Call) service.createCall() ;
          call.setTargetEndpointAddress(url) ;  
