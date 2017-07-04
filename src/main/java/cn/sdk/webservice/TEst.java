@@ -1,6 +1,8 @@
 package cn.sdk.webservice;
 
 import java.rmi.RemoteException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.xml.rpc.ServiceException;
 
@@ -9,9 +11,17 @@ import org.apache.axis.client.Service;
 import org.apache.axis.encoding.XMLType;
 
 public class TEst {
-	public static void main(String[] args) throws RemoteException, ServiceException {
-		String url = "http://app.stc.gov.cn:8092/book/services/wsBookService";
+	public static void main(String[] args) throws Exception {
+		//String url = "http://app.stc.gov.cn:8092/book/services/wsBookService";
+		String url = "http://cheguansuo.chudaokeji.com/book/services/wsBookService";
 		String method = "getCarTypes";
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+		
+		params.put("arg1", 1);
+		params.put("arg0", 0);
+		WebServiceClient.vehicleAdministrationWebService(url, method, params);
+		
 		 Service service = new Service();
          Call call = (Call) service.createCall() ;
          call.setTargetEndpointAddress(url) ;  
