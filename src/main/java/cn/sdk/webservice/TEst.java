@@ -1,14 +1,6 @@
 package cn.sdk.webservice;
 
-import java.rmi.RemoteException;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.xml.rpc.ServiceException;
-
-import org.apache.axis.client.Call;
-import org.apache.axis.client.Service;
-import org.apache.axis.encoding.XMLType;
+import java.util.LinkedHashMap;
 
 public class TEst {
 	public static void main(String[] args) throws Exception {
@@ -16,13 +8,13 @@ public class TEst {
 		String url = "http://cheguansuo.chudaokeji.com/book/services/wsBookService";
 		String method = "getCarTypes";
 		
-		Map<String, Object> params = new HashMap<String, Object>();
-		
-		params.put("arg1", 1);
+		LinkedHashMap<String, Object> params = new LinkedHashMap<String, Object>();
 		params.put("arg0", 0);
+		params.put("arg1", 1);
+		
 		WebServiceClient.vehicleAdministrationWebService(url, method, params);
 		
-		 Service service = new Service();
+		 /*Service service = new Service();
          Call call = (Call) service.createCall() ;
          call.setTargetEndpointAddress(url) ;  
          call.setOperationName(method) ;//ws方法名  
@@ -34,6 +26,6 @@ public class TEst {
          String arg0 = "0";
          String arg1 = "1";
          String respXml = (String) call.invoke(new Object[]{arg0,arg1});
-         System.out.println(respXml);
+         System.out.println(respXml);*/
 	}
 }

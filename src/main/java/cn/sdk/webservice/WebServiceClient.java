@@ -1,20 +1,17 @@
 package cn.sdk.webservice;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
 
 import org.apache.axis.client.Call;
 import org.apache.axis.client.Service;
 import org.apache.axis.encoding.XMLType;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
-import org.dom4j.Element;
 
 import com.alibaba.fastjson.JSONObject;
 
@@ -323,12 +320,12 @@ public class WebServiceClient {
     /**
      * 車管所webService調用
      * @param url  正式环境地址 http://app.stc.gov.cn:8092/book/services/wsBookService
-     * @param method getCarTypes webservice方法名称
+     * @param method webservice方法名称
      * @param params 请求参数
      * @return
      * @throws Exception
      */
-    public static JSONObject vehicleAdministrationWebService(String url,String method,Map<String, Object> params) throws Exception{
+    public static JSONObject vehicleAdministrationWebService(String url,String method,LinkedHashMap<String, Object> params) throws Exception{
     	JSONObject json=new JSONObject();
     	try {
     		 Service service = new Service();
@@ -336,15 +333,13 @@ public class WebServiceClient {
              call.setTargetEndpointAddress(url) ;  
              call.setOperationName(method) ;//ws方法名  
              //一个输入参数,如果方法有多个参数,复制多条该代码即可,参数传入下面new Object后面
-             List<Object> objects = new LinkedList<Object>();
+             List<String> objects = new LinkedList<String>();
              for (Entry<String, Object> entry : params.entrySet()) {
             	  call.addParameter(entry.getKey(),org.apache.axis.encoding.XMLType.XSD_DATE,javax.xml.rpc.ParameterMode.IN);
-            	  objects.add(entry.getValue());
-                  //System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue()); 
+            	  objects.add(entry.getValue().toString());
              }
              call.setReturnType(XMLType.XSD_STRING);
              call.setUseSOAPAction(true);
-            
              long startTime = System.currentTimeMillis();
              String respXml = (String) call.invoke(objects.toArray());
              long endTime = System.currentTimeMillis();
