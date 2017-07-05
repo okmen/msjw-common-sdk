@@ -67,6 +67,11 @@ public class Constants {
 	public static final int ADMIN_ROLE_ID = 0;
 	
 	/**
+	 * 总局id
+	 */
+	public static final int ADMIN_AGENCY_ID = 1;
+	
+	/**
 	 * 审核权限功能id
 	 * 依次是 审核通过/驳回/发布
 	 */
