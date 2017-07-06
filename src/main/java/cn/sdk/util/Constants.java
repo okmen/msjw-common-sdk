@@ -274,6 +274,12 @@ public class Constants {
 	public static final String SOURCE_H5 = "H5";
 	public static final String SOURCE_GA = "GA";
 	
+	/**
+	 * 主题渠道： 1000=微网页、2000=门户网站
+	 */
+	public static final String SUBJECT_PLACE_1000 ="1000";
+	public static final String SUBJECT_PLACE_2000 ="2000";
+	
 	
 	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
