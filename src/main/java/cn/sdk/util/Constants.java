@@ -272,7 +272,7 @@ public class Constants {
 	 * 来源： H5、GA
 	 */
 	public static final String SOURCE_H5 = "H5";
-	public static final String SOURCE_GA = "GA";
+	public static final String SOURCE_GA = "SZGAMH";
 	
 	/**
 	 * 主题渠道： 1000=微网页、2000=门户网站
