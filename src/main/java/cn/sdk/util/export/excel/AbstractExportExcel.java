@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.ietf.jgss.Oid;
 
 import cn.sdk.util.export.IExportFile;
 public abstract class AbstractExportExcel implements IExportFile{
@@ -28,11 +29,12 @@ public abstract class AbstractExportExcel implements IExportFile{
 		fileName = URLEncoder.encode(fileName, "UTF-8");
 		response.reset();
 		OutputStream outputStream = response.getOutputStream();
-		wb.write(outputStream);
 		response.addHeader("Content-Disposition", "attachment;filename="
 				+ fileName);
-		response.setContentType("application/vnd.ms-excel;charset=utf-8");
+		response.setContentType("application/x-msdownload");
+		wb.write(outputStream);
 		outputStream.flush();
+		outputStream.close();
 	}
 	public abstract void createHead(HSSFSheet sheet);
 	public abstract void createBody(HSSFSheet sheet,List list);
