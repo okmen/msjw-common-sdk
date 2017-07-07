@@ -23,6 +23,8 @@ public class Constants {
 	 * 主题列表
 	 */
 	public static final String COM_CODE_ZTLB = "ZTLB";
+	public static final String COM_CODE_ZTLB_WYW = "ZTLBWYW";
+	public static final String COM_CODE_ZTLB_MH = "ZTLBMH";
 	/**
 	 * 单位列表
 	 */
@@ -228,6 +230,7 @@ public class Constants {
 	public static final int NEWS_TYPE_VIDEO = 1; //视频
 	public static final int NEWS_TYPE_WEIBO = 2; //微博
 	public static final int NEWS_TYPE_H5 = 3; //h5
+	public static final int NEWS_TYPE_WTW = 4; //微图文
 	
 	/**
 	 * 个人
