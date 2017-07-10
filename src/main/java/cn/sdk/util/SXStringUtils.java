@@ -313,4 +313,13 @@ public class SXStringUtils {
 		str = str.replaceAll("[\u4e00-\u9fa5]+", "");
 		return str;
 	}
+	
+	public static void main(String[] args) {
+		String string = "申报成功，申报流水号为：1117071039845。";
+		string = deleteChineseCharactertoString(string);
+		string = string.replace("，", "");
+		string = string.replace("：", "");
+		string = string.replace("。", "");
+		System.out.println(string);
+	}
 }
