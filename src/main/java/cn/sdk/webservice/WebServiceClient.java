@@ -24,8 +24,12 @@ import cn.sdk.util.MsgCode;
  */
 @SuppressWarnings(value="all")
 public class WebServiceClient {
-	//需要过滤的接口编号
+	//警司通需要过滤的接口编号
 	private static List<String> jkids = new ArrayList<String>();
+	
+	//车管所需要过滤的接口编号
+	private static List<String> cheguansuoMethod = new ArrayList<String>();
+		
 	//需要过滤的xml图片节点
 	private static List<String> filterImgNodes = new ArrayList<>();
 	
@@ -48,6 +52,9 @@ public class WebServiceClient {
     	jkids.add("DZXSZ");
     	jkids.add("EZ1007");
     	jkids.add("WFTPCX");
+    	jkids.add("EZ1002");
+    	
+    	cheguansuoMethod.clear();
     	
     	filterImgNodes.clear();
     	filterImgNodes.add("CZSFZMHMTPA");
