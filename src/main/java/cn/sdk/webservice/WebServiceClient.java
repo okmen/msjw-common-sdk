@@ -13,6 +13,7 @@ import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 import cn.sdk.exception.WebServiceException;
@@ -449,10 +450,19 @@ public class WebServiceClient {
              	logger.error(method + "车管所接口方法执行耗时:" + result + " 秒");
              	throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
              }
-             logger.info("车管所响应的xml：" + respXml);
+             /*logger.info("车管所响应的xml：" + respXml);
              Document doc= DocumentHelper.parseText(respXml);
              Xml2Json.dom4j2Json(doc.getRootElement(),json);
-             logger.info("xml转换成json：" + json);
+             logger.info("xml转换成json：" + json);*/
+             logger.info("车管所响应的xml：" + respXml);
+             //将xml转为json  
+             cn.sdk.webservice.jsonxml.JSONObject xmlJSONObj = cn.sdk.webservice.jsonxml.XML.toJSONObject(respXml);  
+             //设置缩进  
+             String jsonPrettyPrintString = xmlJSONObj.toString(4);  
+             //输出格式化后的json
+             logger.info("xml转json之后的结果" + jsonPrettyPrintString);
+             json = JSONObject.parseObject(jsonPrettyPrintString);
+             json= json.getJSONObject("ResponseMessage");
 		} catch (Exception e) {
 			logger.error("车管所webservice调用错误，url=" + url + ",=method" + method + ",params=" + params,e);
         	throw new WebServiceException(Integer.valueOf(MsgCode.vehicleAdministrationwebServiceCallError), MsgCode.vehicleAdministrationwebServiceCallMsg);
