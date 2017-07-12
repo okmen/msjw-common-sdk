@@ -54,6 +54,7 @@ public class WebServiceClient {
     	jkids.add("EZ1007");
     	jkids.add("WFTPCX");
     	jkids.add("EZ1002");
+    	jkids.add("EZ1001");
     	
     	cheguansuoMethod.clear();
     	
