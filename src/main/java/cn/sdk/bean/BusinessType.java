@@ -45,4 +45,32 @@ public class BusinessType {
 	 * 机动车变更联系方式
 	 */
 	public static String iocomotiveCarChangeContact = "iocomotiveCarChangeContact";
+	/**
+	 * 驾驶证年审
+	 */
+	public static String driverLicenseAnnualVerification = "driverLicenseAnnualVerification";
+	/**
+	 * 驾驶证延期换证
+	 */
+	public static String renewalDriverLicense = "renewalDriverLicense";
+	/**
+	 * 驾驶证转入
+	 */
+	public static String driverLicenseInto = "driverLicenseInto";
+	/**
+	 * 驾驶证自愿降级
+	 */
+	public static String driverLicenseVoluntaryDemotion = "driverLicenseVoluntaryDemotion";
+	/**
+	 * 驾驶证补证
+	 */
+	public static String repairDriverLicense = "repairDriverLicense";
+	/**
+	 * 驾驶证换证
+	 */
+	public static String replaceDriverLicense = "replaceDriverLicense";
+	/**
+	 * 驾驶人联系方式变更
+	 */
+	public static String driverChangeContact = "driverChangeContact";
 }
