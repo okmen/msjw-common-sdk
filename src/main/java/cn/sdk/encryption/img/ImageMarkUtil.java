@@ -252,14 +252,14 @@ public class ImageMarkUtil {
 		 */
 		//修改默认参数
 		ImageMarkUtil.setImageMarkOptions(0.0f, 0,60);
-		String watermarkPath = "d:/11094340_0Vsb.jpg";  //测试水印图片
+		String watermarkPath = "d:/22.jpg";  //测试水印图片
         String imgPath = "d:/14958633330244TG0d.jpg";   //测试需加水印图片
 		ImageMarkUtil.waterMarkByImg(watermarkPath, imgPath);
 		
 		
 		//添加文字水印
 		pressText(watermarkPath, DateUtil2.getLastTimeInterval().get(1), "宋体", Font.BOLD, 30, Color.RED, -1, -1, 1.0f);
-		pressText(watermarkPath, "深圳南山区xxxxxx", "宋体", Font.BOLD, 30, Color.YELLOW, 10, 10, 1.0f);
+		//pressText(watermarkPath, "深圳南山区xxxxxx", "宋体", Font.BOLD, 30, Color.YELLOW, 10, 10, 1.0f);
 		
 		
 		System.out.println("..添加水印图片结束...");
