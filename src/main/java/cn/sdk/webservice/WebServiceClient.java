@@ -30,7 +30,9 @@ public class WebServiceClient {
 	
 	//车管所需要过滤的接口编号
 	private static List<String> cheguansuoMethod = new ArrayList<String>();
-		
+	
+	//不限制调用时间的接口
+	private static List<String> notHaveTime = new ArrayList<String>();
 	//需要过滤的xml图片节点
 	private static List<String> filterImgNodes = new ArrayList<>();
 	
@@ -57,6 +59,9 @@ public class WebServiceClient {
     	jkids.add("EZ1001");
     	
     	cheguansuoMethod.clear();
+    	notHaveTime.clear();
+    	notHaveTime.add("EZ1002");
+    	notHaveTime.add("EZ1001");
     	
     	filterImgNodes.clear();
     	filterImgNodes.add("CZSFZMHMTPA");
@@ -149,7 +154,7 @@ public class WebServiceClient {
             respXml = (String) call.invoke(new Object[]{userid,userpwd,jkid,srcs});
             long endTime = System.currentTimeMillis();
             long result = (endTime - startTime) / 1000;
-            if(result >= 20){
+            if(result >= 20 && !notHaveTime.contains(jkid)){
             	logger.info(jkid + "接口编号执行耗时:" + result + " 秒");
             	throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
             }
@@ -243,7 +248,7 @@ public class WebServiceClient {
             respXml = (String) call.invoke(new Object[]{userid,userpwd,jkid,srcs});
             long endTime = System.currentTimeMillis();
             long result = (endTime - startTime) / 1000;
-            if(result >= 20){
+            if(result >= 20 && !notHaveTime.contains(jkid)){
             	logger.info(jkid + "接口编号执行耗时:" + result + " 秒");
             	throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
             }
@@ -339,7 +344,7 @@ public class WebServiceClient {
             respXml = (String) call.invoke(new Object[]{userid,userpwd,jkid,srcs});
             long endTime = System.currentTimeMillis();
             long result = (endTime - startTime) / 1000;
-            if(result >= 20){
+            if(result >= 20 && !notHaveTime.contains(jkid)){
             	logger.info(jkid + "接口编号执行耗时:" + result + " 秒");
             	throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
             }
@@ -402,7 +407,7 @@ public class WebServiceClient {
             respXml = (String) call.invoke(new Object[]{xml}) ;
             long endTime = System.currentTimeMillis();
             long result = (endTime - startTime) / 1000;
-            if(result >= 20){
+            if(result >= 20 ){
             	logger.error(method + "接口方法执行耗时:" + result + " 秒");
             	throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
             }
