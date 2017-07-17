@@ -208,6 +208,7 @@ public class Constants {
 	 * 推荐
 	 */
 	public static final String THEME_TJ = "2";
+	public static final String THEME_SY = "1";
 	
 	/**
 	 * 新闻发布流程
