@@ -2,9 +2,12 @@ package cn.sdk.webservice;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
+import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 import cn.sdk.util.Base64;
@@ -76,6 +79,36 @@ public class DESCorder {
 		}
 		return null;
 	}
+	/**
+	 * 车管所xml参数解密算法
+	 * @param data
+	 * @return
+	 * @throws Exception
+	 */
+	public static String encryptAES(String data) throws Exception {
+		String iv = "com.cscx.www*+_-";
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    	  try {
+          	  String key = "Cscx"+ sdf.format(new Date()) +"+*";
+              Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");  
+              int blockSize = cipher.getBlockSize();  
+              byte[] dataBytes = data.getBytes();  
+              int plaintextLength = dataBytes.length;  
+              if (plaintextLength % blockSize != 0) {  
+                  plaintextLength = plaintextLength + (blockSize - (plaintextLength % blockSize));  
+              }  
+              byte[] plaintext = new byte[plaintextLength];  
+              System.arraycopy(dataBytes, 0, plaintext, 0, dataBytes.length);  
+              SecretKey keyspec = new SecretKeySpec(key.getBytes(), "AES");  
+              IvParameterSpec ivspec = new IvParameterSpec(iv.getBytes());  
+              cipher.init(Cipher.ENCRYPT_MODE, keyspec, ivspec);  
+              byte[] encrypted = cipher.doFinal(plaintext);  
+              return new String(new Base64().encode(encrypted)).trim();  
+          } catch (Exception e) {  
+              e.printStackTrace();  
+              return null;  
+          }
+      }
 
 	/**
 	 * 解密函数

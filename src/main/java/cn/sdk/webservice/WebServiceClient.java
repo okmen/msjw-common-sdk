@@ -1,10 +1,14 @@
 package cn.sdk.webservice;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map.Entry;
+
+import javax.xml.namespace.QName;
+import javax.xml.rpc.ParameterMode;
 
 import org.apache.axis.client.Call;
 import org.apache.axis.client.Service;
@@ -13,7 +17,6 @@ import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 import cn.sdk.exception.WebServiceException;
@@ -426,7 +429,7 @@ public class WebServiceClient {
 	}
     
     /**
-     * 車管所webService調用
+     * 車管所webService調用 旧版
      * @param url  正式环境地址 http://app.stc.gov.cn:8092/book/services/wsBookService
      * @param method webservice方法名称
      * @param params 请求参数
@@ -475,10 +478,105 @@ public class WebServiceClient {
 		}
 		return json;
 	}
+    
+    /**
+     * 车管所webservice新版
+     * @param url 正式环境地址 http://app.stc.gov.cn:8092/book/services/wsBookUniformService?wsdl
+     * @param jkId 接口ID号
+     * @param data Xml报文
+     * @param account 账号
+     * @param password 序列号
+     * @return
+     * @throws Exception
+     */
+    public static JSONObject vehicleAdministrationWebServiceNew(String url,String jkId,String data,String account,String password) throws Exception{
+    	filterInterfaceLog();
+    	String base64Str = "";
+    	String logXml = data;
+		String respXml = "";
+		String respJson = "";
+		JSONObject json = new JSONObject();
+		try {  
+			Service service = new Service();
+			Call call = (Call) service.createCall();
+			call.setTargetEndpointAddress(new URL(url));
+			call.setUseSOAPAction(true);
+			call.setSOAPActionURI("http://appointment.service.admin.rich.com/uniformAccess");
+			call.setOperationName(new QName("http://appointment.service.admin.rich.com/","uniformAccess"));
+			call.addParameter("in0", XMLType.XSD_STRING, ParameterMode.IN);
+			call.addParameter("in1", XMLType.XSD_STRING, ParameterMode.IN);
+			call.addParameter("in2", XMLType.XSD_STRING, ParameterMode.IN);
+			call.addParameter("in3", XMLType.XSD_STRING, ParameterMode.IN);
+			call.setReturnType(XMLType.XSD_STRING);// 返回值类型
+			
+            long startTime = System.currentTimeMillis();
+            respXml = (String) call.invoke(new Object[] {jkId,account,password,DESCorder.encryptAES(data)});// 调用方法
+            long endTime = System.currentTimeMillis();
+            long result = (endTime - startTime) / 1000;
+            if(result >= 20 && !notHaveTime.contains(jkId)){
+            	logger.info(jkId + "接口编号执行耗时:" + result + " 秒");
+            	throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
+            }
+            if(!jkids.contains(jkId)){
+            	logger.info("响应的xml：" + respXml);
+            }
+            cn.sdk.webservice.jsonxml.JSONObject xmlJSONObj = cn.sdk.webservice.jsonxml.XML.toJSONObject(respXml);  
+            //设置缩进  
+            String jsonPrettyPrintString = xmlJSONObj.toString(4);
+            //解密
+            json = JSONObject.parseObject(jsonPrettyPrintString);
+            json= json.getJSONObject("ResponseMessage");
+        	if(!jkids.contains(jkId)){
+            	logger.info("xml转换成json：" + json);
+            }
+        } catch (Exception e) {
+        	logger.error("webservice调用错误,url=" + url  + ",jkid=" + jkId + ",xml=" + data + ",userid=" + account + ",password=" + password,e);
+            throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
+        }  
+		return json;
+	}
+    
+    
+    /**
+	 * JK01
+	 * 
+	 * @Author        succ
+	 * @date 2017-7-18 上午10:52:01
+	 */
+	public static void createDriveInfo() {
+		Call call = null;
+		try {
+			Service service = new Service();
+			call = (Call) service.createCall();
+			call.setTargetEndpointAddress(new URL("http://app.stc.gov.cn:8092/book/services/wsBookUniformService"));
+			call.setUseSOAPAction(true);
+			call.setSOAPActionURI("http://appointment.service.admin.rich.com/uniformAccess");
+			call.setOperationName(new QName("http://appointment.service.admin.rich.com/","uniformAccess"));
+			call.addParameter("in0", XMLType.XSD_STRING, ParameterMode.IN);
+			call.addParameter("in1", XMLType.XSD_STRING, ParameterMode.IN);
+			call.addParameter("in2", XMLType.XSD_STRING, ParameterMode.IN);
+			call.addParameter("in3", XMLType.XSD_STRING, ParameterMode.IN);
+			call.setReturnType(XMLType.XSD_STRING);// 返回值类型
+			
+			StringBuilder sb = new StringBuilder();
+			sb.append("<root>").append("<orgId>4028818c473569ae0147356e1cec0002</orgId><businessTypeId>402881854e6214d7014e625a57b70003</businessTypeId>")
+			.append("<name>test1</name>").append("<idTypeId>e4e48584399473d20139947f125e2b2c</idTypeId>")
+			.append("<idNumber>431227199701211123</idNumber>").append("<mobile>13407665642</mobile>")
+			.append("<appointmentDate>2017-07-20</appointmentDate>").append("<appointmentTime>09:00-11:00</appointmentTime>")
+			.append("<bookerName>test1</bookerName>").append("<bookerIdNumber>431227199701211123</bookerIdNumber>")
+			.append("<bookType>0</bookType>").append("<bookerMobile>13412341234</bookerMobile>")
+			.append("<msgNumber>148835</msgNumber>").append("</root>");
+			String re = (String) call.invoke(new Object[] {"JK01","cdkjcs","4028823f5cec9613015d07046034729c",DESCorder.encryptAES(sb.toString())});// 调用方法
+			System.out.println(re);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 	
 	public static void main(String[] args) throws Exception {
 			
-		String xml = "<request><userid>WX02</userid><userpwd>WX02@168</userpwd ><lrip>123.56.180.216</lrip><lrmac>00:16:3e:10:16:4d</lrmac></request>";
+		/*String xml = "<request><userid>WX02</userid><userpwd>WX02@168</userpwd ><lrip>123.56.180.216</lrip><lrmac>00:16:3e:10:16:4d</lrmac></request>";
 	
 		String url = "https://szjjapi.chudaokeji.com/yywfcl/services/yywfcl";
 		String method = "getCldbmAll";
@@ -488,9 +586,22 @@ public class WebServiceClient {
 				"<userpwd>WX02@168</userpwd>"+
 				"<lrip>123.56.180.216</lrip>"+
 				"<lrmac>00:16:3e:10:16:4d</lrmac>"+
-				"</request>"; 
+				"</request>"; */
 	//	String respStr = getInstance().easyWebService(url, method, inxml);
 		
+		createDriveInfo();
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append("<root>").append("<orgId>4028818c473569ae0147356e1cec0002</orgId><businessTypeId>402881854e6214d7014e625a57b70003</businessTypeId>")
+		.append("<name>test1</name>").append("<idTypeId>e4e48584399473d20139947f125e2b2c</idTypeId>")
+		.append("<idNumber>431227199701211123</idNumber>").append("<mobile>13407665642</mobile>")
+		.append("<appointmentDate>2017-07-20</appointmentDate>").append("<appointmentTime>09:00-11:00</appointmentTime>")
+		.append("<bookerName>test1</bookerName>").append("<bookerIdNumber>431227199701211123</bookerIdNumber>")
+		.append("<bookType>0</bookType>").append("<bookerMobile>13412341234</bookerMobile>")
+		.append("<msgNumber>148835</msgNumber>").append("</root>");
+		vehicleAdministrationWebServiceNew("http://app.stc.gov.cn:8092/book/services/wsBookUniformService", "JK01", sb.toString(), "cdkj", "4028823f5d4fed1d015d4ff8056f0000");
+		
+	
 	}
     
     
