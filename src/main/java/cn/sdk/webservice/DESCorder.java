@@ -90,7 +90,7 @@ public class DESCorder {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     	  try {
           	  String key = "Cscx"+ sdf.format(new Date()) +"+*";
-              Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");  
+              Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");  
               int blockSize = cipher.getBlockSize();  
               byte[] dataBytes = data.getBytes();  
               int plaintextLength = dataBytes.length;  
