@@ -531,7 +531,7 @@ public class WebServiceClient {
             }
         } catch (Exception e) {
         	logger.error("webservice调用错误,url=" + url  + ",jkid=" + jkId + ",xml=" + data + ",userid=" + account + ",password=" + password,e);
-            throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
+            throw new WebServiceException(Integer.valueOf(MsgCode.vehicleAdministrationwebServiceCallError), MsgCode.vehicleAdministrationwebServiceCallMsg);
         }  
 		return json;
 	}
