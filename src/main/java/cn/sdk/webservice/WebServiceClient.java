@@ -529,6 +529,11 @@ public class WebServiceClient {
         	if(!jkids.contains(jkId)){
             	logger.info("xml转换成json：" + json);
             }
+        	String code = json.getString("code");
+        	if(!"00".equals(code)){
+        		logger.error(json.get("msg") + "\n" + json.getString("result"));
+                throw new WebServiceException(Integer.valueOf(MsgCode.vehicleAdministrationwebServiceCallError), MsgCode.vehicleAdministrationwebServiceCallMsg);
+        	}
         } catch (Exception e) {
         	logger.error("webservice调用错误,url=" + url  + ",jkid=" + jkId + ",xml=" + data + ",userid=" + account + ",password=" + password,e);
             throw new WebServiceException(Integer.valueOf(MsgCode.vehicleAdministrationwebServiceCallError), MsgCode.vehicleAdministrationwebServiceCallMsg);
