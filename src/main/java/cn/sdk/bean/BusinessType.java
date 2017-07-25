@@ -78,7 +78,7 @@ public class BusinessType {
 	/**
 	 * 临时机动车驾驶许可申领
 	 */
-	public static String createDriveinfo_ZJ16 = "createDriveinfo_ZJ16";
+	public static String createDriveInfo_ZJ16 = "createDriveInfo_ZJ16";
 	/**
 	 * 核发临牌
 	 */
