@@ -99,6 +99,54 @@ public class BusinessType {
 	 * 转出、注销恢复
 	 */
 	public static String createVehicleInfo_JD41 = "createVehicleInfo_JD41";
+	
+	/**
+	 * 换领机动车登记证书
+	 */
+	public static String createVehicleInfo_JD06 = "createVehicleInfo_JD06";
+	/**
+	 * 补换机动车号牌
+	 */
+	public static String createVehicleInfo_JD02 = "createVehicleInfo_JD02";
+	/**
+	 *机动车变更登记（套牌车换证
+	 */
+	public static String createVehicleInfo_JD36 = "createVehicleInfo_JD36";
+	/**
+	 * 申领/补领机动车登记证书
+	 */
+	public static String createVehicleInfo_JD13 = "createVehicleInfo_JD13";
+	/**
+	 * 转移登记（市内过户）
+	 */
+	public static String createVehicleInfo_JD15 = "createVehicleInfo_JD15";
+	/**
+	 * 机动车注销登记
+	 */
+	public static String createVehicleInfo_JD18 = "createVehicleInfo_JD18";
+	/**
+	 * 机动车注册登记
+	 */
+	public static String createVehicleInfo_JD17 = "createVehicleInfo_JD17";
+	/**
+	 * 机动车变更登记（夫妻变更）
+	 */
+	public static String createVehicleInfo_JD35 = "createVehicleInfo_JD35";
+	/**
+	 * 机动车转移登记（转入）
+	 */
+	public static String createVehicleInfo_JD19 = "createVehicleInfo_JD19";
+	/**
+	 *机动车变更登记（普通变更
+	 */
+	public static String createVehicleInfo_JD24 = "createVehicleInfo_JD24";
+	/**
+	 * 核发临牌
+	 */
+	public static String createVehicleInfo_JD34 = "createVehicleInfo_JD34";
+
+	
+	
 	/**
 	 * 满分学习考试
 	 */
