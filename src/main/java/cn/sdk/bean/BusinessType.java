@@ -73,4 +73,31 @@ public class BusinessType {
 	 * 驾驶人联系方式变更
 	 */
 	public static String driverChangeContact = "driverChangeContact";
+	
+	
+	//预约类
+	/**
+	 * 临时机动车驾驶许可申领
+	 */
+	public static String createDriveinfo_ZJ16 = "createDriveinfo_ZJ16";
+	/**
+	 * 核发临牌
+	 */
+	public static String createTemporaryLicenseVehicleInfo = "createTemporaryLicenseVehicleInfo";
+	/**
+	 * 核发校车标牌
+	 */
+	public static String createVehicleInfo_JD27 = "createVehicleInfo_JD27";
+	/**
+	 * 抵押/解押登记现场办理
+	 */
+	public static String createVehicleInfo_JD37 = "createVehicleInfo_JD37";
+	/**
+	 * 机动车委托异地年审现场办理
+	 */
+	public static String createVehicleInfo_JD38 = "createVehicleInfo_JD38";
+	/**
+	 * 转出、注销恢复
+	 */
+	public static String createVehicleInfo_JD41 = "createVehicleInfo_JD41";
 }
