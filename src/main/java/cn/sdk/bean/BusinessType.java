@@ -74,7 +74,6 @@ public class BusinessType {
 	 */
 	public static String driverChangeContact = "driverChangeContact";
 	
-	
 	//预约类
 	/**
 	 * 临时机动车驾驶许可申领
@@ -100,4 +99,36 @@ public class BusinessType {
 	 * 转出、注销恢复
 	 */
 	public static String createVehicleInfo_JD41 = "createVehicleInfo_JD41";
+	/**
+	 * 满分学习考试
+	 */
+	public static String createDriveInfo_ZJ10 = "createDriveInfo_ZJ10";
+	/**
+	 * 持军队、武装警察部队机动车驾驶证申领
+	 */
+	public static String createDriveInfo_ZJ11 = "createDriveInfo_ZJ11";
+	/**
+	 * 香港机动车驾驶证免试换证
+	 */
+	public static String createDriveInfo_ZJ13 = "createDriveInfo_ZJ13";
+	/**
+	 * 持境外驾驶证申请换证
+	 */
+	public static String createDriveInfo_ZJ17 = "createDriveInfo_ZJ17";
+	/**
+	 * 其他业务(驾驶证)
+	 */
+	public static String createDriveInfo_ZJ20 = "createDriveInfo_ZJ20";
+	/**
+	 * 恢复驾驶资格（逾期一年以上未换证类） 
+	 */
+	public static String createDriveInfo_ZJ21 = "createDriveInfo_ZJ21";
+	/**
+	 * 恢复驾驶资格（逾期一年以上未体检类）
+	 */
+	public static String createDriveInfo_ZJ22 = "createDriveInfo_ZJ22";
+	/**
+	 * 取消驾驶证预约
+	 */
+	public static String cancleDriveInfo = "cancleDriveInfo";
 }
