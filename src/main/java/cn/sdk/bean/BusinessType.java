@@ -128,6 +128,18 @@ public class BusinessType {
 	 */
 	public static String createDriveInfo_ZJ22 = "createDriveInfo_ZJ22";
 	/**
+	 * 机动车打刻原车发动机号码变更备案
+	 */
+	public static String createVehicleInfo_JD28 = "createVehicleInfo_JD28";
+	/**
+	 * 机动车打刻原车辆识别代号变更备案
+	 */
+	public static String createVehicleInfo_JD29 = "createVehicleInfo_JD29";
+	/**
+	 * 档案更正
+	 */
+	public static String createVehicleInfo_JD33 = "createVehicleInfo_JD33";
+	/**
 	 * 取消驾驶证预约
 	 */
 	public static String cancleDriveInfo = "cancleDriveInfo";
