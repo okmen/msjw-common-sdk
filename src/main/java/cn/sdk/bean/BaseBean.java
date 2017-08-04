@@ -2,6 +2,7 @@ package cn.sdk.bean;
 
 import java.io.Serializable;
 
+import cn.sdk.util.Gson4DateFormatUtil;
 import cn.sdk.util.GsonBuilderUtil;
 import cn.sdk.util.GsonUtil;
 
@@ -49,5 +50,13 @@ public class BaseBean implements Serializable{
 	 */
 	public String toJsonBullider(){
 		return GsonBuilderUtil.toJson(this);
+	}
+	
+	/**
+	 * 格式化日期类型
+	 * @return
+	 */
+	public String toJson4DateFormat(){
+		return Gson4DateFormatUtil.toJson(this);
 	}
 }
