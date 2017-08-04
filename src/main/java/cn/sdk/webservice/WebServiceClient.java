@@ -6,10 +6,10 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map.Entry;
-
 import javax.xml.namespace.QName;
 import javax.xml.rpc.ParameterMode;
-
+import org.apache.axis.Message;
+import org.apache.axis.MessageContext;
 import org.apache.axis.client.Call;
 import org.apache.axis.client.Service;
 import org.apache.axis.encoding.XMLType;
@@ -363,7 +363,7 @@ public class WebServiceClient {
             //返回的状态码
             //解密
         	respJson = DESCorder.decryptMode(msg,key, "utf-8");
-        	//System.out.println(respJson);
+        	System.out.println(respJson);
         	
             Document doc1 = DocumentHelper.parseText(respJson);
         	Xml2Json.dom4j2Json(doc1.getRootElement(),json2);
@@ -376,6 +376,65 @@ public class WebServiceClient {
             throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
         }  
 		return json2;
+	}
+    
+    /**
+     * webservice请求
+     * @param url 请求url
+     * @param method 方法名称
+     * @param jkid 接口编号
+     * @param xml 组装的xml参数
+     * @param userid 用户名
+     * @param userpwd 密码
+     * @param key 秘钥
+     * @return json字符串
+     * @throws Exception
+     */
+    public static String requestWebServiceReturnXml(String url,String method,String jkid,String xml,String userid,String userpwd,String key) throws Exception{
+    	filterInterfaceLog();
+    	String base64Str = "";
+    	String logXml = xml;
+		String respXml = "";
+		String respJson = "";
+		JSONObject json = new JSONObject();
+		JSONObject json2 = new JSONObject();
+		String srcs = DESCorder.encryptModeToString(xml,key);
+		try {  
+            Service service = new Service();
+            Call call = (Call) service.createCall() ;
+            call.setTargetEndpointAddress(url) ;  
+            call.setOperationName(method) ;//ws方法名  
+            call.setTimeout(30000);
+            //一个输入参数,如果方法有多个参数,复制多条该代码即可,参数传入下面new Object后面
+            call.addParameter("userid",org.apache.axis.encoding.XMLType.XSD_DATE,javax.xml.rpc.ParameterMode.IN);
+            call.addParameter("userpwd",org.apache.axis.encoding.XMLType.XSD_DATE,javax.xml.rpc.ParameterMode.IN);
+            call.addParameter("jkid",org.apache.axis.encoding.XMLType.XSD_DATE,javax.xml.rpc.ParameterMode.IN);
+            call.addParameter("srcs",org.apache.axis.encoding.XMLType.XSD_DATE,javax.xml.rpc.ParameterMode.IN);
+            call.setReturnType(XMLType.XSD_STRING);
+            call.setUseSOAPAction(true);
+            
+            respXml = (String) call.invoke(new Object[]{userid,userpwd,jkid,srcs});
+            
+        /*    MessageContext messageContext = call.getMessageContext();
+            Message reqMsg = messageContext.getRequestMessage();
+            logger.info("请求报文："+reqMsg.getSOAPPartAsString());
+            
+            logger.info("返回报文:"+respXml);*/
+            
+            //解密
+            Document doc= DocumentHelper.parseText(respXml);
+            Xml2Json.dom4j2Json(doc.getRootElement(),json);
+            
+            //返回的数据
+            String msg = (String) json.get("msg");
+            //返回的状态码
+            //解密
+        	respJson = DESCorder.decryptMode(msg,key, "utf-8");
+        	return respJson;
+        } catch (Exception e) {
+        	logger.error("webservice调用错误,url=" + url + ",method=" + method + ",jkid=" + jkid + ",xml=" + xml + ",userid=" + userid + ",userpwd=" + userpwd + ",key=" + key,e);
+            throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
+        }
 	}
 	
     
