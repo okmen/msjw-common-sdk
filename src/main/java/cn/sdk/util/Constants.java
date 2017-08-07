@@ -334,8 +334,8 @@ public class Constants {
 		ROLE_LEVEL_LIST = Arrays.asList(
 				new DownValue<Integer>(ROLE_LEVEL_1, "分局编辑"),
 				new DownValue<Integer>(ROLE_LEVEL_2, "分局审核"),
-				new DownValue<Integer>(ROLE_LEVEL_3, "总局编辑"),
-				new DownValue<Integer>(ROLE_LEVEL_4, "总局审核")
+				new DownValue<Integer>(ROLE_LEVEL_3, "市局编辑"),
+				new DownValue<Integer>(ROLE_LEVEL_4, "市局审核")
 				);
 	}
 	
