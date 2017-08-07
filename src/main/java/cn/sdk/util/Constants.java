@@ -100,6 +100,16 @@ public class Constants {
 	public static final int SEX_WOMAN = 2;
 	
 	/**
+	 * 显示 
+	 */
+	public static final int SHOW_TRUE = 1;
+	
+	/**
+	 * 不显示
+	 */
+	public static final int SHOW_FALSE = 0;
+	
+	/**
 	 * 默认分页
 	 */
 	public static final String PAGE_DEFAULT = "1";
@@ -291,8 +301,11 @@ public class Constants {
 	public static List<DownValue<String>> LEVEL_LIST = new ArrayList<DownValue<String>>();
 	public static List<DownValue<String>> VIEW_RANGE_LIST = new ArrayList<DownValue<String>>();
 	public static List<DownValue<Integer>> ROLE_LEVEL_LIST = new ArrayList<DownValue<Integer>>();
-	
+	public static List<DownValue<Integer>> SHOW_LIST = new ArrayList<DownValue<Integer>>();
 	static {
+		SHOW_LIST.add(new DownValue<Integer>(SHOW_TRUE, "显示"));
+		SHOW_LIST.add(new DownValue<Integer>(SHOW_FALSE, "不显示"));
+		
 		SEX_LIST.add(new DownValue<Integer>(SEX_MAN, "男"));
 		SEX_LIST.add(new DownValue<Integer>(SEX_WOMAN, "女"));
 		
