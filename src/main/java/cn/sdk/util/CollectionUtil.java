@@ -52,6 +52,26 @@ public class CollectionUtil<K,V>{
 	 * list 转换成map
 	 * @param list
 	 * @param propertyName
+	 * @param clazz
+	 * @return
+	 * @throws Exception
+	 */
+	public Map<K, V> listToMap(List list,String propertyName,Class<V> clazz) throws Exception{
+		Map<K, V> map = new HashMap<>();
+		if(null == list || 0 == list.size()) return map; 
+		for (Object t : list) {
+			V v = (V)newClazz(clazz);
+			PropertyUtils.copyProperties(v, t);
+			K k = (K)FiledUtil.getProperty(t, propertyName);
+			map.put(k, v);
+		}
+		return map;
+	}
+	
+	/**
+	 * list 转换成map
+	 * @param list
+	 * @param propertyName
 	 * @return
 	 * @throws Exception
 	 */
