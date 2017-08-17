@@ -25,4 +25,8 @@ public class RequestPage implements Serializable{
 		this.page = (page-1) * pageSize;
 		this.pageSize = pageSize;
 	}
+	@Override
+	public String toString() {
+		return "RequestPage [page=" + page + ", pageSize=" + pageSize + "]";
+	}
 }

@@ -61,7 +61,7 @@ public class Constants {
 	/**
 	 * 管理员才有的菜单ID
 	 */
-	public static final List<Integer> ADMIN_MENU_ID_LIST = Arrays.asList(23,25);  
+	public static final List<Integer> ADMIN_MENU_ID_LIST = Arrays.asList(23,25,28);  
 	
 	/**
 	 * 管理员角色id
