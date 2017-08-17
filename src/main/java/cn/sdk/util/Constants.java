@@ -301,7 +301,13 @@ public class Constants {
 	public static List<DownValue<String>> LEVEL_LIST = new ArrayList<DownValue<String>>();
 	public static List<DownValue<String>> VIEW_RANGE_LIST = new ArrayList<DownValue<String>>();
 	public static List<DownValue<Integer>> ROLE_LEVEL_LIST = new ArrayList<DownValue<Integer>>();
+
 	public static List<DownValue<Integer>> SHOW_LIST = new ArrayList<DownValue<Integer>>();
+
+	//微博错误码
+	public static List<DownValue<String>> WEIBO_ERROR_LIST = new ArrayList<DownValue<String>>();
+	
+
 	static {
 		SHOW_LIST.add(new DownValue<Integer>(SHOW_TRUE, "显示"));
 		SHOW_LIST.add(new DownValue<Integer>(SHOW_FALSE, "不显示"));
@@ -336,6 +342,31 @@ public class Constants {
 				new DownValue<Integer>(ROLE_LEVEL_2, "分局审核"),
 				new DownValue<Integer>(ROLE_LEVEL_3, "市局编辑"),
 				new DownValue<Integer>(ROLE_LEVEL_4, "市局审核")
+				);
+		
+		WEIBO_ERROR_LIST = Arrays.asList(
+				new DownValue<String>("10001", "系统错误"),
+				new DownValue<String>("10002", "服务暂停"),
+				new DownValue<String>("10003", "远程服务错误"),
+				new DownValue<String>("10004", "IP限制不能请求该资源"),
+				new DownValue<String>("10005", "该资源需要appkey拥有授权"),
+				new DownValue<String>("10006", "缺少source (appkey) 参数"),
+				new DownValue<String>("10007", "不支持的MediaType (%s)"),
+				new DownValue<String>("10008", "参数错误，请参考API文档"),
+				new DownValue<String>("10009", "任务过多，系统繁忙"),
+				new DownValue<String>("10010", "任务超时"),
+				new DownValue<String>("10011", "RPC错误"),
+				new DownValue<String>("10012", "非法请求"),
+				new DownValue<String>("10013", "不合法的微博用户"),
+				new DownValue<String>("10014", "应用的接口访问权限受限"),
+				new DownValue<String>("10016", "缺失必选参数 (%s)，请参考API文档"),
+				new DownValue<String>("10017", "参数值非法，需为 (%s)，实际为 (%s)，请参考API文档"),
+				new DownValue<String>("10018", "请求长度超过限制"),
+				new DownValue<String>("10020", "接口不存在"),
+				new DownValue<String>("10021", "请求的HTTP METHOD不支持，请检查是否选择了正确的POST/GET方式"),
+				new DownValue<String>("10022", "IP请求频次超过上限"),
+				new DownValue<String>("10023", "用户请求频次超过上限"),
+				new DownValue<String>("10024", "用户请求特殊接口 (%s) 频次超过上限")
 				);
 	}
 	
