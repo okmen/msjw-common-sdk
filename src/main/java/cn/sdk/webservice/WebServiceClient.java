@@ -363,7 +363,7 @@ public class WebServiceClient {
             //返回的状态码
             //解密
         	respJson = DESCorder.decryptMode(msg,key, "utf-8");
-        	System.out.println(respJson);
+        	//System.out.println(respJson);
         	
             Document doc1 = DocumentHelper.parseText(respJson);
         	Xml2Json.dom4j2Json(doc1.getRootElement(),json2);
@@ -567,7 +567,7 @@ public class WebServiceClient {
 			call.addParameter("in2", XMLType.XSD_STRING, ParameterMode.IN);
 			call.addParameter("in3", XMLType.XSD_STRING, ParameterMode.IN);
 			call.setReturnType(XMLType.XSD_STRING);// 返回值类型
-			
+			call.setTimeout(20000);
             long startTime = System.currentTimeMillis();
             respXml = (String) call.invoke(new Object[] {jkId,account,password,DESCorder.encryptAES(data)});// 调用方法
             long endTime = System.currentTimeMillis();
