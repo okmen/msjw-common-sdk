@@ -516,7 +516,7 @@ public class WebServiceClient {
              long result = (endTime - startTime) / 1000;
              if(result >= 20){
              	logger.error(method + "车管所接口方法执行耗时:" + result + " 秒");
-             	throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
+             	throw new WebServiceException(Integer.valueOf(MsgCode.vehicleAdministrationwebServiceCallError), MsgCode.vehicleAdministrationwebServiceCallMsg);
              }
              /*logger.info("车管所响应的xml：" + respXml);
              Document doc= DocumentHelper.parseText(respXml);
@@ -574,7 +574,7 @@ public class WebServiceClient {
             long result = (endTime - startTime) / 1000;
             if(result >= 20 && !notHaveTime.contains(jkId)){
             	logger.info(jkId + "接口编号执行耗时:" + result + " 秒");
-            	throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
+            	throw new WebServiceException(Integer.valueOf(MsgCode.vehicleAdministrationwebServiceCallError), MsgCode.vehicleAdministrationwebServiceCallMsg);
             }
             if(!jkids.contains(jkId)){
             	logger.info("响应的xml：" + respXml);
