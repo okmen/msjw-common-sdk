@@ -567,7 +567,7 @@ public class WebServiceClient {
 			call.addParameter("in2", XMLType.XSD_STRING, ParameterMode.IN);
 			call.addParameter("in3", XMLType.XSD_STRING, ParameterMode.IN);
 			call.setReturnType(XMLType.XSD_STRING);// 返回值类型
-			call.setTimeout(20000);
+			call.setTimeout(40000);
             long startTime = System.currentTimeMillis();
             respXml = (String) call.invoke(new Object[] {jkId,account,password,DESCorder.encryptAES(data)});// 调用方法
             long endTime = System.currentTimeMillis();
