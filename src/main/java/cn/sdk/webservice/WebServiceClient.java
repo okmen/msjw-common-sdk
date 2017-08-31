@@ -345,12 +345,12 @@ public class WebServiceClient {
     	//url = "http://123.56.180.216:19002/xxfbpt/services/xxfbptservices";
     	String base64Str = "";
     	String logXml = xml;
-    	String reqXml = filterBase64(xml, replaceNodes);
+    	/*String reqXml = filterBase64(xml, replaceNodes);
     	if(StringUtils.isNotBlank(reqXml)){
     		logger.info("请求xml为：" + reqXml);
     	}else{
     		logger.info("请求xml为：" + xml);
-    	}
+    	}*/
     	//logger.info("调试日志：filterImgNodes" + filterImgNodes.toString());
     	/*if(null != filterImgNodes){
     		for(String filterImgNode : filterImgNodes){
