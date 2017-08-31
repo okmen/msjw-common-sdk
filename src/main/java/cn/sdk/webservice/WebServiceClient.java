@@ -2,6 +2,7 @@ package cn.sdk.webservice;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -13,6 +14,7 @@ import org.apache.axis.MessageContext;
 import org.apache.axis.client.Call;
 import org.apache.axis.client.Service;
 import org.apache.axis.encoding.XMLType;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
@@ -39,11 +41,15 @@ public class WebServiceClient {
 	//需要过滤的xml图片节点
 	private static List<String> filterImgNodes = new ArrayList<>();
 	
+	private static List<String> replaceNodes = new ArrayList<>();
+	
 	private static String imgMsg = "";
 	
 	public static final Logger logger= Logger.getLogger(WebServiceClient.class);
 	
-    private WebServiceClient() {
+	private static final String imageNodes = "TCZP,TCGZDZP,FPTP,CSTP,zjtp,wftp,zp,jbtp1,jbtp2,jbtp3,jbtp4,jbtp5,PHOTO6,PHOTO9,PHOTO18,PHOTO16,photo9,photo32,photo33,CZSFZMHMTPA,CZSFZMHMTP,SFZHMA,YQZM,SFZHMB,JZZA,JZZB,PHOTO31,STTJSBB,JSZ,";
+    
+	private WebServiceClient() {
     } 
     
     //使用volatile关键字保其可见性  
@@ -77,6 +83,10 @@ public class WebServiceClient {
 		filterImgNodes.add("jbtp2");
 		filterImgNodes.add("jbtp3");
 		filterImgNodes.add("wftp");
+		
+		replaceNodes.clear();
+		String[] tempImgNodes = imageNodes.split(",");
+		replaceNodes = Arrays.asList(tempImgNodes);
     }
     
     public static WebServiceClient getInstance(){
@@ -99,7 +109,35 @@ public class WebServiceClient {
         return instance;  
     }
     
-    
+    /**
+	 * 过滤xml中的base64图片字符串
+	 * @param base64Str base64字符串
+	 * @param replaceNodes 图片节点 List集合
+	 * @return
+	 */
+	public static String filterBase64(String base64Str,List<String> replaceNodes){
+		String returnStr = "";
+		try {
+			for(int i=0;i<replaceNodes.size();i++){
+				String replaceNode = replaceNodes.get(i);
+				if(base64Str.contains(replaceNode)){
+					int startIndex = base64Str.indexOf(replaceNode);
+					startIndex = startIndex + 1 + replaceNode.length();
+					int endIndex = base64Str.lastIndexOf(replaceNode);
+					endIndex = endIndex - 2;
+					String replaceStr = base64Str.substring(startIndex, endIndex);
+					base64Str = base64Str.replace(replaceStr, "照片base64不打印");
+				}
+				if(i == replaceNodes.size() - 1){
+					returnStr = base64Str;
+				}
+			}
+		} catch (Exception e) {
+			logger.error("过滤xml中的base64图片字符串  错误", e);
+		}
+		return returnStr;
+	}
+	
     /**
      * webservice请求
      * @param url 请求url
@@ -307,7 +345,12 @@ public class WebServiceClient {
     	//url = "http://123.56.180.216:19002/xxfbpt/services/xxfbptservices";
     	String base64Str = "";
     	String logXml = xml;
-    	
+    	String reqXml = filterBase64(xml, replaceNodes);
+    	if(StringUtils.isNotBlank(reqXml)){
+    		logger.info("请求xml为：" + reqXml);
+    	}else{
+    		logger.info("请求xml为：" + xml);
+    	}
     	//logger.info("调试日志：filterImgNodes" + filterImgNodes.toString());
     	/*if(null != filterImgNodes){
     		for(String filterImgNode : filterImgNodes){
