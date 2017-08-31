@@ -47,7 +47,7 @@ public class WebServiceClient {
 	
 	public static final Logger logger= Logger.getLogger(WebServiceClient.class);
 	
-	private static final String imageNodes = "TCZP,TCGZDZP,FPTP,CSTP,zjtp,wftp,zp,jbtp1,jbtp2,jbtp3,jbtp4,jbtp5,PHOTO6,PHOTO9,PHOTO18,PHOTO16,photo9,photo32,photo33,CZSFZMHMTPA,CZSFZMHMTP,SFZHMA,YQZM,SFZHMB,JZZA,JZZB,PHOTO31,STTJSBB,JSZ,";
+	//private static final String imageNodes = "TCZP,TCGZDZP,FPTP,CSTP,zjtp,wftp,zp,jbtp1,jbtp2,jbtp3,jbtp4,jbtp5,PHOTO6,PHOTO9,PHOTO18,PHOTO16,photo9,photo32,photo33,CZSFZMHMTPA,CZSFZMHMTP,SFZHMA,YQZM,SFZHMB,JZZA,JZZB,PHOTO31,STTJSBB,JSZ,";
     
 	private WebServiceClient() {
     } 
@@ -84,9 +84,9 @@ public class WebServiceClient {
 		filterImgNodes.add("jbtp3");
 		filterImgNodes.add("wftp");
 		
-		replaceNodes.clear();
+		/*replaceNodes.clear();
 		String[] tempImgNodes = imageNodes.split(",");
-		replaceNodes = Arrays.asList(tempImgNodes);
+		replaceNodes = Arrays.asList(tempImgNodes);*/
     }
     
     public static WebServiceClient getInstance(){
@@ -345,12 +345,12 @@ public class WebServiceClient {
     	//url = "http://123.56.180.216:19002/xxfbpt/services/xxfbptservices";
     	String base64Str = "";
     	String logXml = xml;
-    	String reqXml = filterBase64(xml, replaceNodes);
+    	/*String reqXml = filterBase64(xml, replaceNodes);
     	if(StringUtils.isNotBlank(reqXml)){
     		logger.info("请求xml为：" + reqXml);
     	}else{
     		logger.info("请求xml为：" + xml);
-    	}
+    	}*/
     	//logger.info("调试日志：filterImgNodes" + filterImgNodes.toString());
     	/*if(null != filterImgNodes){
     		for(String filterImgNode : filterImgNodes){
