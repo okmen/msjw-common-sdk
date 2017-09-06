@@ -306,7 +306,7 @@ public class Constants {
 
 	//微博错误码
 	public static List<DownValue<String>> WEIBO_ERROR_LIST = new ArrayList<DownValue<String>>();
-	
+	public static final String WEBSOCKET_NEXT_AUDIT_MESSAGE =  "您有新的审核!";
 
 	static {
 		SHOW_LIST.add(new DownValue<Integer>(SHOW_TRUE, "显示"));
