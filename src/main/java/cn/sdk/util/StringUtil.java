@@ -32,6 +32,19 @@ import org.apache.commons.lang3.RandomStringUtils;
  * @author xianmao.hexm 2011-5-9 下午02:40:29
  */
 public class StringUtil {
+	
+	public static String getRandNum(int charCount) {
+        String charValue = "";
+        for (int i = 0; i < charCount; i++) {
+            char c = (char) (randomInt(0, 10) + '0');
+            charValue += String.valueOf(c);
+        }
+        return charValue;
+    }
+	public static int randomInt(int from, int to) {
+        Random r = new Random();
+        return from + r.nextInt(to - from);
+    }
     private static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
     private static final Random RANDOM = new Random();
     private static final char[] CHARS = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'q', 'w', 'e', 'r', 't',
