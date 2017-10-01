@@ -12,7 +12,7 @@ import cn.sdk.bean.DownValue;
  * @author Mbenben
  *
  */
-public class SzajConStans {
+public class SzajConStants {
 	public static String SzajRedisKey = "SzajRedisKey_";
 	
 	/**
