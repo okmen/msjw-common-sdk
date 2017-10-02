@@ -86,6 +86,32 @@ public class SzajConStants {
 	 */
 	public static final int BILL_STATUS_2 = 2;
 	
+	/**
+	 * 看房日程状态 -待看房
+	 */
+	public static final int HOUSE_SCHEDULE_WAIT = 1;
+	
+	/**
+	 * 看房日程状态 -已看房
+	 */
+	public static final int HOUSE_SCHEDULE_END = 2;
+	
+	
+	/**
+	 * 个人消息类型 -预约
+	 */
+	public static final int MESSAGE_STATUS_1 = 1;
+	
+	/**
+	 * 个人消息类型 -房屋
+	 */
+	public static final int MESSAGE_STATUS_2 = 2;
+	
+	/**
+	 * 个人消息类型 -账单
+	 */
+	public static final int MESSAGE_STATUS_3 = 3;
+	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> ORDER_STATUS_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> BILL_STATUS_LIST = new ArrayList<DownValue<Integer>>();
