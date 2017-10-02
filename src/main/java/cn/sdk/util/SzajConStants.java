@@ -66,6 +66,17 @@ public class SzajConStants {
 	public static final int ORDER_STATUS_3 = 3;
 	
 	/**
+	 * 订单状态 - 租客已取消
+	 */
+	public static final int ORDER_STATUS_4 = 4;
+	
+	/**
+	 * 订单状态 - 房东已取消
+	 */
+	public static final int ORDER_STATUS_5 = 5;
+	
+	
+	/**
 	 * 账单状态-待付款
 	 */
 	public static final int BILL_STATUS_1 = 1;
@@ -85,7 +96,9 @@ public class SzajConStants {
 		
 		ORDER_STATUS_LIST.add(new DownValue<Integer>(ORDER_STATUS_1, "待付款"));
 		ORDER_STATUS_LIST.add(new DownValue<Integer>(ORDER_STATUS_2, "退款中"));
-		ORDER_STATUS_LIST.add(new DownValue<Integer>(ORDER_STATUS_2, "已完成"));
+		ORDER_STATUS_LIST.add(new DownValue<Integer>(ORDER_STATUS_3, "已完成"));
+		ORDER_STATUS_LIST.add(new DownValue<Integer>(ORDER_STATUS_4, "租客已取消"));
+		ORDER_STATUS_LIST.add(new DownValue<Integer>(ORDER_STATUS_5, "房东已取消"));
 		
 		BILL_STATUS_LIST.add(new DownValue<Integer>(BILL_STATUS_1, "待付款"));
 		BILL_STATUS_LIST.add(new DownValue<Integer>(BILL_STATUS_2, "已付款"));
