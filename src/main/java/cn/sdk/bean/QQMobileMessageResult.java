@@ -1,6 +1,8 @@
 package cn.sdk.bean;
 
-public class QQMobileMessageResult {
+import java.io.Serializable;
+
+public class QQMobileMessageResult implements Serializable{
 	private int result;
 	private String errmsg;
 	private String sid;
