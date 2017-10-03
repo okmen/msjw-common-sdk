@@ -31,6 +31,16 @@ public class SzajConStants {
 	public static final String COM_CODE_BILL_STATUS = "BILL_STATUS";
 	
 	/**
+	 * 用户类型 -房东
+	 */
+	public static final int USER_TYPE_2 = 2;
+	
+	/**
+	 * 用户类型 -租客
+	 */
+	public static final int USER_TYPE_1 = 1;
+	
+	/**
 	 * 是否删除 - 已删除
 	 */
 	public static final int IS_DELETED_YES = 1;
