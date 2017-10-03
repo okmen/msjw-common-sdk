@@ -293,7 +293,21 @@ public class Constants {
 	 */
 	public static final String SUBJECT_PLACE_1000 ="1000";
 	public static final String SUBJECT_PLACE_2000 ="2000";
+	/**
+	 * 我的房源租赁状态
+	 */
+	public static final int HOUSE_PERSON_STATUS_01 =1000;//可出租 
+	public static final int HOUSE_PERSON_STATUS_02 =1001;//不可租 
+	public static final int HOUSE_PERSON_STATUS_03 =1002;//租赁中 
+	public static final int HOUSE_PERSON_STATUS_04 =1003;//已预定
 	
+	/**
+	 * 租客预约看房预约状态
+	 */
+	public static final int HOUSE_APPOINTMENT_STATUS_01 =0;//预约成功 
+	public static final int HOUSE_APPOINTMENT_STATUS_02 =1;//预约中  
+	public static final int HOUSE_APPOINTMENT_STATUS_03 =2;//租客取消
+	public static final int HOUSE_APPOINTMENT_STATUS_04 =3;//房东取消
 	
 	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
