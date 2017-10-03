@@ -121,6 +121,21 @@ public class SzajConStants {
 	 * 个人消息类型 -账单
 	 */
 	public static final int MESSAGE_STATUS_3 = 3;
+	/**
+	 * 我的房源租赁状态
+	 */
+	public static final int HOUSE_PERSON_STATUS_1000 =1000;//可出租 
+	public static final int HOUSE_PERSON_STATUS_1001 =1001;//不可租 
+	public static final int HOUSE_PERSON_STATUS_1002 =1002;//租赁中 
+	public static final int HOUSE_PERSON_STATUS_1003 =1003;//已预定
+	
+	/**
+	 * 租客预约看房预约状态
+	 */
+	public static final int HOUSE_APPOINTMENT_STATUS_0 =0;//预约成功 
+	public static final int HOUSE_APPOINTMENT_STATUS_1 =1;//预约中  
+	public static final int HOUSE_APPOINTMENT_STATUS_2 =2;//租客取消
+	public static final int HOUSE_APPOINTMENT_STATUS_3 =3;//房东取消
 	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> ORDER_STATUS_LIST = new ArrayList<DownValue<Integer>>();
