@@ -121,6 +121,52 @@ public class SzajConStants {
 	 * 个人消息类型 -账单
 	 */
 	public static final int MESSAGE_STATUS_3 = 3;
+	
+	/**
+	 * 合同状态 1 暂存
+	 */
+	public static final int CONTRACT_STATUS_1 = 1;
+	
+	/**
+	 * 合同状态 2 生效
+	 */
+	public static final int CONTRACT_STATUS_2 = 2;
+	
+	/**
+	 * 合同状态 3 废除
+	 */
+	public static final int CONTRACT_STATUS_3 = 3;
+	
+	/**
+	 * 合同签订状态 0：未签 1：租客已签 2：房东已签  3：双方已签
+	 */
+	public static final int CONTRACT_SIGN_STATUS_0 = 0;
+	
+	/**
+	 * 合同签订状态 0：未签 1：租客已签 2：房东已签  3：双方已签
+	 */
+	public static final int CONTRACT_SIGN_STATUS_1 = 1;
+	
+	/**
+	 * 合同签订状态 0：未签 1：租客已签 2：房东已签  3：双方已签
+	 */
+	public static final int CONTRACT_SIGN_STATUS_2 = 2;
+	
+	/**
+	 * 合同签订状态 0：未签 1：租客已签 2：房东已签  3：双方已签
+	 */
+	public static final int CONTRACT_SIGN_STATUS_3 = 3;
+	
+	/**
+	 * 领签合同签订状态 已签署:signed 签署中:signing
+	 */
+	public static final String DOCUMENT_STATUS_SIGNING = "signing";
+	
+	/**
+	 * 领签合同签订状态 已签署:signed 签署中:signing
+	 */
+	public static final String DOCUMENT_STATUS_SIGNED = "signed";
+	
 	/**
 	 * 我的房源租赁状态
 	 */
