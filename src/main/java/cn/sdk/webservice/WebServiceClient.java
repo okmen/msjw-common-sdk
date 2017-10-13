@@ -324,7 +324,6 @@ public class WebServiceClient {
             	logger.info("xml转换成json：" + json2);
             }
         } catch (Exception e) {
-			e.printStackTrace();
         	logger.error("webservice调用错误,url=" + url + ",method=" + method + ",jkid=" + jkid + ",xml=" + xml + ",userid=" + userid + ",userpwd=" + userpwd + ",key=" + key,e);
             throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
         }  
