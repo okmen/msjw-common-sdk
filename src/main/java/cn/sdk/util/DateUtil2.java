@@ -242,11 +242,40 @@ public class DateUtil2 {
 		list.add(lastEndDate);
 		return list;
 	}
+	
+	/**
+	 * 返回后几个月的日期
+	 * 
+	 * @param date
+	 * @param i
+	 * @return
+	 */
+	public static Date getNextMonth(Date date, int i) {
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		calendar.add(Calendar.MONTH, i);// 把日期往后增加一天.整数往后推,负数往前移动
+		return calendar.getTime();
+	}
+	
+	/**
+	 * 返回相差月份
+	 * @param beginTime
+	 * @param endTime
+	 * @return
+	 * @throws ParseException
+	 */
+	public static int getDiffMonth(Date beginDate,Date endDate) throws ParseException {
+		int m = (endDate.getYear() - beginDate.getYear()) * 12 + endDate.getMonth()-beginDate.getMonth();
+		return m;
+	}
 
 	public static void main(String[] args) {
 		//System.out.println(getLastTimeInterval());
 		
 		System.out.println(getTimeInterval(new Date()));
 		System.out.println(getLastTimeInterval());
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		System.out.println(dateFormat.format(getNextMonth(new Date(), 1)));
 	}
 }

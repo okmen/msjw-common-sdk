@@ -66,14 +66,9 @@ public class SzajConStants {
 	public static final int ORDER_STATUS_1 = 1;
 	
 	/**
-	 * 订单状态 - 退款中
+	 * 订单状态 - 已付款
 	 */
 	public static final int ORDER_STATUS_2 = 2;
-	
-	/**
-	 * 订单状态 - 已完成
-	 */
-	public static final int ORDER_STATUS_3 = 3;
 	
 	/**
 	 * 订单状态 - 租客已取消
@@ -183,17 +178,73 @@ public class SzajConStants {
 	public static final int HOUSE_APPOINTMENT_STATUS_2 =2;//租客取消
 	public static final int HOUSE_APPOINTMENT_STATUS_3 =3;//房东取消
 	
+	
+	/**
+	 * 银行账户绑定状态-已绑定
+	 */
+	public static final int USER_BANK_ACCOUNT_STATUS_0 = 0;
+	
+	/**
+	 * 银行账户绑定状态-未绑定
+	 */
+	public static final int USER_BANK_ACCOUNT_STATUS_1 = 1;
+	
+	/**
+	 * 借记卡
+	 */
+	public static final String CARD_TYPE_1 = "1";
+	
+	/**
+	 * 贷记卡
+	 */
+	public static final String CARD_TYPE_2 = "2";
+	
+	/**
+	 * 支付类型 - 订单
+	 */
+	public static final String PAY_TYPE_ORDER = "order";
+	
+	/**
+	 * 支付类型 - 账单
+	 */
+	public static final String PAY_TYPE_BILL = "bill";
+	
+	/**
+	 * 流水清算状态 - 0
+	 */
+	public static final int PAY_FLOW_DISPATCH_0 = 0;
+	
+	/**
+	 * 流水清算状态 - 1
+	 */
+	public static final int PAY_FLOW_DISPATCH_1 = 1;
+	
+	/**
+	 * 押金状态 - 已支付
+	 */
+	public static final int DEPOSIT_MONEY_STATUS_0 = 0;
+	/**
+	 * 押金状态 - 已退还
+	 */
+	public static final int DEPOSIT_MONEY_STATUS_1 = 1;
+	
+	/**
+	 * 押金状态 - 已扣留
+	 */
+	public static final int DEPOSIT_MONEY_STATUS_2 = 2;
+	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> ORDER_STATUS_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> BILL_STATUS_LIST = new ArrayList<DownValue<Integer>>();
+	
+	public static List<DownValue<Integer>> PAY_TYPE_LIST = new ArrayList<DownValue<Integer>>();
 
 	static {
 		SEX_LIST.add(new DownValue<Integer>(SEX_MAN, "男"));
 		SEX_LIST.add(new DownValue<Integer>(SEX_WOMAN, "女"));
 		
 		ORDER_STATUS_LIST.add(new DownValue<Integer>(ORDER_STATUS_1, "待付款"));
-		ORDER_STATUS_LIST.add(new DownValue<Integer>(ORDER_STATUS_2, "退款中"));
-		ORDER_STATUS_LIST.add(new DownValue<Integer>(ORDER_STATUS_3, "已完成"));
+		ORDER_STATUS_LIST.add(new DownValue<Integer>(ORDER_STATUS_2, "已付款"));
 		ORDER_STATUS_LIST.add(new DownValue<Integer>(ORDER_STATUS_4, "租客已取消"));
 		ORDER_STATUS_LIST.add(new DownValue<Integer>(ORDER_STATUS_5, "房东已取消"));
 		
