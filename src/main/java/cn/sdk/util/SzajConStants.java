@@ -233,6 +233,16 @@ public class SzajConStants {
 	 */
 	public static final int DEPOSIT_MONEY_STATUS_2 = 2;
 	
+	/**
+	 * 支付方式 - 微信
+	 */
+	public static final String PAY_WAY_WECHAT = "wechat";
+	
+	/**
+	 * 支付方式 - 银联
+	 */
+	public static final String PAY_WAY_CHINA = "china";
+	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> ORDER_STATUS_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> BILL_STATUS_LIST = new ArrayList<DownValue<Integer>>();
