@@ -10,6 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 public class MsgTemplate {
 	public static String szjj = "szjj"; //深圳交警公众号
 	public static String easternReservation = "easternReservation"; //东部预约短信验证码
+	public static String app = "app";//深圳交警app
 	
 	/**
 	 * 
@@ -25,6 +26,9 @@ public class MsgTemplate {
 			}
 			if(easternReservation.equals(businessType)){
 				msgContent = "短信验证码："+valideteCode+"，您正在使用深圳交警东部预约业务，有效时间为5分钟。";
+			}
+			if (app.equals(businessType)) {
+				msgContent = "短信验证码："+valideteCode+"，您正在使用深圳交警APP业务，有效时间为5分钟。";
 			}
 		}
 		return msgContent;
