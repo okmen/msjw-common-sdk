@@ -186,9 +186,10 @@ public class SzajConStants {
 	 *
 	 */
 	public static final int NEW_ORDER_STATUS_1 =1;//待确认
-	public static final int NEW_ORDER_STATUS_2 =2;//待签约
-	public static final int NEW_ORDER_STATUS_3 =3;//待支付
-	public static final int NEW_ORDER_STATUS_4 =4;//支付成功
+	public static final int NEW_ORDER_STATUS_2 =2;//房东已取消
+	public static final int NEW_ORDER_STATUS_3 =3;//待签约
+	public static final int NEW_ORDER_STATUS_4 =4;//待支付
+	public static final int NEW_ORDER_STATUS_5 =5;//支付成功
 	//public static final int ORDER_STATUS_1 =1;//待确认
 	//public static final int ORDER_STATUS_1 =1;//待确认
 	//public static final int ORDER_STATUS_1 =1;//待确认
