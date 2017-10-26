@@ -274,6 +274,15 @@ public class SzajConStants {
 	 * 支付方式 - 银联
 	 */
 	public static final String PAY_WAY_CHINA = "china";
+	/**
+	 *  当前用户类型-租客
+	 */
+	public static final int THE_USER_TYPE_1 = 1;
+	
+	/**
+	 * 当前用户类型-房东
+	 */
+	public static final int THE_USER_TYPE_2 = 2;
 	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> ORDER_STATUS_LIST = new ArrayList<DownValue<Integer>>();
