@@ -236,13 +236,14 @@ public class Constants {
 	public static final int IS_TOP_YES = 1;
 	
 	/**
-	 * 文章类型  0=图文 1=视屏 2=微博 3=h5
+	 * 文章类型  0=图文 1=视屏 2=微博 3=h5 4=微图文 5=图文混排
 	 */
 	public static final int NEWS_TYPE_TXT = 0; //图文
 	public static final int NEWS_TYPE_VIDEO = 1; //视频
 	public static final int NEWS_TYPE_WEIBO = 2; //微博
 	public static final int NEWS_TYPE_H5 = 3; //h5
 	public static final int NEWS_TYPE_WTW = 4; //微图文
+	public static final int NEWS_TYPE_TWLIST = 5; //图文混排
 	
 	/**
 	 * 个人
