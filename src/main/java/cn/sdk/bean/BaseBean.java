@@ -2,6 +2,9 @@ package cn.sdk.bean;
 
 import java.io.Serializable;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import cn.sdk.util.Gson4DateFormatUtil;
 import cn.sdk.util.GsonBuilderUtil;
 import cn.sdk.util.GsonUtil;
