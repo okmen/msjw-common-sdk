@@ -205,6 +205,7 @@ public class SzajConStants {
 	public static final int HOUSE_PERSON_STATUS_1001 =1001;//不可租 
 	public static final int HOUSE_PERSON_STATUS_1002 =1002;//租赁中 
 	public static final int HOUSE_PERSON_STATUS_1003 =1003;//已预定
+	public static final int HOUSE_PERSON_STATUS_1004 =1004;//已下架
 	
 	/**
 	 * 租客预约看房预约状态
