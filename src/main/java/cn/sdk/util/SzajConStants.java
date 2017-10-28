@@ -229,12 +229,12 @@ public class SzajConStants {
 	/**
 	 * 借记卡
 	 */
-	public static final String CARD_TYPE_1 = "1";
+	public static final int CARD_TYPE_1 = 1;
 	
 	/**
 	 * 贷记卡
 	 */
-	public static final String CARD_TYPE_2 = "2";
+	public static final int CARD_TYPE_2 = 2;
 	
 	/**
 	 * 支付类型 - 订单
@@ -294,7 +294,7 @@ public class SzajConStants {
 	public static List<DownValue<Integer>> BILL_STATUS_LIST = new ArrayList<DownValue<Integer>>();
 	
 	public static List<DownValue<Integer>> PAY_TYPE_LIST = new ArrayList<DownValue<Integer>>();
-
+	public static List<DownValue<Integer>> CARD_TYPE_LIST = new ArrayList<DownValue<Integer>>();
 	static {
 		SEX_LIST.add(new DownValue<Integer>(SEX_MAN, "男"));
 		SEX_LIST.add(new DownValue<Integer>(SEX_WOMAN, "女"));
@@ -307,6 +307,9 @@ public class SzajConStants {
 		BILL_STATUS_LIST.add(new DownValue<Integer>(BILL_STATUS_0, "未生成账单"));
 		BILL_STATUS_LIST.add(new DownValue<Integer>(BILL_STATUS_1, "等待支付"));
 		BILL_STATUS_LIST.add(new DownValue<Integer>(BILL_STATUS_2, "已支付"));
+		
+		CARD_TYPE_LIST.add(new DownValue<Integer>(CARD_TYPE_1, "储蓄卡"));
+		CARD_TYPE_LIST.add(new DownValue<Integer>(CARD_TYPE_2, "信用卡"));
 	}
 	
 	public static <T> Map<T, String> listToMap(List<DownValue<T>> list){
