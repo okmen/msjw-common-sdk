@@ -80,6 +80,10 @@ public class SzajConStants {
 	 */
 	public static final int ORDER_STATUS_5 = 5;
 	
+	/**
+	 * 账单状态-未生成账单
+	 */
+	public static final int BILL_STATUS_0 = 0;
 	
 	/**
 	 * 账单状态-待付款
@@ -299,8 +303,9 @@ public class SzajConStants {
 		ORDER_STATUS_LIST.add(new DownValue<Integer>(ORDER_STATUS_4, "租客已取消"));
 		ORDER_STATUS_LIST.add(new DownValue<Integer>(ORDER_STATUS_5, "房东已取消"));
 		
-		BILL_STATUS_LIST.add(new DownValue<Integer>(BILL_STATUS_1, "待付款"));
-		BILL_STATUS_LIST.add(new DownValue<Integer>(BILL_STATUS_2, "已付款"));
+		BILL_STATUS_LIST.add(new DownValue<Integer>(BILL_STATUS_0, "未生成账单"));
+		BILL_STATUS_LIST.add(new DownValue<Integer>(BILL_STATUS_1, "等待支付"));
+		BILL_STATUS_LIST.add(new DownValue<Integer>(BILL_STATUS_2, "已支付"));
 	}
 	
 	public static <T> Map<T, String> listToMap(List<DownValue<T>> list){
