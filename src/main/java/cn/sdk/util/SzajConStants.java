@@ -122,17 +122,17 @@ public class SzajConStants {
 	public static final int MESSAGE_STATUS_3 = 3;
 	
 	/**
-	 * 合同状态 1 暂存
+	 * 合同状态 1 暂存 房东已签，租客待签
 	 */
 	public static final int CONTRACT_STATUS_1 = 1;
 	
 	/**
-	 * 合同状态 2 生效
+	 * 合同状态 2 生效 双方已签
 	 */
 	public static final int CONTRACT_STATUS_2 = 2;
 	
 	/**
-	 * 合同状态 3 废除
+	 * 合同状态 3 废除 解除合同
 	 */
 	public static final int CONTRACT_STATUS_3 = 3;
 	
@@ -189,11 +189,11 @@ public class SzajConStants {
 	 *		已完成	12
 	 *
 	 */
-	public static final int NEW_ORDER_STATUS_1 =1;//待确认
+	public static final int NEW_ORDER_STATUS_1 =1;//租客提交，待房东确认
 	public static final int NEW_ORDER_STATUS_2 =2;//房东已取消
-	public static final int NEW_ORDER_STATUS_3 =3;//待签约
-	public static final int NEW_ORDER_STATUS_4 =4;//待支付
-	public static final int NEW_ORDER_STATUS_5 =5;//支付成功
+	public static final int NEW_ORDER_STATUS_3 =3;//房东已签约，待租客签约
+	public static final int NEW_ORDER_STATUS_4 =4;//待租客支付
+	public static final int NEW_ORDER_STATUS_5 =5;//租客支付成功
 	//public static final int ORDER_STATUS_1 =1;//待确认
 	//public static final int ORDER_STATUS_1 =1;//待确认
 	//public static final int ORDER_STATUS_1 =1;//待确认
