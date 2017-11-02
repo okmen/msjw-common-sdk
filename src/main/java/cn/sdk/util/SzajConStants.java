@@ -296,6 +296,7 @@ public class SzajConStants {
 	
 	public static List<DownValue<Integer>> PAY_TYPE_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> CARD_TYPE_LIST = new ArrayList<DownValue<Integer>>();
+	public static List<DownValue<String>> PAY_WAY_LIST = new ArrayList<DownValue<String>>();
 	static {
 		SEX_LIST.add(new DownValue<Integer>(SEX_MAN, "男"));
 		SEX_LIST.add(new DownValue<Integer>(SEX_WOMAN, "女"));
@@ -311,6 +312,9 @@ public class SzajConStants {
 		
 		CARD_TYPE_LIST.add(new DownValue<Integer>(CARD_TYPE_1, "储蓄卡"));
 		CARD_TYPE_LIST.add(new DownValue<Integer>(CARD_TYPE_2, "信用卡"));
+		
+		PAY_WAY_LIST.add(new DownValue<String>(PAY_WAY_CHINA, "微信支付"));
+		PAY_WAY_LIST.add(new DownValue<String>(PAY_WAY_CHINA, "银联支付"));
 	}
 	
 	public static <T> Map<T, String> listToMap(List<DownValue<T>> list){
