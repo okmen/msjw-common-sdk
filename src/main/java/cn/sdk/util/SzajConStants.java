@@ -189,6 +189,7 @@ public class SzajConStants {
 	 *		已完成	12
 	 *
 	 */
+	public static final int NEW_ORDER_STATUS_0 =0;//续租生成订单，带租客确认
 	public static final int NEW_ORDER_STATUS_1 =1;//租客提交，待房东确认
 	public static final int NEW_ORDER_STATUS_2 =2;//房东已取消
 	public static final int NEW_ORDER_STATUS_3 =3;//房东已签约，待租客签约
