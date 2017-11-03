@@ -61,26 +61,6 @@ public class SzajConStants {
 	public static final int SEX_WOMAN = 2;
 	
 	/**
-	 * 订单状态 - 待付款
-	 */
-	public static final int ORDER_STATUS_1 = 1;
-	
-	/**
-	 * 订单状态 - 已付款
-	 */
-	public static final int ORDER_STATUS_2 = 2;
-	
-	/**
-	 * 订单状态 - 租客已取消
-	 */
-	public static final int ORDER_STATUS_4 = 4;
-	
-	/**
-	 * 订单状态 - 房东已取消
-	 */
-	public static final int ORDER_STATUS_5 = 5;
-	
-	/**
 	 * 账单状态-未生成账单
 	 */
 	public static final int BILL_STATUS_0 = 0;
@@ -189,15 +169,30 @@ public class SzajConStants {
 	 *		已完成	12
 	 *
 	 */
-	public static final int NEW_ORDER_STATUS_0 =0;//续租生成订单，带租客确认
-	public static final int NEW_ORDER_STATUS_1 =1;//租客提交，待房东确认
-	public static final int NEW_ORDER_STATUS_2 =2;//房东已取消
-	public static final int NEW_ORDER_STATUS_3 =3;//房东已签约，待租客签约
-	public static final int NEW_ORDER_STATUS_4 =4;//待租客支付
-	public static final int NEW_ORDER_STATUS_5 =5;//租客支付成功
-	//public static final int ORDER_STATUS_1 =1;//待确认
-	//public static final int ORDER_STATUS_1 =1;//待确认
-	//public static final int ORDER_STATUS_1 =1;//待确认
+	/**
+	 * 续租生成订单，带租客确认
+	 */
+	public static final int NEW_ORDER_STATUS_0 =0;
+	/**
+	 * 租客提交，待房东确认
+	 */
+	public static final int NEW_ORDER_STATUS_1 =1;
+	/**
+	 * 房东已取消
+	 */
+	public static final int NEW_ORDER_STATUS_2 =2;
+	/**
+	 * 房东已签约，待租客签约
+	 */
+	public static final int NEW_ORDER_STATUS_3 =3;
+	/**
+	 * 待租客支付
+	 */
+	public static final int NEW_ORDER_STATUS_4 =4;
+	/**
+	 * 租客支付成功
+	 */
+	public static final int NEW_ORDER_STATUS_5 =5;
 	
 	/**
 	 * 我的房源租赁状态
@@ -300,11 +295,6 @@ public class SzajConStants {
 	static {
 		SEX_LIST.add(new DownValue<Integer>(SEX_MAN, "男"));
 		SEX_LIST.add(new DownValue<Integer>(SEX_WOMAN, "女"));
-		
-		ORDER_STATUS_LIST.add(new DownValue<Integer>(ORDER_STATUS_1, "待付款"));
-		ORDER_STATUS_LIST.add(new DownValue<Integer>(ORDER_STATUS_2, "已付款"));
-		ORDER_STATUS_LIST.add(new DownValue<Integer>(ORDER_STATUS_4, "租客已取消"));
-		ORDER_STATUS_LIST.add(new DownValue<Integer>(ORDER_STATUS_5, "房东已取消"));
 		
 		BILL_STATUS_LIST.add(new DownValue<Integer>(BILL_STATUS_0, "未生成账单"));
 		BILL_STATUS_LIST.add(new DownValue<Integer>(BILL_STATUS_1, "等待支付"));
