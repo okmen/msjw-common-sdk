@@ -193,6 +193,10 @@ public class SzajConStants {
 	 * 租客支付成功
 	 */
 	public static final int NEW_ORDER_STATUS_5 =5;
+	/**
+	 * 订单过期
+	 */
+	public static final int NEW_ORDER_STATUS_6 =6;
 	
 	/**
 	 * 我的房源租赁状态
