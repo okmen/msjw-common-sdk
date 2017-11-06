@@ -297,12 +297,12 @@ public class SzajConStants {
 	/**
 	 * 资讯状态-发布
 	 */
-	public static final int NEW_MSG_STATUS_2=1000;
+	public static final int NEW_MSG_STATUS_2=1001;
 	
 	/**
 	 * 资讯状态-下架
 	 */
-	public static final int NEW_MSG_STATUS_3=1000;
+	public static final int NEW_MSG_STATUS_3=1002;
 	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> ORDER_STATUS_LIST = new ArrayList<DownValue<Integer>>();
