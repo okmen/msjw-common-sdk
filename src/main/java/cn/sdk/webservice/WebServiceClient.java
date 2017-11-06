@@ -1,6 +1,7 @@
 package cn.sdk.webservice;
 
 import java.net.URL;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -473,6 +474,7 @@ public class WebServiceClient {
 		try {  
             Service service = new Service();
             Call call = (Call) service.createCall() ;
+            call.setTimeout(30000);
             call.setTargetEndpointAddress(url) ;  
             call.setOperationName(method) ;//ws方法名  
             //一个输入参数,如果方法有多个参数,复制多条该代码即可,参数传入下面new Object后面
@@ -484,13 +486,13 @@ public class WebServiceClient {
             call.setUseSOAPAction(true);
             
             long startTime = System.currentTimeMillis();
-            respXml = (String) call.invoke(new Object[]{userid,userpwd,jkid,srcs});
+			respXml = (String) call.invoke(new Object[]{userid,userpwd,jkid,srcs});
             long endTime = System.currentTimeMillis();
             long result = (endTime - startTime) / 1000;
-            if(result >= 30 && !notHaveTime.contains(jkid)){
-            	logger.info(jkid + "接口编号执行耗时:" + result + " 秒");
-            	throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
-            }
+//            if(result >= 30 && !notHaveTime.contains(jkid)){
+//            	logger.info(jkid + "接口编号执行耗时:" + result + " 秒");
+//            	throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
+//            }
             if(!jkids.contains(jkid)){
             	logger.info("响应的xml：" + respXml);
             }
