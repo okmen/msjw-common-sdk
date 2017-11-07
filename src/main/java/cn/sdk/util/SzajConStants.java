@@ -117,6 +117,18 @@ public class SzajConStants {
 	public static final int CONTRACT_STATUS_3 = 3;
 	
 	/**
+	 * 合同状态 4 续约中
+	 */
+	public static final int CONTRACT_STATUS_4 = 4;
+	
+	/**
+	 * 合同状态 5 退组中
+	 */
+	public static final int CONTRACT_STATUS_5 = 5;
+	
+	
+	
+	/**
 	 * 合同签订状态 0：未签 1：租客已签 2：房东已签  3：双方已签
 	 */
 	public static final int CONTRACT_SIGN_STATUS_0 = 0;
