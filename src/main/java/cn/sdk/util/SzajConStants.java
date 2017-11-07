@@ -147,29 +147,6 @@ public class SzajConStants {
 	public static final String DOCUMENT_STATUS_SIGNED = "signed";
 	
 	/**
-	 * 订单状态
-	 * 1.等待公寓确认
-	 * 2.等待房东确认
-	 * 3.待付款（房东已确认）
-	 * 4.待付款（公寓已确认）
-	 * 5.待签约
-	 * 6.支付成功
-	 * 	            订单状态	                              合同状态
-	 *	租客	等待公寓确认  1	                  待房东确认  1
-	 *		等待房东确认  2	                  待续租  4
-	 *		待付款（房东已确认）3	      待退租 5
-	 *		待付款（公寓已确认）4	      待签约
-	 *		待签约	5
-	 *		支付成功	6
-	 *	房东	待处理	7                              待租客签约 2
-	 *		待租客签约	8                              待支付 3
-	 *		待租客支付	9                              待续租
-	 *		待租客续约	10                           待退租
-	 *		待支付	11
-	 *		已完成	12
-	 *
-	 */
-	/**
 	 * 续租生成订单，带租客确认
 	 */
 	public static final int NEW_ORDER_STATUS_0 =0;
@@ -324,6 +301,7 @@ public class SzajConStants {
 		
 		PAY_WAY_LIST.add(new DownValue<String>(PAY_WAY_CHINA, "微信支付"));
 		PAY_WAY_LIST.add(new DownValue<String>(PAY_WAY_CHINA, "银联支付"));
+		
 	}
 	
 	public static <T> Map<T, String> listToMap(List<DownValue<T>> list){
