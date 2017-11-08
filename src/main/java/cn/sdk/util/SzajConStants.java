@@ -293,6 +293,30 @@ public class SzajConStants {
 	 */
 	public static final int NEW_MSG_STATUS_3=1002;
 	
+	/**
+	 * 流水清算状态 - 未清算
+	 */
+	public static final int WECHATPAY_DISPATCH_STATUS_0 = 0;
+	/**
+	 * 流水清算状态 - 清算到零钱成功
+	 */
+	public static final int WECHATPAY_DISPATCH_STATUS_1 = 1;
+	
+	/**
+	 * 流水清算状态  - 业务数据执行受阻,原因查看reason字段
+	 */
+	public static final int WECHATPAY_DISPATCH_STATUS_2 = 2;
+	
+	/**
+	 * 流水清算状态  - 已执行清算，但微信未成功受理,原因查看reason字段
+	 */
+	public static final int WECHATPAY_DISPATCH_STATUS_3 = 3;
+	
+	/**
+	 * 流水清算状态  - 清算成功,但未成功记录清算记录,需人工恢复清算记录
+	 */
+	public static final int WECHATPAY_DISPATCH_STATUS_4 = 4;
+	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> ORDER_STATUS_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> BILL_STATUS_LIST = new ArrayList<DownValue<Integer>>();
