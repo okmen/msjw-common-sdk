@@ -300,6 +300,9 @@ public class SzajConStants {
 	public static List<DownValue<Integer>> PAY_TYPE_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> CARD_TYPE_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<String>> PAY_WAY_LIST = new ArrayList<DownValue<String>>();
+	
+	public static List<DownValue<Integer>> ORDER_RENTER_STATUS_LIST = new ArrayList<DownValue<Integer>>();
+	public static List<DownValue<Integer>> ORDER_LANDLORD_STATUS_LIST = new ArrayList<DownValue<Integer>>();
 	static {
 		SEX_LIST.add(new DownValue<Integer>(SEX_MAN, "男"));
 		SEX_LIST.add(new DownValue<Integer>(SEX_WOMAN, "女"));
@@ -313,6 +316,18 @@ public class SzajConStants {
 		
 		PAY_WAY_LIST.add(new DownValue<String>(PAY_WAY_CHINA, "微信支付"));
 		PAY_WAY_LIST.add(new DownValue<String>(PAY_WAY_CHINA, "银联支付"));
+		
+		ORDER_RENTER_STATUS_LIST.add(new DownValue<Integer>(NEW_ORDER_STATUS_1, "待房东确认"));
+		ORDER_RENTER_STATUS_LIST.add(new DownValue<Integer>(NEW_ORDER_STATUS_3, "待签约"));
+		ORDER_RENTER_STATUS_LIST.add(new DownValue<Integer>(NEW_ORDER_STATUS_4, "待支付"));
+		ORDER_RENTER_STATUS_LIST.add(new DownValue<Integer>(NEW_ORDER_STATUS_5, "已完成"));
+		ORDER_RENTER_STATUS_LIST.add(new DownValue<Integer>(NEW_ORDER_STATUS_99, "已关闭"));
+		
+		ORDER_LANDLORD_STATUS_LIST.add(new DownValue<Integer>(NEW_ORDER_STATUS_1, "待确认"));
+		ORDER_LANDLORD_STATUS_LIST.add(new DownValue<Integer>(NEW_ORDER_STATUS_3, "待租客签约"));
+		ORDER_LANDLORD_STATUS_LIST.add(new DownValue<Integer>(NEW_ORDER_STATUS_4, "待租客支付"));
+		ORDER_LANDLORD_STATUS_LIST.add(new DownValue<Integer>(NEW_ORDER_STATUS_5, "已完成"));
+		ORDER_LANDLORD_STATUS_LIST.add(new DownValue<Integer>(NEW_ORDER_STATUS_99, "已关闭"));
 		
 	}
 	
