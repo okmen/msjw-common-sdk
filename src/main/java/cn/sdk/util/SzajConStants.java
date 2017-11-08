@@ -122,7 +122,7 @@ public class SzajConStants {
 	public static final int CONTRACT_STATUS_4 = 4;
 	
 	/**
-	 * 合同状态 5 退组中
+	 * 合同状态 5 退租中
 	 */
 	public static final int CONTRACT_STATUS_5 = 5;
 	
@@ -163,11 +163,11 @@ public class SzajConStants {
 	 */
 	public static final int NEW_ORDER_STATUS_0 =0;
 	/**
-	 * 租客提交，待房东确认
+	 * 租客提交，待房东确认  (待处理)
 	 */
 	public static final int NEW_ORDER_STATUS_1 =1;
 	/**
-	 * 房东已取消
+	 * 房东已取消 
 	 */
 	public static final int NEW_ORDER_STATUS_2 =2;
 	/**
@@ -183,9 +183,9 @@ public class SzajConStants {
 	 */
 	public static final int NEW_ORDER_STATUS_5 =5;
 	/**
-	 * 订单过期
+	 * 订单关闭
 	 */
-	public static final int NEW_ORDER_STATUS_6 =6;
+	public static final int NEW_ORDER_STATUS_99 =99;
 	
 	/**
 	 * 我的房源租赁状态
