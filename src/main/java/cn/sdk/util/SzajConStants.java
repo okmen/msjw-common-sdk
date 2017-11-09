@@ -51,6 +51,11 @@ public class SzajConStants {
 	public static final int IS_DELETED_NO = 0;
 	
 	/**
+	 * 性别 未知 
+	 */
+	public static final int SEX_UNKNOWN = 0;
+	
+	/**
 	 * 性别 男 
 	 */
 	public static final int SEX_MAN = 1;
@@ -349,6 +354,7 @@ public class SzajConStants {
 	static {
 		SEX_LIST.add(new DownValue<Integer>(SEX_MAN, "男"));
 		SEX_LIST.add(new DownValue<Integer>(SEX_WOMAN, "女"));
+		SEX_LIST.add(new DownValue<Integer>(SEX_UNKNOWN, "未知"));
 		
 		BILL_STATUS_LIST.add(new DownValue<Integer>(BILL_STATUS_0, "未生成账单"));
 		BILL_STATUS_LIST.add(new DownValue<Integer>(BILL_STATUS_1, "等待支付"));
