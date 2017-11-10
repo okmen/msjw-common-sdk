@@ -188,6 +188,21 @@ public class SzajConStants {
 	public static final int NEW_ORDER_STATUS_99 =99;
 	
 	/**
+	 *  订单类别 1 普通签约订单
+	 */
+	public static final int ORDER_TYPE_1 = 1;
+	
+	/**
+	 *  订单类别 2 续租订单
+	 */
+	public static final int ORDER_TYPE_2 = 2;
+	
+	/**
+	 *  订单类别 3 退租订单
+	 */
+	public static final int ORDER_TYPE_3 = 3;
+	
+	/**
 	 * 我的房源租赁状态
 	 */
 	public static final int HOUSE_PERSON_STATUS_1000 =1000;//可出租 
@@ -277,6 +292,7 @@ public class SzajConStants {
 	 * 当前用户类型-房东
 	 */
 	public static final int THE_USER_TYPE_2 = 2;
+	
 	
 	/**
 	 * 资讯状态-待发布
