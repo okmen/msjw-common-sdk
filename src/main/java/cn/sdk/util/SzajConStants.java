@@ -13,6 +13,12 @@ import cn.sdk.bean.DownValue;
  *
  */
 public class SzajConStants {
+	
+	/**
+	 * 房源状态key
+	 */
+	public static String ORDER_LOCK_HOUSE_KEY = "ORDER_LOCK_HOUSE_";
+	public static String ORDER_SIGN_HOUSE_KEY = "ORDER_SIGN_HOUSE_";
 	public static String SzajRedisKey = "SzajRedisKey_";
 	
 	/**
