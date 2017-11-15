@@ -29,6 +29,7 @@ public class BilinShardedJedisPool {
 				JedisShardInfo shareInfo = new JedisShardInfo(infoParams[1],
 						Integer.parseInt(infoParams[2]), timeout, infoParams[0]);
 				if (StringUtil.isNotBlank(password)) {
+					logger.info("jedis password :"+ password);
                     shareInfo.setPassword(password);
                 }
 				infoList.add(shareInfo);
