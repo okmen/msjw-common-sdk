@@ -25,6 +25,7 @@ public abstract class AbstractExportExcel4SimpleSheet implements IExportFile{
 	protected List<?> list;
 	protected HSSFWorkbook wb = new HSSFWorkbook();
 	protected HSSFSheet sheet;
+	protected HSSFCellStyle cellStyle;
 	public AbstractExportExcel4SimpleSheet(HttpServletResponse response,String fileName, String sheetName,List<?> list) {
 		this.fileName = fileName;
 		this.response = response;
@@ -52,15 +53,17 @@ public abstract class AbstractExportExcel4SimpleSheet implements IExportFile{
 	}
 	
 	public HSSFCellStyle getDefaultStyle(){
-		HSSFCellStyle cellStyle = wb.createCellStyle(); 
-		cellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER); // 指定单元格居中对齐 
-		cellStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);// 指定单元格垂直居中对齐 
-		// 设置单元格字体 
-		HSSFFont font = wb.createFont(); 
-		font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD); 
-		font.setFontName("宋体"); 
-		font.setFontHeight((short) 300); 
-		cellStyle.setFont(font); 
+		if(null == cellStyle){
+			cellStyle = wb.createCellStyle(); 
+			cellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER); // 指定单元格居中对齐 
+			cellStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);// 指定单元格垂直居中对齐 
+			// 设置单元格字体 
+			HSSFFont font = wb.createFont(); 
+			font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD); 
+			font.setFontName("宋体"); 
+			font.setFontHeight((short) 300); 
+			cellStyle.setFont(font); 
+		}
 		return cellStyle;
 	}
 	
