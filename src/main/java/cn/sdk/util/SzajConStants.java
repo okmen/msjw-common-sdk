@@ -344,6 +344,11 @@ public class SzajConStants {
 	 */
 	public static final int WECHATPAY_DISPATCH_STATUS_4 = 4;
 	
+	/**
+	 * 合同费用 275分
+	 */
+	public static final int CONTRACT_FEE = 275;
+	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> ORDER_STATUS_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> BILL_STATUS_LIST = new ArrayList<DownValue<Integer>>();
