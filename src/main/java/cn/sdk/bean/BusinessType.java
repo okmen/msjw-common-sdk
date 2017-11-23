@@ -144,7 +144,6 @@ public class BusinessType {
 	 * 核发临牌
 	 */
 	public static String createVehicleInfo_JD34 = "createVehicleInfo_JD34";
-
 	
 	
 	/**
