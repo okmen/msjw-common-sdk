@@ -12,6 +12,11 @@ import cn.sdk.bean.DownValue;
 public class Constants {
 	
 	/**
+	 * 投票
+	 */
+	public static final String VOTE_LOCK_KEY_ = "VOTE_LOCK_KEY_";
+	
+	/**
 	 * 腾讯地图key
 	 */
 	public static final String QQMAP_KEY = "TFHBZ-SF426-3IDSN-EDKYV-MCVA7-UFBGW";
