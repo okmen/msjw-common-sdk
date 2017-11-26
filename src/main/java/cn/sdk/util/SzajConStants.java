@@ -216,11 +216,27 @@ public class SzajConStants {
 	/**
 	 * 我的房源租赁状态
 	 */
+	public static final int HOUSE_PERSON_STATUS_1111 =1111;//待审核 
 	public static final int HOUSE_PERSON_STATUS_1000 =1000;//可出租 
 	public static final int HOUSE_PERSON_STATUS_1001 =1001;//不可租 
 	public static final int HOUSE_PERSON_STATUS_1002 =1002;//租赁中 
 	public static final int HOUSE_PERSON_STATUS_1003 =1003;//已预定
 	public static final int HOUSE_PERSON_STATUS_1004 =1004;//已下架
+	
+	/**
+	 * 个人房源验真状态
+	 */
+	public static final int CHECK_HOUSE_CODE_1001 = 1001;//待验真
+	public static final int CHECK_HOUSE_CODE_1002 = 1002;//通过 
+	public static final int CHECK_HOUSE_CODE_1003 = 1003;//不通过
+	public static final int CHECK_HOUSE_CODE_1004 = 1004;//验真超时
+	
+	/**
+	 * 委托书检验状态
+	 */
+	public static final int CHECK_PROXY_CODE_1001 = 1001;//待检验
+	public static final int CHECK_PROXY_CODE_1002 = 1002;//通过 
+	public static final int CHECK_PROXY_CODE_1003 = 1003;//不通过
 	
 	/**
 	 * 租客预约看房预约状态
