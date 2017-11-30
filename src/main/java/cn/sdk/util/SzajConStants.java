@@ -7,6 +7,7 @@ import java.util.Map;
 
 import cn.sdk.bean.DownValue;
 
+
 /**
  * 深圳安居项目常量
  * @author Mbenben
@@ -111,6 +112,10 @@ public class SzajConStants {
 	 * 个人消息类型 -账单
 	 */
 	public static final int MESSAGE_STATUS_3 = 3;
+	/**
+	 * 个人消息类型 -合同
+	 */
+	public static final int MESSAGE_STATUS_4 = 4;
 	
 	/**
 	 * 合同状态 1 暂存 房东已签，租客待签
