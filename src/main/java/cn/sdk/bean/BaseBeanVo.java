@@ -13,12 +13,13 @@ import cn.sdk.util.GsonUtil;
  * bean基类
  * @author Mbenben
  */
-public class BaseBean implements Serializable{
+public class BaseBeanVo implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	public String code;
 	public String msg;
 	public Object data;
+	public Integer totle;
 	public String getCode() {
 		return code;
 	}
@@ -61,5 +62,11 @@ public class BaseBean implements Serializable{
 	 */
 	public String toJson4DateFormat(){
 		return Gson4DateFormatUtil.toJson(this);
+	}
+	public Integer getTotle() {
+		return totle;
+	}
+	public void setTotle(Integer totle) {
+		this.totle = totle;
 	}
 }
