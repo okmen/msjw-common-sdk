@@ -370,6 +370,17 @@ public class SzajConStants {
 	 */
 	public static final int CONTRACT_FEE = 275;
 	
+	/**
+	 * 合同备案状态：0  未备案
+	 */
+	public static final int BACKUP_FLAG_0 = 0;
+	
+	/**
+	 * 合同备案状态：1  已备案
+	 */
+	public static final int BACKUP_FLAG_1 = 1;
+	
+	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> ORDER_STATUS_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> BILL_STATUS_LIST = new ArrayList<DownValue<Integer>>();
