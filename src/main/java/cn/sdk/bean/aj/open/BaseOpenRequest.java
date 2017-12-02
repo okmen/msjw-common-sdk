@@ -1,6 +1,8 @@
 package cn.sdk.bean.aj.open;
 
-public class BaseOpenRequest {
+import java.io.Serializable;
+
+public class BaseOpenRequest implements Serializable {
 	protected String sourceId;
 	protected String sign;
 	protected String time;
