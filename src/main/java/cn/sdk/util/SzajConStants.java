@@ -380,6 +380,28 @@ public class SzajConStants {
 	 */
 	public static final int BACKUP_FLAG_1 = 1;
 	
+	/**
+	 * 公寓类别 1集中式
+	 */
+	public static final int HOUSE_TYPE_1 = 1;
+	
+	/**
+	 * 公寓类别 2分散式
+	 */
+	public static final int HOUSE_TYPE_2 = 2;
+	
+	/**
+	 * 主次卧 1主卧
+	 */
+	public static final int HOUSE_RECUMBENT_1 = 1;
+	
+	/**
+	 * 主次卧 2次卧
+	 */
+	public static final int HOUSE_RECUMBENT_2 = 2;
+	
+	
+	
 	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> ORDER_STATUS_LIST = new ArrayList<DownValue<Integer>>();
