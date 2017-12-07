@@ -403,16 +403,16 @@ public class SzajConStants {
 	/**
 	 * 58内容审核状态 0初始化 
 	 */
-	public static final int Audit_Status_58_0 = 0;
+	public static final int AUDIT_STATUS_58_0 = 0;
 	
 	/**
 	 * 58内容审核状态 1通过 
 	 */
-	public static final int Audit_Status_58_1 = 1;
+	public static final int AUDIT_STATUS_58_1 = 1;
 	/**
 	 * 58内容审核状态 2驳回
 	 */
-	public static final int Audit_Status_58_2 = 2;
+	public static final int AUDIT_STATUS_58_2 = 2;
 	
 	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
