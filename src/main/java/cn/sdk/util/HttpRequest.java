@@ -34,8 +34,8 @@ public class HttpRequest {
             conn.setRequestProperty("connection", "Keep-Alive");
             conn.setRequestProperty("user-agent",
                     "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
-            conn.setRequestProperty("Accept", "application/json");
-            conn.setRequestProperty("Content-Type", "application/json");
+           // conn.setRequestProperty("Accept", "application/json");
+//            conn.setRequestProperty("Content-Type", "application/json");
             // 建立实际的连接
             conn.connect();
             // 定义 BufferedReader输入流来读取URL的响应

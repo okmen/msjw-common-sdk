@@ -414,6 +414,25 @@ public class SzajConStants {
 	 */
 	public static final int AUDIT_STATUS_58_2 = 2;
 	
+	/**
+	 * 58风控接口数据类型sceneid 个人房源
+	 */
+	public static final String SCENEID_58_1 = "1";
+	
+	/**
+	 * 58风控接口数据类型sceneid 品牌公寓
+	 */
+	public static final String SCENEID_58_2 = "2";
+	
+	/**
+	 * 58风控接口数据类型sceneid 公租房
+	 */
+	public static final String SCENEID_58_3 = "3";
+	
+	/**
+	 * 58风控接口数据类型sceneid 农民房
+	 */
+	public static final String SCENEID_58_4 = "4";
 	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> ORDER_STATUS_LIST = new ArrayList<DownValue<Integer>>();
