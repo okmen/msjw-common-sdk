@@ -19,7 +19,7 @@ public class Constants {
 	/**
 	 * （测试公众号）民生警务-预约类业务消息推送模板id
 	 */
-	public final static String TEST_BOOK_BUSINESS_TEMPLATE_ID = "Q3Zz5NpKlPKiw0LX6uaJ2xifSfOtdcJhaftEkqJB55U";
+	public final static String TEST_BOOK_BUSINESS_TEMPLATE_ID = "JJ4UCQVHzTBko44HAUq01Il1MCQolmxRG9G7wmUmefg";
 	
 	
 	
