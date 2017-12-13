@@ -447,6 +447,9 @@ public class SzajConStants {
 	
 	public static List<DownValue<Integer>> CONTRACT_STATUS_LIST = new ArrayList<DownValue<Integer>>();
 	
+	// 合同备案状态列表
+	public static List<DownValue<Integer>> BACKUP_FLAG_LIST = new ArrayList<DownValue<Integer>>();
+	
 	static {
 		SEX_LIST.add(new DownValue<Integer>(SEX_MAN, "男"));
 		SEX_LIST.add(new DownValue<Integer>(SEX_WOMAN, "女"));
@@ -479,6 +482,9 @@ public class SzajConStants {
 		CONTRACT_STATUS_LIST.add(new DownValue<Integer>(CONTRACT_STATUS_3, "已废除"));
 		CONTRACT_STATUS_LIST.add(new DownValue<Integer>(CONTRACT_STATUS_4, "续约中"));
 		CONTRACT_STATUS_LIST.add(new DownValue<Integer>(CONTRACT_STATUS_5, "退租中"));
+		
+		BACKUP_FLAG_LIST.add(new DownValue<Integer>(BACKUP_FLAG_1, "已备案"));
+		
 	}
 	
 	public static <T> Map<T, String> listToMap(List<DownValue<T>> list){
