@@ -13,7 +13,7 @@ import cn.sdk.util.GsonUtil;
  * bean基类
  * @author Mbenben
  */
-public class BaseBeanVo implements Serializable{
+public class BaseBeanCount implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	public String code;
