@@ -651,6 +651,19 @@ public abstract class DateUtil {
 
 		return Integer.parseInt(String.valueOf(between_days));
 	}
+	
+	/**
+	 * 指定日期增加几天
+	 * @param date	指定日期
+	 * @param days	正数往后推,负数往前移动
+	 * @return
+	 */
+	public static Date addDays(Date date,Integer days) {
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		calendar.add(Calendar.DATE, days);// 把日期往后增加一天.正数往后推,负数往前移动
+		return calendar.getTime();
+	}
 
 	public static void main(String[] args) throws Exception {
 		System.out.println(getTime(0));

@@ -434,6 +434,18 @@ public class SzajConStants {
 	 */
 	public static final String SCENEID_58_4 = "4";
 	
+	/**
+	 * 数据分析 时间类型  按周
+	 */
+	public static final String DATETYPE_WEEKS = "1";
+	
+	/**
+	 * 数据分析 时间类型  按近30日 月
+	 */
+	public static final String DATETYPE_MONTH = "2";
+	
+	
+	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> ORDER_STATUS_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> BILL_STATUS_LIST = new ArrayList<DownValue<Integer>>();
@@ -454,6 +466,7 @@ public class SzajConStants {
 		SEX_LIST.add(new DownValue<Integer>(SEX_MAN, "男"));
 		SEX_LIST.add(new DownValue<Integer>(SEX_WOMAN, "女"));
 		SEX_LIST.add(new DownValue<Integer>(SEX_UNKNOWN, "未知"));
+		
 		
 		BILL_STATUS_LIST.add(new DownValue<Integer>(BILL_STATUS_0, "未生成账单"));
 		BILL_STATUS_LIST.add(new DownValue<Integer>(BILL_STATUS_1, "等待支付"));
