@@ -1,13 +1,19 @@
 package cn.sdk.bean;
 
+import java.io.IOException;
 import java.io.Serializable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonToken;
+import com.google.gson.stream.JsonWriter;
 
 import cn.sdk.util.Gson4DateFormatUtil;
 import cn.sdk.util.GsonBuilderUtil;
 import cn.sdk.util.GsonUtil;
+import cn.sdk.util.HttpRequest;
 
 /**
  * bean基类
@@ -45,6 +51,43 @@ public class BaseBean implements Serializable{
 	 */
 	public String toJson(){
 		return GsonUtil.toJson(this);
+	}
+	
+	public String toGsonBuilder(){
+		GsonBuilder gsonBuilder = new GsonBuilder().registerTypeAdapter(
+				String.class, new TypeAdapter<String>() {
+
+					@Override
+					public void write(JsonWriter out, String value)
+							throws IOException {
+						if (value == null) {
+							// out.nullValue();
+							out.value(""); // 序列化时将 null 转为 ""
+						} else {
+							out.value(value);
+						}
+					}
+
+					@Override
+					public String read(JsonReader in) throws IOException {
+						if (in.peek() == JsonToken.NULL) {
+							in.nextNull();
+							return null;
+						}
+						// return in.nextString();
+						String str = in.nextString();
+						if (str.equals("")) { // 反序列化时将 "" 转为 null
+							return null;
+						} else {
+							return str;
+						}
+					}
+
+				});
+		gsonBuilder.disableHtmlEscaping();
+		gsonBuilder.setDateFormat("yyyy-MM-dd HH:mm:ss");
+		
+		return gsonBuilder.create().toJson(this);
 	}
 	
 	/**
