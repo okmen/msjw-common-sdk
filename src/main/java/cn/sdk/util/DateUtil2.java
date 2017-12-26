@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
@@ -267,6 +269,19 @@ public class DateUtil2 {
 	public static int getDiffMonth(Date beginDate,Date endDate) throws ParseException {
 		int m = (endDate.getYear() - beginDate.getYear()) * 12 + endDate.getMonth()-beginDate.getMonth();
 		return m;
+	}
+	
+	/**
+	 * @Title: matchDateString 
+	 * 匹配日期格式
+	 * @param  date
+	 * @return boolean 
+	 * @throws
+	 */
+	public static boolean matchDateString(String date){
+		Pattern pattern = Pattern.compile("(\\d){4}-(\\d){2}-(\\d){2}");
+        Matcher matcher = pattern.matcher(date);
+        return matcher.find();
 	}
 
 	public static void main(String[] args) {
