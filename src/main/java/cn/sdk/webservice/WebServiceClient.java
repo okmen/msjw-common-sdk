@@ -492,9 +492,9 @@ public class WebServiceClient {
             	logger.info(jkid + "接口编号执行耗时:" + result + " 秒");
             	throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
             }
-            if(!jkids.contains(jkid)){
+            /*if(!jkids.contains(jkid)){
             	logger.info("响应的xml：" + respXml);
-            }
+            }*/
             //解密
             Document doc= DocumentHelper.parseText(respXml);
             Xml2Json.dom4j2Json(doc.getRootElement(),json);
@@ -505,6 +505,9 @@ public class WebServiceClient {
             //解密
         	respJson = DESCorder.decryptMode(msg,key, "utf-8");
         	//System.out.println(respJson);
+        	if(!jkids.contains(jkid)){
+            	logger.info("响应的xml：" + respJson);
+            }
         	
             Document doc1 = DocumentHelper.parseText(respJson);
         	Xml2Json.dom4j2Json(doc1.getRootElement(),json2);
