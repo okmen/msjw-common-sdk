@@ -16,6 +16,10 @@ import cn.sdk.bean.DownValue;
 public class SzajConStants {
 	
 	/**
+	 * 登录接口
+	 */
+	public final static String LOGIN_METHOD = "/admin/user/login.html";
+	/**
 	 * 房源状态key
 	 */
 	public static String ORDER_LOCK_HOUSE_KEY = "ORDER_LOCK_HOUSE_";
