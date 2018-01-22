@@ -1,6 +1,8 @@
 package cn.sdk.bean;
 
 import java.io.Serializable;
+
+import cn.sdk.util.SzgaMsgCode;
 public class RequestPage implements Serializable{
 	//当前页
 	protected int page;
@@ -21,7 +23,11 @@ public class RequestPage implements Serializable{
 		this.pageSize = pageSize;
 	}
 	
-	public RequestPage(int page,int pageSize){
+	public RequestPage(int page,int pageSize)throws IllegalArgumentException{
+		if(page <= 0 || pageSize < 1){
+			throw new IllegalArgumentException("页数或页码为负，不合法");
+		}
+		
 		this.page = (page-1) * pageSize;
 		this.pageSize = pageSize;
 	}

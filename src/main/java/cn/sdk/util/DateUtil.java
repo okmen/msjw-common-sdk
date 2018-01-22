@@ -26,6 +26,8 @@ public abstract class DateUtil {
 	private static final SimpleDateFormat mFormatOnlyTime = new SimpleDateFormat("HH:mm");
 
 	private static final SimpleDateFormat mFormatDateTime = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+	
+	private static final SimpleDateFormat mFormatDateTime2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 	private static final SimpleDateFormat mFormatDateTimeWithSec = new SimpleDateFormat("yyyyMMddHHmmss");
 	
@@ -339,6 +341,11 @@ public abstract class DateUtil {
 	public static String formatDateTime(Date date) {
 		return DateUtil.format(date, mFormatDateTime);
 	}
+	
+	// -----------------------------------------------------------------------
+		public static String formatDateTime2(Date date) {
+			return DateUtil.format(date, mFormatDateTime2);
+		}
 
 	// -----------------------------------------------------------------------
 	public static String formatDateTimeWithSec(Date date) {
@@ -664,10 +671,36 @@ public abstract class DateUtil {
 		calendar.add(Calendar.DATE, days);// 把日期往后增加一天.正数往后推,负数往前移动
 		return calendar.getTime();
 	}
+	
+	/**
+	 * 指定时间增加几分钟
+	 * @param date	指定时间
+	 * @param days	正数往后推,负数往前移动
+	 * @return
+	 */
+	public static Date addMinutes(Date date,Integer minutes) {
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(date);
+		calendar.add(Calendar.MINUTE, minutes);// 把时间往后增加.正数往后推,负数往前移动
+		return calendar.getTime();
+	}
 
 	public static void main(String[] args) throws Exception {
-		System.out.println(getTime(0));
-		Date now = new Date();
+		String startTime = "2017-12-25 14:03:00";//起始时间 默认起始时间
+		String finishTime = "2017-12-25 14:03:00";//结束时间 
+		
+		Date endDate = new Date();
+		String now = DateUtil.formatDateTime(endDate);//结束时间 
+		do{
+			Date startDate = DateUtil.parse(finishTime, new SimpleDateFormat("yyyy-MM-dd HH:mm"));
+			endDate= DateUtil.addMinutes(startDate, 10);
+			if(endDate.after(new Date())){
+				endDate = new Date();
+			}
+			startTime = DateUtil.formatDateTime(startDate);//结束时间 
+			finishTime = DateUtil.formatDateTime(endDate);//结束时间 
+			System.out.println(startTime+"="+finishTime);
+		}while(!finishTime.equals(now));
 		/*
 		 * System.out.println("defaultDate: " + DateUtil.defaultDate(now));
 		 * System.out.println("defaultTimestamp: " +

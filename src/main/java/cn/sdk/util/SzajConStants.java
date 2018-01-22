@@ -419,6 +419,16 @@ public class SzajConStants {
 	public static final int AUDIT_STATUS_58_2 = 2;
 	
 	/**
+	 * 房型是否有效 0无效
+	 */
+	public static final int IS_HOUSETYPE_VALID_0 = 0;
+	
+	/**
+	 * 房型是否有效 1有效
+	 */
+	public static final int IS_HOUSETYPE_VALID_1 = 1;
+	
+	/**
 	 * 58风控接口数据类型sceneid 个人房源
 	 */
 	public static final String SCENEID_58_1 = "1";
