@@ -1,9 +1,8 @@
 package cn.sdk.bean;
 
 import java.io.Serializable;
-
-import cn.sdk.util.SzgaMsgCode;
 public class RequestPage implements Serializable{
+	private static final long serialVersionUID = -216551289066136262L;
 	//当前页
 	protected int page;
 	//页大小
