@@ -375,7 +375,7 @@ public class SzajConStants {
 	public static final int CONTRACT_FEE = 275;
 	
 	/**
-	 * 合同备案状态：0  未备案
+	 * 合同备案状态：0 未备案
 	 */
 	public static final int BACKUP_FLAG_0 = 0;
 	
@@ -383,6 +383,26 @@ public class SzajConStants {
 	 * 合同备案状态：1  已备案
 	 */
 	public static final int BACKUP_FLAG_1 = 1;
+	
+	/**
+	 * 合同备案审核状态：0  待审核
+	 */
+	public static final int BACKUP_AUDIT_0 = 0;
+	
+	/**
+	 * 合同备案审核状态：1  审核不通过
+	 */
+	public static final int BACKUP_AUDIT_1 = 1;
+	
+	/**
+	 * 合同备案审核状态：2  审核通过
+	 */
+	public static final int BACKUP_AUDIT_2 = 2;
+	
+	/**
+	 * 合同备案审核状态：3 备案完成
+	 */
+	public static final int BACKUP_AUDIT_3 = 3;
 	
 	/**
 	 * 公寓类别 1集中式
@@ -475,6 +495,8 @@ public class SzajConStants {
 	
 	// 合同备案状态列表
 	public static List<DownValue<Integer>> BACKUP_FLAG_LIST = new ArrayList<DownValue<Integer>>();
+	// 合同备案审核状态列表
+	public static List<DownValue<Integer>> BACKUP_AUDIT_LIST = new ArrayList<DownValue<Integer>>();
 	
 	static {
 		SEX_LIST.add(new DownValue<Integer>(SEX_MAN, "男"));
@@ -511,6 +533,11 @@ public class SzajConStants {
 		CONTRACT_STATUS_LIST.add(new DownValue<Integer>(CONTRACT_STATUS_5, "退租中"));
 		
 		BACKUP_FLAG_LIST.add(new DownValue<Integer>(BACKUP_FLAG_1, "已备案"));
+		
+		BACKUP_AUDIT_LIST.add(new DownValue<Integer>(BACKUP_AUDIT_0, "待审核"));
+		BACKUP_AUDIT_LIST.add(new DownValue<Integer>(BACKUP_AUDIT_1, "审核不通过"));
+		BACKUP_AUDIT_LIST.add(new DownValue<Integer>(BACKUP_AUDIT_2, "审核通过"));
+		BACKUP_AUDIT_LIST.add(new DownValue<Integer>(BACKUP_AUDIT_3, "备案完成"));
 		
 	}
 	
