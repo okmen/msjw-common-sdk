@@ -425,6 +425,30 @@ public class SzajConStants {
 	public static final int HOUSE_RECUMBENT_2 = 2;
 	
 	/**
+	 * 房客签约：0未签约
+	 */
+	public static final int SIGN_STATUS_0 = 0;
+	
+	/**
+	 * 房客签约：1已签约 
+	 */
+	public static final int SIGN_STATUS_1 = 1;
+	
+	/**
+	 * 资质审核状态 0初始化 
+	 */
+	public static final int QUALIFICATION_STATUS_0 = 0;
+	
+	/**
+	 * 资质审核状态 1通过 
+	 */
+	public static final int QUALIFICATION_STATUS_1 = 1;
+	/**
+	 * 资质审核状态 2驳回
+	 */
+	public static final int QUALIFICATION_STATUS_2 = 2;
+	
+	/**
 	 * 58内容审核状态 0初始化 
 	 */
 	public static final int AUDIT_STATUS_58_0 = 0;
