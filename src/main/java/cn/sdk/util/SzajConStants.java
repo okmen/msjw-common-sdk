@@ -502,7 +502,10 @@ public class SzajConStants {
 	 */
 	public static final String DATETYPE_MONTH = "2";
 	
-	
+	/**
+	 * 获取合同备案流水号 类型
+	 */
+	public static final String TYPE_HT = "HT";
 	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> ORDER_STATUS_LIST = new ArrayList<DownValue<Integer>>();
