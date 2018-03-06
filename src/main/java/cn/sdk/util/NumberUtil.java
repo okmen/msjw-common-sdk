@@ -16,12 +16,23 @@ public class NumberUtil {
 		}
 		return "深房租网办" + year + number;
 	}
+	
+	/**
+	 * 获取合同编号
+	 * @param source
+	 * @return
+	 */
+	public static String getContractNumber(String Type, Integer id){
+		Integer year = DateUtil.getNowYear();
+		String number = String.format("%06d",id);
+		if (null != id && id > 999999) {
+			number = String.format("%07d",id);
+		}
+		return Type + year + number;
+	}
+	
 	public static void main(String[] args) {
-		String number1 = getBackupNumber(1);
-		String number2 = getBackupNumber(999999);
-		String number3 = getBackupNumber(1111111);
-		System.out.println(number1);
-		System.out.println(number2);
+		String number3 = getContractNumber("JG", 1);
 		System.out.println(number3);
 	}
 	

@@ -508,6 +508,11 @@ public class SzajConStants {
 	 */
 	public static final String TYPE_HT = "HT";
 	
+	/**
+	 * 获取合同编号 类型（机构）
+	 */
+	public static final String TYPE_JG = "JG";
+	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> ORDER_STATUS_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> BILL_STATUS_LIST = new ArrayList<DownValue<Integer>>();
@@ -560,6 +565,7 @@ public class SzajConStants {
 		CONTRACT_STATUS_LIST.add(new DownValue<Integer>(CONTRACT_STATUS_4, "续约中"));
 		CONTRACT_STATUS_LIST.add(new DownValue<Integer>(CONTRACT_STATUS_5, "退租中"));
 		
+		BACKUP_FLAG_LIST.add(new DownValue<Integer>(BACKUP_FLAG_0, "未备案"));
 		BACKUP_FLAG_LIST.add(new DownValue<Integer>(BACKUP_FLAG_1, "已备案"));
 		
 		BACKUP_AUDIT_LIST.add(new DownValue<Integer>(BACKUP_AUDIT_0, "待审核"));
