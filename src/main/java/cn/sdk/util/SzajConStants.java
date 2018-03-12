@@ -225,6 +225,7 @@ public class SzajConStants {
 	/**
 	 * 我的房源租赁状态
 	 */
+	public static final int HOUSE_PERSON_STATUS_1111 =1111;//待审核 	深圳租赁平台使用
 	public static final int HOUSE_PERSON_STATUS_1000 =1000;//可出租 
 	public static final int HOUSE_PERSON_STATUS_1001 =1001;//不可租 
 	public static final int HOUSE_PERSON_STATUS_1002 =1002;//租赁中 
