@@ -21,6 +21,7 @@ package cn.sdk.util;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.regex.Matcher;
@@ -502,6 +503,17 @@ public class StringUtil {
 			}
 		}
 		return retList;
+	}
+	
+	/**
+	 * ,相隔的字符串转成List<String>
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public static List<String> stringToList(String strs){
+		String str[] = strs.split(",");
+		return Arrays.asList(str);
 	}
 	
 	 /**
