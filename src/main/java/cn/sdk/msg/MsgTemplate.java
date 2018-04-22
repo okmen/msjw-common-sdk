@@ -47,12 +47,15 @@ public class MsgTemplate {
 			apptInterval = "上午(00:00-12:00)";
 		}
 		if("2".equals(apptInterval)){	//2-下午
-			apptInterval = "下午(12:00-24:00)";
+			apptInterval = "下午(12:00-18:00)";
 		}
-		if("1".equals(apptDistrict)){	//1-梅沙片区
+		if("3".equals(apptInterval)){	//2-下午
+			apptInterval = "下午(18:00-24:00)";
+		}
+		if("MSPQ".equals(apptDistrict)){	//1-梅沙片区
 			apptDistrict = "梅沙片区";
 		}
-		if("2".equals(apptDistrict)){	//2-大鹏片区
+		if("DPPQ".equals(apptDistrict)){	//2-大鹏片区
 			apptDistrict = "大鹏片区";
 		}
 		
@@ -73,12 +76,15 @@ public class MsgTemplate {
 			apptInterval = "上午(00:00-12:00)";
 		}
 		if("2".equals(apptInterval)){	//2-下午
-			apptInterval = "下午(12:00-24:00)";
+			apptInterval = "下午(12:00-18:00)";
 		}
-		if("1".equals(apptDistrict)){	//1-梅沙片区
+		if("3".equals(apptInterval)){	//2-下午
+			apptInterval = "下午(18:00-24:00)";
+		}
+		if("MSPQ".equals(apptDistrict)){	//1-梅沙片区
 			apptDistrict = "梅沙片区";
 		}
-		if("2".equals(apptDistrict)){	//2-大鹏片区
+		if("DPPQ".equals(apptDistrict)){	//2-大鹏片区
 			apptDistrict = "大鹏片区";
 		}
 		
