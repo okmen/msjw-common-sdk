@@ -259,6 +259,18 @@ public class SzajConStants {
 	
 	
 	/**
+	 * 在线签约状态
+	 */
+	public static final int SIGNING_STATE_0 =0;//待确认 
+	public static final int SIGNING_STATE_1 =1;//待租客确认
+	public static final int SIGNING_STATE_2 =2;//待租客支付
+	public static final int SIGNING_STATE_3 =3;//签约完成
+	public static final int SIGNING_STATE_4 =4;//拒绝签约
+	public static final int SIGNING_STATE_5 =5;//取消签约  
+	public static final int SIGNING_STATE_6 =6;//超时未签字
+	public static final int SIGNING_STATE_7 =7;//超时未支付	
+	
+	/**
 	 * 银行账户绑定状态-已绑定
 	 */
 	public static final int USER_BANK_ACCOUNT_STATUS_0 = 0;
@@ -427,7 +439,7 @@ public class SzajConStants {
 	public static final int HOUSE_RECUMBENT_2 = 2;
 	
 	/**
-	 * 房客签约：0未签约
+	 * 房客签约：0未签约 可签约
 	 */
 	public static final int SIGN_STATUS_0 = 0;
 	
@@ -435,6 +447,11 @@ public class SzajConStants {
 	 * 房客签约：1已签约 
 	 */
 	public static final int SIGN_STATUS_1 = 1;
+	
+	/**
+	 * 房客签约：2不可签约 
+	 */
+	public static final int SIGN_STATUS_2 = 2;
 	
 	/**
 	 * 资质审核状态 0初始化 
