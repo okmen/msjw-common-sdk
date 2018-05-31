@@ -531,6 +531,12 @@ public class SzajConStants {
 	 */
 	public static final String TYPE_JG = "JG";
 	
+	/**
+	 * 监管后台运营配置配置状态
+	 */
+	public static final int  REGULATORY_OPERATING_CONFIGURATION_STATUS_0= 0;//显示中
+	public static final int  REGULATORY_OPERATING_CONFIGURATION_STATUS_1= 1;//已失效
+	
 	public static List<DownValue<Integer>> SEX_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> ORDER_STATUS_LIST = new ArrayList<DownValue<Integer>>();
 	public static List<DownValue<Integer>> BILL_STATUS_LIST = new ArrayList<DownValue<Integer>>();
