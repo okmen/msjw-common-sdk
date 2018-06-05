@@ -11,10 +11,65 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.http.HttpEntity;
+import org.apache.http.client.config.RequestConfig;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 
 public class HttpRequest {
 	private static Logger logger = Logger.getLogger(HttpRequest.class);
+	
+	private static final CloseableHttpClient httpClient;
+    public static final String CHARSET = "UTF-8";
+
+    static {
+        RequestConfig config = RequestConfig.custom().setConnectTimeout(60000).setSocketTimeout(15000).build();
+        httpClient = HttpClientBuilder.create().setDefaultRequestConfig(config).build();
+    }
+
+    /**
+     * @param url  完整的请求链接地址
+     * @return
+     */
+    public static String doGet(String url){
+        if(StringUtils.isBlank(url)){
+            return null;
+        }
+        logger.info(url);
+        HttpGet httpGet = new HttpGet(url);
+        CloseableHttpResponse response = null;
+		try {
+			response = httpClient.execute(httpGet);
+		} catch (Exception e1) {
+			logger.error("发起get请求"+e1);
+		}
+        int statusCode = response.getStatusLine().getStatusCode();
+        if (statusCode != 200) {
+        	httpGet.abort();
+        	throw new RuntimeException("HttpClient,error status code :" + statusCode);
+        }
+        try {
+            HttpEntity entity = response.getEntity();
+            String result = null;
+            if (entity != null){
+                result = EntityUtils.toString(entity, "utf-8");
+            }
+            EntityUtils.consume(entity);
+            response.close();
+            return result;
+        } catch (Exception e) {
+        	logger.error("发起get请求"+e);
+        }
+        return null;
+    }
+
+	
+	
     /**
      * 向指定URL发送GET方法的请求
      * @param url
