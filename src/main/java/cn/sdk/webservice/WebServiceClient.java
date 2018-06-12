@@ -443,6 +443,7 @@ public class WebServiceClient {
     	//url = "http://123.56.180.216:19002/xxfbpt/services/xxfbptservices";
     	String base64Str = "";
     	String logXml = xml;
+    	logger.info("请求报文："+logXml);
     	/*String reqXml = filterBase64(xml, replaceNodes);
     	if(StringUtils.isNotBlank(reqXml)){
     		logger.info("请求xml为：" + reqXml);
