@@ -3,17 +3,16 @@ package cn.sdk.bean;
 import java.io.IOException;
 import java.io.Serializable;
 
-import com.google.gson.Gson;
+import cn.sdk.util.Gson4DateFormatUtil;
+import cn.sdk.util.GsonBuilderUtil;
+import cn.sdk.util.GsonDateFormatUtil;
+import cn.sdk.util.GsonUtil;
+
 import com.google.gson.GsonBuilder;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
-
-import cn.sdk.util.Gson4DateFormatUtil;
-import cn.sdk.util.GsonBuilderUtil;
-import cn.sdk.util.GsonUtil;
-import cn.sdk.util.HttpRequest;
 
 /**
  * bean基类
@@ -99,10 +98,18 @@ public class BaseBean implements Serializable{
 	}
 	
 	/**
-	 * 格式化日期类型
+	 * 格式化日期类型  yyyy-MM-dd HH:mm:ss
 	 * @return
 	 */
 	public String toJson4DateFormat(){
 		return Gson4DateFormatUtil.toJson(this);
+	}
+	
+	/**
+	 * yyyy-MM-dd
+	 * @return
+	 */
+	public String toJsonDateFormat(){
+		return GsonDateFormatUtil.toJson(this);
 	}
 }
