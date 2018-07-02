@@ -34,4 +34,10 @@ public class SzgaMsgCode {
 	 * token 验证异常
 	 */
 	public static final String TOKEN_ERROR = "0003"; 
+	
+	/**
+	 * 刷脸验证异常
+	 */
+	public static final String FACE_SERVICE_ERROR1 = "0004"; 
+
 }
