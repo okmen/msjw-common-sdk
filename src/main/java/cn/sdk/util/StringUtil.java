@@ -20,7 +20,7 @@ package cn.sdk.util;
 
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
-import java.text.DecimalFormat;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -662,13 +662,17 @@ public class StringUtil {
 	}
 
 	public static double getAsDouble(String num) {
-		double t;
-		if (num.matches("[0-9]*")) {
-			t = Double.valueOf(num).doubleValue();
-		} else {
-			t = 0.00;
+		double t = 0.00;
+		if (hashText(num)) {
+			if (num.matches("[0-9]*")) {
+				t = doubleFommter(Double.valueOf(num).doubleValue());
+			}
 		}
 		return t;
+	}
+
+	public static double doubleFommter(double num) {
+		return new BigDecimal(Double.valueOf(num).doubleValue()).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 	}
 
 }
