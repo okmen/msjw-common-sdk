@@ -20,6 +20,7 @@ package cn.sdk.util;
 
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -50,9 +51,9 @@ public class StringUtil {
 
 	private static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
 	private static final Random RANDOM = new Random();
-	private static final char[] CHARS = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'q', 'w', 'e', 'r', 't', 'y', 'u',
-			'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'Q', 'W', 'E', 'R',
-			'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M' };
+	private static final char[] CHARS = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a',
+			's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S',
+			'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M' };
 
 	/**
 	 * 字符串hash算法：s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1] <br>
@@ -631,13 +632,43 @@ public class StringUtil {
 		}
 		return string;
 	}
-	
+
 	public static boolean hashText(String str) {
-		boolean falg =false;
-		if(!"".equals(str)){
-			falg=true;
+		boolean falg = false;
+		if (!"".equals(str)) {
+			falg = true;
 		}
 		return falg;
+	}
+
+	public static int getAsInt(String num) {
+		int t;
+		if (num.matches("[0-9]*")) {
+			t = Integer.valueOf(num).intValue();
+		} else {
+			t = -1;
+		}
+		return t;
+	}
+
+	public static long getAsLong(String num) {
+		long t;
+		if (num.matches("[0-9]*")) {
+			t = Long.valueOf(num).longValue();
+		} else {
+			t = -1;
+		}
+		return t;
+	}
+
+	public static double getAsDouble(String num) {
+		double t;
+		if (num.matches("[0-9]*")) {
+			t = Double.valueOf(num).doubleValue();
+		} else {
+			t = 0.00;
+		}
+		return t;
 	}
 
 }
