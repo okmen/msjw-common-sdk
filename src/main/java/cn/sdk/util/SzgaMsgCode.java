@@ -39,5 +39,10 @@ public class SzgaMsgCode {
 	 * 刷脸验证异常
 	 */
 	public static final String FACE_SERVICE_ERROR1 = "0004"; 
+	
+	/**
+	 *登录审核未通过异常
+	 */
+	public static final String LOGIN_STATUS_ERROR = "0006"; 
 
 }
