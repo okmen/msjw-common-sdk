@@ -501,23 +501,27 @@ public class WebServiceClient {
             Document doc= DocumentHelper.parseText(respXml);
             Xml2Json.dom4j2Json(doc.getRootElement(),json);
             
-            //返回的数据
-            String msg = (String) json.get("msg");
-            //返回的状态码
-            //解密
-        	respJson = DESCorder.decryptMode(msg,key, "utf-8");
-        	//System.out.println(respJson);
-        	if(!jkids.contains(jkid)){
-            	logger.info("响应的xml：" + respJson);
-            }
-        	
-        	logger.info("=======================解密後响应的respJson：" + respJson+"=======json2:"+json2.toJSONString());
-            Document doc1 = DocumentHelper.parseText(respJson);
-        	Xml2Json.dom4j2Json(doc1.getRootElement(),json2);
-        	
-        	if(!jkids.contains(jkid)){
-            	logger.info("xml转换成json：" + json2);
-            }
+            if ("0000".equals((String)json.get("code"))) {
+            	//返回的数据
+            	String msg = (String) json.get("msg");
+            	 logger.info("=======================响应的code：" + (String)json.get("code") +"=======msg:"+ (String)json.get("msg"));
+            	//返回的状态码
+            	//解密
+            	respJson = DESCorder.decryptMode(msg,key, "utf-8");
+            	logger.info("=======================响应的key：" + key);
+            	//System.out.println(respJson);
+            	if(!jkids.contains(jkid)){
+            		logger.info("响应的xml：" + respJson);
+            	}
+            	
+            	logger.info("=======================解密後响应的respJson：" + respJson+"=======json2:"+json2.toJSONString());
+            	Document doc1 = DocumentHelper.parseText(respJson);
+            	Xml2Json.dom4j2Json(doc1.getRootElement(),json2);
+            	
+            	if(!jkids.contains(jkid)){
+            		logger.info("xml转换成json：" + json2);
+            	}
+			}
         } catch (Exception e) {
         	logger.error("webservice调用错误,url=" + url + ",method=" + method + ",jkid=" + jkid + ",xml=" + "xml不打印" + ",userid=" + userid + ",userpwd=" + userpwd + ",key=" + key,e);
             throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
