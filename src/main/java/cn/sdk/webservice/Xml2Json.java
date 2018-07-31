@@ -61,19 +61,16 @@ public class Xml2Json {
      */
     public static void dom4j2Json(Element element,JSONObject json){
         //如果是属性
-    	logger.info("***********開始啦************");
         for(Object o:element.attributes()){
             Attribute attr=(Attribute)o;
             if(!isEmpty(attr.getValue())){
                 json.put("@"+attr.getName(), attr.getValue());
             }
         }
-        logger.info("*******111*****响应的json：" + json.toJSONString());
         List<Element> chdEl=element.elements();
         if(chdEl.isEmpty()&&!isEmpty(element.getText())){//如果没有子元素,只有一个值
             json.put(element.getName(), element.getText());
         }
-        logger.info("*******222*****响应的json：" + json.toJSONString());
         for(Element e:chdEl){//有子元素
             if(!e.elements().isEmpty()){//子元素也有子元素
                 JSONObject chdjson=new JSONObject();
@@ -98,7 +95,6 @@ public class Xml2Json {
                         json.put(e.getName(), chdjson);
                     }
                 }
-                logger.info("*******333for*****响应的json：" + json.toJSONString());
 
             }else{//子元素没有子元素
                 for(Object o:element.attributes()){
@@ -108,10 +104,8 @@ public class Xml2Json {
                     }
                 }
                 
-                logger.info("*******444else*****响应的json：" + json.toJSONString());
                 if(!e.getText().isEmpty()){
                     json.put(e.getName(), e.getText());
-                    logger.info("*******555*****响应的json：" + json.toJSONString());
                 }
             }
         }

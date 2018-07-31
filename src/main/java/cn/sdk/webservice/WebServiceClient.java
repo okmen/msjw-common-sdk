@@ -496,7 +496,6 @@ public class WebServiceClient {
             /*if(!jkids.contains(jkid)){
             	logger.info("响应的xml：" + respXml);
             }*/
-            logger.info("=======================响应的respXml：" + respXml+"=======json:"+json.toJSONString());
             //解密
             Document doc= DocumentHelper.parseText(respXml);
             Xml2Json.dom4j2Json(doc.getRootElement(),json);
@@ -504,17 +503,15 @@ public class WebServiceClient {
             if ("0000".equals((String)json.get("code"))) {
             	//返回的数据
             	String msg = (String) json.get("msg");
-            	 logger.info("=======================响应的code：" + (String)json.get("code") +"=======msg:"+ (String)json.get("msg"));
+            	logger.info(msg + "----状态码为0000-------" + (String)json.get("code") + "--------------");
             	//返回的状态码
             	//解密
             	respJson = DESCorder.decryptMode(msg,key, "utf-8");
-            	logger.info("=======================响应的key：" + key);
             	//System.out.println(respJson);
             	if(!jkids.contains(jkid)){
             		logger.info("响应的xml：" + respJson);
             	}
             	
-            	logger.info("=======================解密後响应的respJson：" + respJson+"=======json2:"+json2.toJSONString());
             	Document doc1 = DocumentHelper.parseText(respJson);
             	Xml2Json.dom4j2Json(doc1.getRootElement(),json2);
             	
