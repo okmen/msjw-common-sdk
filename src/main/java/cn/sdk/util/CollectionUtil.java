@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import net.sf.json.JSONObject;
 import cn.sdk.util.FiledUtil;
 import cn.sdk.util.PropertyUtils;
 /**
@@ -12,6 +13,18 @@ import cn.sdk.util.PropertyUtils;
  *
  * @param <K> 分组key值类型 也就是返回map类型
  * @param <V> 返回值map:value 中  list 的类型
+ */
+/**
+ * @author WangHJ
+ *
+ * @param <K>
+ * @param <V>
+ */
+/**
+ * @author WangHJ
+ *
+ * @param <K>
+ * @param <V>
  */
 public class CollectionUtil<K,V>{
 	/**
@@ -99,5 +112,19 @@ public class CollectionUtil<K,V>{
 			throws InstantiationException, IllegalAccessException {
 		V v = clazz.newInstance();
 		return v;
+	}
+	
+	
+	public static List<Map<String,Object>> listBeanToListMap(List list){
+		List<Map<String,Object>> resultList = new ArrayList<>();
+		for (Object object : list) {
+			Map<String,Object> bean = (Map<String,Object>)JSONObject.toBean(JSONObject.fromObject(object), Map.class);
+			resultList.add(bean);
+		}
+		return resultList;
+	}
+	
+	public static Map<String,Object> beanToMap(Object object){
+		return (Map<String,Object>)JSONObject.toBean(JSONObject.fromObject(object), Map.class);
 	}
 }
