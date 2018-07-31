@@ -496,6 +496,7 @@ public class WebServiceClient {
             /*if(!jkids.contains(jkid)){
             	logger.info("响应的xml：" + respXml);
             }*/
+            logger.info("=======================响应的respXml：" + respXml+"=======json:"+json.toJSONString());
             //解密
             Document doc= DocumentHelper.parseText(respXml);
             Xml2Json.dom4j2Json(doc.getRootElement(),json);
@@ -510,6 +511,7 @@ public class WebServiceClient {
             	logger.info("响应的xml：" + respJson);
             }
         	
+        	logger.info("=======================解密後响应的respJson：" + respJson+"=======json2:"+json2.toJSONString());
             Document doc1 = DocumentHelper.parseText(respJson);
         	Xml2Json.dom4j2Json(doc1.getRootElement(),json2);
         	
