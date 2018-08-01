@@ -503,7 +503,6 @@ public class WebServiceClient {
             if ("0000".equals((String)json.get("code"))) {
             	//返回的数据
             	String msg = (String) json.get("msg");
-            	logger.info(msg + "----状态码为0000-------");
             	//返回的状态码
             	//解密
             	respJson = DESCorder.decryptMode(msg,key, "utf-8");
