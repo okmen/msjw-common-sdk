@@ -440,35 +440,10 @@ public class WebServiceClient {
      */
     public static JSONObject requestWebService(String url,String method,String jkid,String xml,String userid,String userpwd,String key) throws Exception{
     	filterInterfaceLog();
-    	//url = "http://123.56.180.216:19002/xxfbpt/services/xxfbptservices";
-    	String base64Str = "";
-    	String logXml = xml;
-    	logger.info("请求报文："+logXml);
-    	/*String reqXml = filterBase64(xml, replaceNodes);
-    	if(StringUtils.isNotBlank(reqXml)){
-    		logger.info("请求xml为：" + reqXml);
-    	}else{
-    		logger.info("请求xml为：" + xml);
-    	}*/
-    	//logger.info("调试日志：filterImgNodes" + filterImgNodes.toString());
-    	/*if(null != filterImgNodes){
-    		for(String filterImgNode : filterImgNodes){
-    			if(xml.contains(filterImgNode)){
-    				base64Str = StringUtils.substringBetween(xml, "<"+ filterImgNode + ">", "</"+ filterImgNode + ">");
-    				logXml = logXml.replace(base64Str, imgMsg);
-    			}
-    		}
-    	}*/
-    	/*if(null != filterImgNodes){
-    		for(String filterImgNode : filterImgNodes){
-    			if(!xml.contains(filterImgNode)){
-    				logger.info("requestWebService请求的xml：" + logXml);
-    			}
-    		}
-    	}*/
     	
+    	logger.info("请求报文："+xml);
+    	//请求响应的结果xml
 		String respXml = "";
-		String respJson = "";
 		JSONObject json = new JSONObject();
 		JSONObject json2 = new JSONObject();
 		String srcs = DESCorder.encryptModeToString(xml,key);
@@ -486,42 +461,51 @@ public class WebServiceClient {
             call.setUseSOAPAction(true);
             
             long startTime = System.currentTimeMillis();
+            //请求相应结果xml String
 			respXml = (String) call.invoke(new Object[]{userid,userpwd,jkid,srcs});
             long endTime = System.currentTimeMillis();
             long result = (endTime - startTime) / 1000;
+            //如果执行时间过长 打印出日志
             if(result >= 30 && !notHaveTime.contains(jkid)){
             	logger.info(jkid + "接口编号执行耗时:" + result + " 秒");
             	throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
             }
-            /*if(!jkids.contains(jkid)){
-            	logger.info("响应的xml：" + respXml);
-            }*/
+          
             //解密
             Document doc= DocumentHelper.parseText(respXml);
             Xml2Json.dom4j2Json(doc.getRootElement(),json);
-            
-           // if ("0000".equals((String)json.get("code"))) {
-            	//返回的数据
-            	String msg = (String) json.get("msg");
-            	//返回的状态码
-            	//解密
-            	respJson = DESCorder.decryptMode(msg,key, "utf-8");
-            	//System.out.println(respJson);
-            	if(!jkids.contains(jkid)){
-            		logger.info("响应的xml：" + respJson);
-            	}
-            	
-            	Document doc1 = DocumentHelper.parseText(respJson);
-            	Xml2Json.dom4j2Json(doc1.getRootElement(),json2);
-            	
-            	if(!jkids.contains(jkid)){
-            		logger.info("xml转换成json：" + json2);
-            	}
-//			}else{
-//				return json;
-//			}
+            String code=json.getString("code");
+            if("0000".equals(code)){
+            	String msg=json.getString("msg");
+            	try {
+            		String respJson = DESCorder.decryptMode(msg,key, "utf-8");
+            		Document doc1 = DocumentHelper.parseText(respJson);
+                	Xml2Json.dom4j2Json(doc1.getRootElement(),json2);
+				} catch (Exception e) {
+					logger.error("msg解密报错,url=" + url + ",method=" + method + ",jkid=" + jkid + ",xml="+respXml,e);
+				}
+            }else {
+				return json;
+			}
+         
+//            	String msg = (String) json.get("msg");
+//            	//返回的状态码
+//            	//解密
+//            	respJson = DESCorder.decryptMode(msg,key, "utf-8");
+//            	//System.out.println(respJson);
+//            	if(!jkids.contains(jkid)){
+//            		logger.info("响应的xml：" + respJson);
+//            	}
+//            	
+//            	Document doc1 = DocumentHelper.parseText(respJson);
+//            	Xml2Json.dom4j2Json(doc1.getRootElement(),json2);
+//            	
+//            	if(!jkids.contains(jkid)){
+//            		logger.info("xml转换成json：" + json2);
+//            	}
+
         } catch (Exception e) {
-        	logger.error("webservice调用错误,url=" + url + ",method=" + method + ",jkid=" + jkid + ",xml=" + "xml不打印" + ",userid=" + userid + ",userpwd=" + userpwd + ",key=" + key,e);
+        	logger.error("webservice调用错误,url=" + url + ",method=" + method + ",jkid=" + jkid + ",xml=" +respXml,e);
             throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
         }  
 		return json2;
