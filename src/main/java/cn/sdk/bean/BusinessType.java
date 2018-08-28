@@ -190,4 +190,17 @@ public class BusinessType {
 	 * 取消驾驶证预约
 	 */
 	public static String cancleDriveInfo = "cancleDriveInfo";
+	/**
+	 * 驾驶人信息单据
+	 */
+	public static String printDriverInformation="printDriverInformation";
+	/**
+	 * 机动车信息单据
+	 */
+	public static String printVehicleInformation="printVehicleInformation";
+	/**
+	 * 驾驶人安全事故信用表
+	 */
+	public static String printDriverSavecreditInformation="printDriverSavecreditInformation";
+	
 }
