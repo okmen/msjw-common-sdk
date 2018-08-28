@@ -444,8 +444,8 @@ public class WebServiceClient {
     	logger.info("请求报文："+xml);
     	//请求响应的结果xml
 		String respXml = "";
-		JSONObject json = new JSONObject();
-		JSONObject json2 = new JSONObject();
+		JSONObject responseJson = new JSONObject();
+		JSONObject resultJson = new JSONObject();
 		String srcs = DESCorder.encryptModeToString(xml,key);
 		try {  
             Service service = new Service();
@@ -473,44 +473,27 @@ public class WebServiceClient {
           
             //解密
             Document doc= DocumentHelper.parseText(respXml);
-            Xml2Json.dom4j2Json(doc.getRootElement(),json);
-            String code=json.getString("code");
+            Xml2Json.dom4j2Json(doc.getRootElement(),responseJson);
+            String code=responseJson.getString("code");
             if("0000".equals(code)){
-            	String msg=json.getString("msg");
+            	String msg=responseJson.getString("msg");
             	try {
             		String respJson = DESCorder.decryptMode(msg,key, "utf-8");
             		logger.info(jkid+"请求结果解码后:"+respJson); 
             		Document doc1 = DocumentHelper.parseText(respJson);
-                	Xml2Json.dom4j2Json(doc1.getRootElement(),json2);
+                	Xml2Json.dom4j2Json(doc1.getRootElement(),resultJson);
 				} catch (Exception e) {
 					logger.error("msg解密报错,url=" + url + ",method=" + method + ",jkid=" + jkid + ",xml="+respXml,e);
 				}
             }else {
             	logger.info(jkid+"请求结果"+respXml); 
-				return json;
+				return responseJson;
 			}
-         
-//            	String msg = (String) json.get("msg");
-//            	//返回的状态码
-//            	//解密
-//            	respJson = DESCorder.decryptMode(msg,key, "utf-8");
-//            	//System.out.println(respJson);
-//            	if(!jkids.contains(jkid)){
-//            		logger.info("响应的xml：" + respJson);
-//            	}
-//            	
-//            	Document doc1 = DocumentHelper.parseText(respJson);
-//            	Xml2Json.dom4j2Json(doc1.getRootElement(),json2);
-//            	
-//            	if(!jkids.contains(jkid)){
-//            		logger.info("xml转换成json：" + json2);
-//            	}
-
         } catch (Exception e) {
         	logger.error("webservice调用错误,url=" + url + ",method=" + method + ",jkid=" + jkid + ",xml=" +respXml,e);
             throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
         }  
-		return json2;
+		return resultJson;
 	}
     
     /**
