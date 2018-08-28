@@ -479,13 +479,14 @@ public class WebServiceClient {
             	String msg=json.getString("msg");
             	try {
             		String respJson = DESCorder.decryptMode(msg,key, "utf-8");
-            		logger.info(jkid+"请求结果:"+respJson); 
+            		logger.info(jkid+"请求结果解码后:"+respJson); 
             		Document doc1 = DocumentHelper.parseText(respJson);
                 	Xml2Json.dom4j2Json(doc1.getRootElement(),json2);
 				} catch (Exception e) {
 					logger.error("msg解密报错,url=" + url + ",method=" + method + ",jkid=" + jkid + ",xml="+respXml,e);
 				}
             }else {
+            	logger.info(jkid+"请求结果"+respXml); 
 				return json;
 			}
          
