@@ -673,7 +673,7 @@ public class WebServiceClient {
      */
     public static JSONObject easyWebService(String url,String method,String xml) throws Exception{
     	
-    	logger.info("easyWebService请求的xml：" + xml);
+//    	logger.info("easyWebService请求的xml：" + xml);
     	
 		String respXml = "";
 		String respJson = "";
@@ -703,7 +703,7 @@ public class WebServiceClient {
 //            logger.info("xml转换成json：" + json);
     		          
         } catch (Exception e) {
-        	logger.error("webservice调用错误，url=" + url + ",=method" + method + ",xml=" + xml+";响应结果："+respXml,e);
+        	logger.error("webservice调用错误，url=" + url + ",method=" + method + ",xml=" + xml+";响应结果："+respXml,e);
         	throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
         }  
 		return json;
