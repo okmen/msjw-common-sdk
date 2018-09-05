@@ -48,8 +48,6 @@ public class WebServiceClient {
 	
 	public static final Logger logger= Logger.getLogger(WebServiceClient.class);
 	
-	//private static final String imageNodes = "TCZP,TCGZDZP,FPTP,CSTP,zjtp,wftp,zp,jbtp1,jbtp2,jbtp3,jbtp4,jbtp5,PHOTO6,PHOTO9,PHOTO18,PHOTO16,photo9,photo32,photo33,CZSFZMHMTPA,CZSFZMHMTP,SFZHMA,YQZM,SFZHMB,JZZA,JZZB,PHOTO31,STTJSBB,JSZ,";
-    
 	private WebServiceClient() {
     } 
     
@@ -157,23 +155,6 @@ public class WebServiceClient {
     	String base64Str = "";
     	String logXml = xml;
     	
-    	//logger.info("调试日志：filterImgNodes" + filterImgNodes.toString());
-    	/*if(null != filterImgNodes){
-    		for(String filterImgNode : filterImgNodes){
-    			if(xml.contains(filterImgNode)){
-    				base64Str = StringUtils.substringBetween(xml, "<"+ filterImgNode + ">", "</"+ filterImgNode + ">");
-    				logXml = logXml.replace(base64Str, imgMsg);
-    			}
-    		}
-    	}*/
-    	/*if(null != filterImgNodes){
-    		for(String filterImgNode : filterImgNodes){
-    			if(!xml.contains(filterImgNode)){
-    				logger.info("requestWebService请求的xml：" + logXml);
-    			}
-    		}
-    	}*/
-    	
 		String respXml = "";
 		String respJson = "";
 		JSONObject json = new JSONObject();
@@ -250,23 +231,6 @@ public class WebServiceClient {
     	//url = "http://123.56.180.216:19002/xxfbpt/services/xxfbptservices";
     	String base64Str = "";
     	String logXml = xml;
-    	
-    	//logger.info("调试日志：filterImgNodes" + filterImgNodes.toString());
-    	/*if(null != filterImgNodes){
-    		for(String filterImgNode : filterImgNodes){
-    			if(xml.contains(filterImgNode)){
-    				base64Str = StringUtils.substringBetween(xml, "<"+ filterImgNode + ">", "</"+ filterImgNode + ">");
-    				logXml = logXml.replace(base64Str, imgMsg);
-    			}
-    		}
-    	}*/
-    	/*if(null != filterImgNodes){
-    		for(String filterImgNode : filterImgNodes){
-    			if(!xml.contains(filterImgNode)){
-    				logger.info("requestWebService请求的xml：" + logXml);
-    			}
-    		}
-    	}*/
     	
 		String respXml = "";
 		String respJson = "";
@@ -347,24 +311,6 @@ public class WebServiceClient {
     	//url = "http://123.56.180.216:19002/xxfbpt/services/xxfbptservices";
     	String base64Str = "";
     	String logXml = xml;
-    	
-    	//logger.info("调试日志：filterImgNodes" + filterImgNodes.toString());
-    	/*if(null != filterImgNodes){
-    		for(String filterImgNode : filterImgNodes){
-    			if(xml.contains(filterImgNode)){
-    				base64Str = StringUtils.substringBetween(xml, "<"+ filterImgNode + ">", "</"+ filterImgNode + ">");
-    				logXml = logXml.replace(base64Str, imgMsg);
-    			}
-    		}
-    	}*/
-    	/*if(null != filterImgNodes){
-    		for(String filterImgNode : filterImgNodes){
-    			if(!xml.contains(filterImgNode)){
-    				logger.info("requestWebService请求的xml：" + logXml);
-    			}
-    		}
-    	}*/
-    	
 		String respXml = "";
 		String respJson = "";
 		JSONObject json = new JSONObject();
@@ -409,10 +355,6 @@ public class WebServiceClient {
         	//System.out.println(substring);
         	
             Document doc1 = DocumentHelper.parseText(substring);
-//            Element rootEle1 = doc1.getRootElement();
-//            String msg2 = rootEle1.elementTextTrim("msg");
-//            Document doc2= DocumentHelper.parseText(msg2);
-//            Element rootEle2 = doc2.getRootElement();
         	Xml2Json.dom4j2Json(doc1.getRootElement(),json2);
         	
         	if(!jkids.contains(jkid)){
@@ -441,7 +383,7 @@ public class WebServiceClient {
     public static JSONObject requestWebService(String url,String method,String jkid,String xml,String userid,String userpwd,String key) throws Exception{
     	filterInterfaceLog();
     	
-    	logger.info("请求报文："+xml);
+//    	logger.info("请求报文："+xml);
     	//请求响应的结果xml
 		String respXml = "";
 		JSONObject responseJson = new JSONObject();
@@ -490,7 +432,7 @@ public class WebServiceClient {
 				return responseJson;
 			}
         } catch (Exception e) {
-        	logger.error("webservice调用错误,url=" + url + ",method=" + method + ",jkid=" + jkid + ",xml=" +respXml,e);
+        	logger.error("webservice调用错误,url=" + url + ",请求报文："+xml+",method=" + method + ",jkid=" + jkid + ",xml=" +respXml,e);
             throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
         }  
 		return resultJson;
@@ -514,29 +456,6 @@ public class WebServiceClient {
     	//url = "http://123.56.180.216:19002/xxfbpt/services/xxfbptservices";
     	String base64Str = "";
     	String logXml = xml;
-    	/*String reqXml = filterBase64(xml, replaceNodes);
-    	if(StringUtils.isNotBlank(reqXml)){
-    		logger.info("请求xml为：" + reqXml);
-    	}else{
-    		logger.info("请求xml为：" + xml);
-    	}*/
-    	//logger.info("调试日志：filterImgNodes" + filterImgNodes.toString());
-    	/*if(null != filterImgNodes){
-    		for(String filterImgNode : filterImgNodes){
-    			if(xml.contains(filterImgNode)){
-    				base64Str = StringUtils.substringBetween(xml, "<"+ filterImgNode + ">", "</"+ filterImgNode + ">");
-    				logXml = logXml.replace(base64Str, imgMsg);
-    			}
-    		}
-    	}*/
-    	/*if(null != filterImgNodes){
-    		for(String filterImgNode : filterImgNodes){
-    			if(!xml.contains(filterImgNode)){
-    				logger.info("requestWebService请求的xml：" + logXml);
-    			}
-    		}
-    	}*/
-    	
 		String respXml = "";
 		String respJson = "";
 		JSONObject json = new JSONObject();
@@ -568,10 +487,6 @@ public class WebServiceClient {
 			respXml = (String) call.invoke(new Object[]{userid,userpwd,jkid,srcs});
             long endTime = System.currentTimeMillis();
             long result = (endTime - startTime) / 1000;
-//            if(result >= 30 && !notHaveTime.contains(jkid)){
-//            	logger.info(jkid + "接口编号执行耗时:" + result + " 秒");
-//            	throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
-//            }
             if(!jkids.contains(jkid)){
             	logger.info("响应的xml：" + respXml);
             }
@@ -593,7 +508,7 @@ public class WebServiceClient {
             	logger.info("xml转换成json：" + json2);
             }
         } catch (Exception e) {
-        	logger.error("webservice调用错误,url=" + url + ",method=" + method + ",jkid=" + jkid + ",xml=" + "xml不打印" + ",userid=" + userid + ",userpwd=" + userpwd + ",key=" + key,e);
+        	logger.error("【webservice调用错误】,url=" + url + ",method=" + method + ",jkid=" + jkid + ",xml=" + "xml不打印" + ",userid=" + userid + ",userpwd=" + userpwd + ",key=" + key,e);
             throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
         }  
 		return json2;
@@ -634,15 +549,8 @@ public class WebServiceClient {
             call.addParameter("srcs",org.apache.axis.encoding.XMLType.XSD_DATE,javax.xml.rpc.ParameterMode.IN);
             call.setReturnType(XMLType.XSD_STRING);
             call.setUseSOAPAction(true);
-            
+            //SOAP请求
             respXml = (String) call.invoke(new Object[]{userid,userpwd,jkid,srcs});
-            
-        /*    MessageContext messageContext = call.getMessageContext();
-            Message reqMsg = messageContext.getRequestMessage();
-            logger.info("请求报文："+reqMsg.getSOAPPartAsString());
-            
-            logger.info("返回报文:"+respXml);*/
-            
             //解密
             Document doc= DocumentHelper.parseText(respXml);
             Xml2Json.dom4j2Json(doc.getRootElement(),json);
@@ -654,7 +562,7 @@ public class WebServiceClient {
         	respJson = DESCorder.decryptMode(msg,key, "utf-8");
         	return respJson;
         } catch (Exception e) {
-        	logger.error("webservice调用错误,url=" + url + ",method=" + method + ",jkid=" + jkid + ",xml=" + xml + ",userid=" + userid + ",userpwd=" + userpwd + ",key=" + key,e);
+        	logger.error("【requestWebServiceReturnXml调用错误】,url=" + url + ",method=" + method + ",jkid=" + jkid + ",xml=" + xml + ",userid=" + userid + ",userpwd=" + userpwd + ",key=" + key,e);
             throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
         }
 	}
@@ -672,8 +580,6 @@ public class WebServiceClient {
      * @throws Exception
      */
     public static JSONObject easyWebService(String url,String method,String xml) throws Exception{
-    	
-    	
 		String respXml = "";
 		String respJson = "";
 		JSONObject json=new JSONObject();	
@@ -688,9 +594,9 @@ public class WebServiceClient {
             call.setUseSOAPAction(true);
             long startTime = System.currentTimeMillis();
             
-            logger.info("easyWebService请求的xml：" + xml+";url="+url+";method="+method);
+//            logger.info("easyWebService请求的xml：" + xml+";url="+url+";method="+method);
             respXml = (String) call.invoke(new Object[]{xml}) ;
-            logger.info("easyWebService请求结果：" + respXml);
+//            logger.info("easyWebService请求结果：" + respXml);
             
             long endTime = System.currentTimeMillis();
             long result = (endTime - startTime) / 1000;
@@ -703,7 +609,7 @@ public class WebServiceClient {
             Xml2Json.dom4j2Json(doc.getRootElement(),json);
     		          
         } catch (Exception e) {
-        	logger.error("webservice调用错误，url=" + url + ",method=" + method + ",xml=" + xml+";响应结果："+respXml,e);
+        	logger.error("【easyWebService调用错误】，url=" + url + ",method=" + method + ",xml=" + xml+";响应结果："+respXml,e);
         	throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
         }  
 		return json;
