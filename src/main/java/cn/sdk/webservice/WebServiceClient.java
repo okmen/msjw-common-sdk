@@ -673,7 +673,6 @@ public class WebServiceClient {
      */
     public static JSONObject easyWebService(String url,String method,String xml) throws Exception{
     	
-//    	logger.info("easyWebService请求的xml：" + xml);
     	
 		String respXml = "";
 		String respJson = "";
@@ -688,19 +687,20 @@ public class WebServiceClient {
             call.setReturnType(XMLType.XSD_STRING);  
             call.setUseSOAPAction(true);
             long startTime = System.currentTimeMillis();
+            
+            logger.info("easyWebService请求的xml：" + xml+";url="+url+";method="+method);
             respXml = (String) call.invoke(new Object[]{xml}) ;
+            logger.info("easyWebService请求结果：" + respXml);
+            
             long endTime = System.currentTimeMillis();
             long result = (endTime - startTime) / 1000;
             if(result >= 30 ){
             	logger.error("【请求超时】url:"+url+";method="+method + "接口方法。执行耗时:" + result + " 秒");
             	throw new WebServiceException(Integer.valueOf(MsgCode.webServiceCallError), MsgCode.webServiceCallMsg);
             }
-//            logger.info("响应的xml：" + respXml);
             //解密
             Document doc= DocumentHelper.parseText(respXml);
-            
             Xml2Json.dom4j2Json(doc.getRootElement(),json);
-//            logger.info("xml转换成json：" + json);
     		          
         } catch (Exception e) {
         	logger.error("webservice调用错误，url=" + url + ",method=" + method + ",xml=" + xml+";响应结果："+respXml,e);
